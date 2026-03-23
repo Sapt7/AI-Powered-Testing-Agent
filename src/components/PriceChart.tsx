@@ -23,15 +23,13 @@ export default function PriceChart({
   priceChangePercent,
 }: PriceChartProps) {
   const isPositive = priceChange >= 0;
-
-  // Show fewer ticks
   const tickInterval = Math.max(1, Math.floor(data.length / 8));
 
   return (
     <div className="bg-card border border-border rounded-lg p-5">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <p className="text-xs text-muted-foreground uppercase tracking-widest font-mono-data">
+          <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-medium mb-0.5">
             NIFTY 50
           </p>
           <p className="text-2xl font-mono-data font-bold text-foreground">
@@ -44,9 +42,9 @@ export default function PriceChart({
           }`}
         >
           <p>
-            {isPositive ? "▲" : "▼"} {Math.abs(priceChange).toFixed(2)}
+            {isPositive ? "+" : ""}{Math.abs(priceChange).toFixed(2)}
           </p>
-          <p>({priceChangePercent.toFixed(2)}%)</p>
+          <p className="text-xs">({priceChangePercent.toFixed(2)}%)</p>
         </div>
       </div>
 
@@ -57,31 +55,31 @@ export default function PriceChart({
               <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="0%"
-                  stopColor={isPositive ? "hsl(142, 70%, 45%)" : "hsl(0, 72%, 51%)"}
-                  stopOpacity={0.3}
+                  stopColor={isPositive ? "hsl(152, 60%, 36%)" : "hsl(0, 65%, 48%)"}
+                  stopOpacity={0.15}
                 />
                 <stop
                   offset="100%"
-                  stopColor={isPositive ? "hsl(142, 70%, 45%)" : "hsl(0, 72%, 51%)"}
+                  stopColor={isPositive ? "hsl(152, 60%, 36%)" : "hsl(0, 65%, 48%)"}
                   stopOpacity={0}
                 />
               </linearGradient>
             </defs>
             <CartesianGrid
-              stroke="hsl(222, 30%, 16%)"
+              stroke="hsl(220, 10%, 90%)"
               strokeDasharray="3 3"
               vertical={false}
             />
             <XAxis
               dataKey="time"
-              tick={{ fontSize: 10, fill: "hsl(215, 15%, 50%)" }}
+              tick={{ fontSize: 10, fill: "hsl(220, 10%, 46%)" }}
               axisLine={false}
               tickLine={false}
               interval={tickInterval}
             />
             <YAxis
               domain={["auto", "auto"]}
-              tick={{ fontSize: 10, fill: "hsl(215, 15%, 50%)" }}
+              tick={{ fontSize: 10, fill: "hsl(220, 10%, 46%)" }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(v: number) => v.toLocaleString()}
@@ -89,20 +87,21 @@ export default function PriceChart({
             />
             <Tooltip
               contentStyle={{
-                background: "hsl(222, 44%, 8%)",
-                border: "1px solid hsl(222, 30%, 16%)",
+                background: "hsl(0, 0%, 100%)",
+                border: "1px solid hsl(220, 10%, 90%)",
                 borderRadius: "6px",
                 fontSize: "12px",
                 fontFamily: "monospace",
-                color: "hsl(210, 20%, 90%)",
+                color: "hsl(220, 14%, 10%)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
               }}
             />
             <Area
               type="monotone"
               dataKey="close"
-              stroke={isPositive ? "hsl(142, 70%, 45%)" : "hsl(0, 72%, 51%)"}
+              stroke={isPositive ? "hsl(152, 60%, 36%)" : "hsl(0, 65%, 48%)"}
               fill="url(#priceGradient)"
-              strokeWidth={2}
+              strokeWidth={1.5}
               dot={false}
             />
           </AreaChart>

@@ -31,41 +31,41 @@ export default function TrendAnalysis({ regime, bias, trends }: TrendAnalysisPro
 
   return (
     <div className="bg-card border border-border rounded-lg p-5 space-y-4">
-      <h2 className="text-sm font-semibold tracking-wide uppercase text-foreground flex items-center gap-2">
-        <Gauge className="w-4 h-4 text-primary" />
+      <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground flex items-center gap-2">
+        <Gauge className="w-3.5 h-3.5" />
         Market Analysis
       </h2>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="bg-secondary rounded-lg p-3">
-          <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1 font-mono-data">
+        <div className="bg-secondary rounded-md p-3">
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
             Regime
           </p>
           <div className="flex items-center gap-1.5">
-            <RegimeIcon className="w-4 h-4 text-primary" />
+            <RegimeIcon className="w-3.5 h-3.5 text-foreground" />
             <span className="text-sm font-medium text-foreground">{regimeLabel}</span>
           </div>
         </div>
-        <div className="bg-secondary rounded-lg p-3">
-          <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1 font-mono-data">
+        <div className="bg-secondary rounded-md p-3">
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
             Bias
           </p>
           <div className="flex items-center gap-1.5">
-            <BiasIcon className={`w-4 h-4 ${colorClass}`} />
+            <BiasIcon className={`w-3.5 h-3.5 ${colorClass}`} />
             <span className={`text-sm font-medium ${colorClass}`}>{biasLabel}</span>
           </div>
         </div>
       </div>
 
-      <div className="space-y-3">
-        <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono-data">
+      <div className="space-y-2">
+        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
           Detected Patterns
         </p>
         {trends.map((t, i) => (
-          <div key={i} className="bg-secondary/50 border border-border rounded-lg p-3">
+          <div key={i} className="border border-border rounded-md p-3">
             <div className="flex items-center gap-2 mb-1">
               <div className={`w-1.5 h-1.5 rounded-full ${strengthDot[t.strength]}`} />
-              <span className="text-xs font-semibold text-foreground">{t.name}</span>
+              <span className="text-xs font-medium text-foreground">{t.name}</span>
               <span
                 className={`ml-auto text-[10px] font-mono-data uppercase ${
                   t.direction === "bullish"
