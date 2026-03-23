@@ -1,5 +1,5 @@
 import type { TradeRecommendation } from "@/lib/mockData";
-import { ShieldAlert, Target, Ban, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Target, Ban, ArrowUpRight, ArrowDownRight } from "lucide-react";
 
 interface TradeCardProps {
   recommendation: TradeRecommendation;
@@ -25,10 +25,10 @@ export default function TradeCard({ recommendation: r }: TradeCardProps) {
 
   if (isNoTrade) {
     return (
-      <div className="bg-card border border-bearish/30 rounded-lg p-5 space-y-4 glow-bearish">
+      <div className="bg-card border border-bearish/20 rounded-lg p-5 space-y-4">
         <div className="flex items-center gap-2">
-          <Ban className="w-5 h-5 text-bearish" />
-          <h2 className="text-sm font-semibold tracking-wide uppercase text-bearish">
+          <Ban className="w-4 h-4 text-bearish" />
+          <h2 className="text-xs font-semibold tracking-wider uppercase text-bearish">
             No Trade Recommended
           </h2>
         </div>
@@ -38,9 +38,9 @@ export default function TradeCard({ recommendation: r }: TradeCardProps) {
           </span>
           <span className="text-xs text-muted-foreground">confidence</span>
         </div>
-        <div className="w-full bg-secondary rounded-full h-1.5">
+        <div className="w-full bg-secondary rounded-full h-1">
           <div
-            className={`h-1.5 rounded-full ${confidenceBarColor} transition-all`}
+            className={`h-1 rounded-full ${confidenceBarColor} transition-all`}
             style={{ width: `${r.confidence}%` }}
           />
         </div>
@@ -50,67 +50,59 @@ export default function TradeCard({ recommendation: r }: TradeCardProps) {
   }
 
   return (
-    <div
-      className={`bg-card border rounded-lg p-5 space-y-4 ${
-        isCE ? "border-bullish/30 glow-bullish" : "border-bearish/30 glow-bearish"
-      }`}
-    >
+    <div className={`bg-card border rounded-lg p-5 space-y-4 ${
+      isCE ? "border-bullish/20" : "border-bearish/20"
+    }`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {isCE ? (
-            <ArrowUpRight className="w-5 h-5 text-bullish" />
+            <ArrowUpRight className="w-4 h-4 text-bullish" />
           ) : (
-            <ArrowDownRight className="w-5 h-5 text-bearish" />
+            <ArrowDownRight className="w-4 h-4 text-bearish" />
           )}
-          <h2 className="text-sm font-semibold tracking-wide uppercase text-foreground">
+          <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
             Trade Recommendation
           </h2>
         </div>
         <span
-          className={`text-xs font-mono-data px-2 py-0.5 rounded border ${
+          className={`text-[11px] font-mono-data px-2 py-0.5 rounded-md font-medium ${
             isCE
-              ? "text-bullish border-bullish/30 bg-bullish/10"
-              : "text-bearish border-bearish/30 bg-bearish/10"
+              ? "text-bullish bg-bullish/10"
+              : "text-bearish bg-bearish/10"
           }`}
         >
           BUY {r.type}
         </span>
       </div>
 
-      {/* Confidence */}
       <div className="flex items-center gap-3">
         <span className={`text-3xl font-mono-data font-bold ${confidenceColor}`}>
           {r.confidence}%
         </span>
         <span className="text-xs text-muted-foreground">confidence</span>
       </div>
-      <div className="w-full bg-secondary rounded-full h-1.5">
+      <div className="w-full bg-secondary rounded-full h-1">
         <div
-          className={`h-1.5 rounded-full ${confidenceBarColor} transition-all`}
+          className={`h-1 rounded-full ${confidenceBarColor} transition-all`}
           style={{ width: `${r.confidence}%` }}
         />
       </div>
 
-      {/* Key values */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2">
         <DataCell label="Strike" value={r.strike.toLocaleString()} />
         <DataCell label="Expiry" value={r.expiry} />
         <DataCell label="Entry Zone" value={`${r.entryZone[0]} – ${r.entryZone[1]}`} />
         <DataCell label="Stop Loss" value={r.stopLoss.toLocaleString()} highlight="bearish" />
       </div>
 
-      {/* Targets */}
       <div>
-        <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono-data mb-2">
+        <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
           Targets
         </p>
         <div className="flex gap-2">
           {r.targets.map((t, i) => (
-            <div
-              key={i}
-              className="flex-1 bg-secondary rounded-lg p-2 text-center"
-            >
-              <p className="text-[10px] text-muted-foreground font-mono-data">T{i + 1}</p>
+            <div key={i} className="flex-1 bg-secondary rounded-md p-2 text-center">
+              <p className="text-[10px] text-muted-foreground">T{i + 1}</p>
               <p className="text-sm font-mono-data font-semibold text-bullish">
                 {t.toLocaleString()}
               </p>
@@ -119,11 +111,10 @@ export default function TradeCard({ recommendation: r }: TradeCardProps) {
         </div>
       </div>
 
-      {/* Explanation */}
-      <div className="bg-secondary/50 border border-border rounded-lg p-3">
+      <div className="border border-border rounded-md p-3">
         <div className="flex items-center gap-1.5 mb-1">
-          <Target className="w-3.5 h-3.5 text-primary" />
-          <p className="text-[10px] uppercase tracking-widest text-primary font-mono-data">
+          <Target className="w-3 h-3 text-muted-foreground" />
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
             Why This Trade
           </p>
         </div>
@@ -143,8 +134,8 @@ function DataCell({
   highlight?: "bullish" | "bearish";
 }) {
   return (
-    <div className="bg-secondary rounded-lg p-2.5">
-      <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono-data mb-0.5">
+    <div className="bg-secondary rounded-md p-2.5">
+      <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-0.5">
         {label}
       </p>
       <p
