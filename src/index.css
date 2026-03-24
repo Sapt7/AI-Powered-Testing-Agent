@@ -1,52 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 220 14% 10%;
+    --background: 220 20% 97%;
+    --foreground: 220 20% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 14% 10%;
+    --card-foreground: 220 20% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 14% 10%;
+    --popover-foreground: 220 20% 14%;
 
-    --primary: 220 14% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 217 72% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 10% 95%;
-    --secondary-foreground: 220 14% 30%;
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 220 14% 35%;
 
-    --muted: 220 10% 94%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 220 16% 94%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 220 10% 92%;
-    --accent-foreground: 220 14% 10%;
+    --accent: 217 72% 96%;
+    --accent-foreground: 217 72% 46%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 10% 90%;
-    --input: 220 10% 90%;
-    --ring: 220 14% 10%;
+    --border: 220 16% 91%;
+    --input: 220 16% 91%;
+    --ring: 217 72% 56%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --bullish: 152 60% 36%;
-    --bearish: 0 65% 48%;
-    --neutral: 38 70% 50%;
-    --confidence: 260 50% 55%;
+    --bullish: 152 55% 40%;
+    --bearish: 0 60% 50%;
+    --neutral: 38 65% 50%;
+    --confidence: 217 72% 56%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 14% 30%;
-    --sidebar-primary: 220 14% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 10% 95%;
-    --sidebar-accent-foreground: 220 14% 10%;
-    --sidebar-border: 220 10% 90%;
-    --sidebar-ring: 220 14% 10%;
+    --sidebar-foreground: 220 14% 35%;
+    --sidebar-primary: 217 72% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 72% 96%;
+    --sidebar-accent-foreground: 217 72% 46%;
+    --sidebar-border: 220 16% 93%;
+    --sidebar-ring: 217 72% 56%;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
   }
 }
 
@@ -66,10 +72,11 @@
     font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   }
 
-  .chart-grid {
-    background-image:
-      linear-gradient(hsl(220 10% 90% / 0.4) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(220 10% 90% / 0.4) 1px, transparent 1px);
-    background-size: 40px 40px;
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-md);
   }
 }
