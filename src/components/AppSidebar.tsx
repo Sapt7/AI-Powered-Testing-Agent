@@ -1,4 +1,4 @@
-import { Activity } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sidebar,
@@ -37,8 +37,8 @@ function ChipGroup({
   onChange: (v: string) => void;
 }) {
   return (
-    <div className="space-y-2">
-      <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+    <div className="space-y-2.5">
+      <label className="text-[11px] font-medium text-muted-foreground">
         {label}
       </label>
       <div className="flex flex-wrap gap-1.5">
@@ -46,10 +46,10 @@ function ChipGroup({
           <button
             key={opt}
             onClick={() => onChange(opt)}
-            className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
               value === opt
-                ? "bg-primary text-primary-foreground"
-                : "bg-secondary text-secondary-foreground hover:bg-accent"
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "bg-secondary text-secondary-foreground hover:bg-muted"
             }`}
           >
             {opt}
@@ -75,11 +75,13 @@ export function AppSidebar({
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="p-4 border-b border-border">
-        <div className="flex items-center gap-2">
-          <Activity className="w-5 h-5 text-foreground shrink-0" />
+      <SidebarHeader className="p-5 border-b border-sidebar-border">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center shrink-0">
+            <BarChart3 className="w-4 h-4 text-accent-foreground" />
+          </div>
           {!collapsed && (
-            <span className="text-sm font-semibold tracking-tight truncate">
+            <span className="text-sm font-semibold text-foreground truncate">
               Signal Engine
             </span>
           )}
@@ -89,18 +91,18 @@ export function AppSidebar({
       <SidebarContent>
         {!collapsed && (
           <SidebarGroup>
-            <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-muted-foreground px-5 pt-4">
               Parameters
             </SidebarGroupLabel>
-            <SidebarGroupContent className="px-3 pb-3 space-y-5">
+            <SidebarGroupContent className="px-5 pb-5 space-y-6 pt-2">
               <ChipGroup label="Timeframe" options={timeframes} value={timeframe} onChange={setTimeframe} />
-              <ChipGroup label="Lookback" options={lookbacks} value={lookback} onChange={setLookback} />
+              <ChipGroup label="Lookback Period" options={lookbacks} value={lookback} onChange={setLookback} />
               <ChipGroup label="Risk Style" options={riskStyles} value={riskStyle} onChange={setRiskStyle} />
 
               <Button
                 onClick={onAnalyze}
                 disabled={isLoading}
-                className="w-full text-xs font-medium uppercase tracking-wider"
+                className="w-full rounded-lg text-xs font-semibold tracking-wide h-10"
               >
                 {isLoading ? "Analyzing…" : "Run Analysis"}
               </Button>
