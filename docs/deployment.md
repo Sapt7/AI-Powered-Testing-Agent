@@ -54,7 +54,7 @@ Edit [`../vercel.json`](../vercel.json) and replace the placeholder in the rewri
 destination with your Render URL:
 
 ```json
-"destination": "https://your-service.onrender.com/api/:path*"
+"destination": "https://ai-powered-testing-agent-api.onrender.com/api/:path*"
 ```
 
 Vercel does not interpolate environment variables into `vercel.json` rewrites, so this must
