@@ -1,240 +1,126 @@
 # Test Case Generator
 
-An AI-powered QA workspace that converts a Product Requirements Document (PRD) into structured test coverage using Gemini, while retaining prior runs and reusable knowledge-base context in a local database.
+An AI-powered QA workspace that turns a Product Requirements Document into structured,
+review-ready test coverage using Gemini — grounded in a knowledge base of your own
+supporting documents that accumulates across runs.
 
-## What Has Been Built
+| | |
+|---|---|
+| **App** | https://ai-testing-agent-black.vercel.app |
+| **API** | https://ai-powered-testing-agent-api.onrender.com |
+| **Repository** | https://github.com/Sapt7/AI-Powered-Testing-Agent |
+| **Status** | Version 1 deployed. Non-commercial. |
 
-This project currently includes:
+---
 
-- A React + Vite frontend for:
-  - uploading a PRD
-  - managing retained knowledge-base documents
-  - generating QA test cases
-  - viewing previous test-generation runs
-  - reviewing generated test cases in a list-and-detail format
-- A **stateless** TypeScript + Express backend for:
-  - parsing uploaded files
-  - calling the Gemini API
-  - validating structured AI output
-  - verifying Google identity on every request
-- Google sign-in, with browser-side retention of the knowledge base and run history so
-  context still accumulates without a server database
-- A documented design system (`DESIGN.md`), product record (`PRODUCT.md`), and numbered
-  decision records (`docs/decisions/`)
+## Documentation map
 
-## Core User Flow
+This project keeps its knowledge in separate files on purpose. Each owns one kind of truth,
+and they are meant to be read in a particular order. **If you are new here, start with
+[CONTEXT.md](CONTEXT.md).**
 
-The product is organized into three workspace sections, reachable from the index rail:
+| File | Owns | Read it when |
+|---|---|---|
+| **[CONTEXT.md](CONTEXT.md)** | The whole picture in one place: state, URLs, architecture, what's done, what's not | You are starting cold and need to get oriented fast |
+| **[PRODUCT.md](PRODUCT.md)** | Durable product truth — user, purpose, positioning, binding constraints, open decisions | You are deciding *what* to build |
+| **[DESIGN.md](DESIGN.md)** | The visual system — tokens, type ramp, named rules, component specs | You are building or changing any UI |
+| **[DECISIONS.md](DECISIONS.md)** | Index of every architectural decision, with the trade-off each accepted | You are wondering *why* something is the way it is |
+| **[CHANGELOG.md](CHANGELOG.md)** | Dated record of what changed and why | You want the history of a specific change |
+| **[README.md](README.md)** | How the thing works today — architecture, API, how to run it | You are operating or extending the code |
 
-### 1. New analysis
+### How they relate
 
-This is the primary landing flow.
+```
+PRODUCT.md ──── defines the problem and constraints
+     │
+     ├──> DESIGN.md ──── how it looks and behaves, derived from the product's mode
+     │                   (machine-readable companion: .impeccable/design.json)
+     │
+     ├──> DECISIONS.md ─┬─ docs/decisions/0001..0010  the full records
+     │                  └─ each decision cites PRODUCT.md constraints it honours
+     │
+     └──> docs/v1-scope.md ──── what v1 cuts from the full product, and how to restore it
+                │
+                └──> docs/original-product.md ──── the complete original intent,
+                                                   preserved so v1 can be grown back
 
-Users can:
+README.md ──── describes the current implementation
+CHANGELOG.md ── records how it got here
+CONTEXT.md ──── snapshot of all of the above, for resuming cold
+```
 
-- attach a PRD
-- rely on the retained knowledge base already stored in the system
-- generate a fresh QA suite from the attached PRD plus saved context
+**The rules that keep these from drifting:**
 
+- `PRODUCT.md` describes the *full* product. It is not narrowed to fit v1 — `docs/v1-scope.md`
+  records the cuts instead, so the original intent survives.
+- `DESIGN.md` is written **from the built interface**, not from intention. If code and
+  `DESIGN.md` disagree, the code is the bug or the doc is stale — check `CHANGELOG.md` for
+  which came last.
+- Decision records are **immutable once accepted**. A changed decision gets a new record
+  that supersedes or amends the old one, and the old one is annotated rather than edited.
+- `CHANGELOG.md` entries cite the decision record that authorised the change.
+
+### Supporting documents
+
+| File | Contents |
+|---|---|
+| [docs/deployment.md](docs/deployment.md) | Deployment runbook, live environment, spend controls, operational gotchas |
+| [docs/v1-scope.md](docs/v1-scope.md) | What v1 ships, every cut, and a restore path per cut |
+| [docs/original-product.md](docs/original-product.md) | The originally ideated product, including the full intended data model |
+| [docs/decisions/](docs/decisions/) | The ten numbered decision records in full |
+| `.impeccable/design.json` | Machine-readable design tokens and component snippets |
+
+---
+
+## What it does
+
+Three workspace sections, reached from the index rail:
+
+**1. New analysis** — attach a PRD; the retained knowledge base is applied automatically.
 Generation stays disabled until a PRD is attached.
 
-### 2. Previous runs
+**2. Previous runs** — browse and reopen earlier suites, with PRD name, timestamp, case
+count, and high-priority count.
 
-This section shows all previously generated PRD runs stored in the backend database.
+**3. Knowledge base** — add, review, and remove the supporting documents that ground every
+future analysis.
 
-Users can:
+### The results sheet
 
-- browse earlier runs
-- reopen a generated suite
-- inspect the PRD name, timestamp, case count, and high-priority count
-
-### 3. Knowledge base
-
-This section stores reusable supporting documents that should influence future testcase generation.
-
-Users can:
-
-- upload knowledge-base documents
-- see all previously retained knowledge-base documents
-- remove knowledge-base documents from the stored set
-
-## Generated Results Experience
-
-When generation succeeds, the app opens a dedicated results sheet that shows:
-
-- the feature name and a short summary of the PRD
-- a title block carrying document, generation date, case count, and high-priority count
-- three evidence columns: risk scan, source context, and assumptions
+- feature name and a short summary of the PRD
+- a title block: document, generation date, case count, high-priority count
+- three evidence columns: risk scan, source context, assumptions
 - a numbered coverage list paired with a detail pane for the selected case
 
-Each generated test case includes:
+Each case carries a title, criticality, rationale, coverage area, and ordered steps.
+Priority is encoded by **fill density** rather than colour — solid, half, hollow — so the
+scale survives greyscale printing and colour-blind reading.
 
-- title
-- criticality: `Low`, `Medium`, or `High`
-- rationale
-- coverage area (one of twelve fixed values, listed below)
-- ordered test steps
+---
 
-Priority is encoded by **fill density** rather than colour — solid, half, and hollow marks — so the scale stays readable in greyscale and to colour-blind reviewers.
+## Architecture
 
-## Backend Architecture
+```
+Browser (Vercel, static SPA)
+  ├── Google Identity Services  → ID token (JWT)
+  ├── IndexedDB                 → knowledge-base docs + extracted text, keyed by Google sub
+  └── localStorage              → run history (max 50), keyed by Google sub
+        │  Authorization: Bearer <id_token>
+        │  (same-origin; /api/* proxied by vercel.json)
+        ▼
+Express API (Render, stateless)
+  ├── verify ID token          google-auth-library
+  ├── POST /api/parse          extract text, return it, store nothing
+  ├── POST /api/generate-test-cases → Gemini → validated suite
+  └── GET  /api/health         open, unmetered, warm-up target
+        ▼
+   Gemini API
+```
 
-The backend lives inside the same repository and runs as an Express server.
+**The backend holds no state.** Any instance serves any request; restarts and redeploys are
+harmless.
 
-### Main responsibilities
-
-- receive PRD uploads
-- parse supported document formats
-- assemble prompt context for Gemini
-- validate the AI response against a strict schema
-- retry once if the first AI response fails validation or quality checks
-- persist successful runs and knowledge-base documents
-
-### Main backend files
-
-- [server/index.ts](server/index.ts)
-  Starts the API server.
-- [server/app.ts](server/app.ts)
-  Registers API routes.
-- [server/config.ts](server/config.ts)
-  Model, port, upload, and document-size limits.
-- [server/middleware/requireAuth.ts](server/middleware/requireAuth.ts)
-  Verifies the Google ID token on every protected request.
-- [server/routes/parseDocuments.ts](server/routes/parseDocuments.ts)
-  Extracts text from uploaded documents and returns it, storing nothing.
-- [server/routes/generateTestCases.ts](server/routes/generateTestCases.ts)
-  Handles PRD upload, knowledge-base context, and test-case generation.
-- [server/services/documentParser.ts](server/services/documentParser.ts)
-  Extracts text from supported file types and flags truncation.
-- [server/services/geminiTestCaseService.ts](server/services/geminiTestCaseService.ts)
-  Holds the system prompt, builds the user message, validates responses, and retries once.
-
-## Frontend Architecture
-
-The frontend is a React application built with Vite and shadcn/ui primitives.
-
-### Main frontend files
-
-- [src/pages/Index.tsx](src/pages/Index.tsx)
-  Main workspace page and view-state controller.
-- [src/components/AppSidebar.tsx](src/components/AppSidebar.tsx)
-  Index-rail navigation for the three workspace sections.
-- [src/components/TestCaseExplorer.tsx](src/components/TestCaseExplorer.tsx)
-  Results-sheet evidence columns, coverage list, and step detail.
-- [src/contexts/AuthContext.tsx](src/contexts/AuthContext.tsx)
-  Session restore, sign-in callback, sign-out, and the token-expiry timer.
-- [src/components/AuthGate.tsx](src/components/AuthGate.tsx) ·
-  [src/components/SignIn.tsx](src/components/SignIn.tsx)
-  Sign-in gate and surface. The gate is UX only; the API is the security boundary.
-- [src/lib/auth.ts](src/lib/auth.ts)
-  Google Identity Services loader, token storage, and claim decoding.
-- [src/lib/knowledgeBaseStore.ts](src/lib/knowledgeBaseStore.ts)
-  IndexedDB store for knowledge-base documents, namespaced by Google account.
-- [src/lib/runHistoryStore.ts](src/lib/runHistoryStore.ts)
-  localStorage run history, capped and quota-tolerant, namespaced by Google account.
-- [src/lib/api.ts](src/lib/api.ts)
-  API client. Attaches the bearer token and handles `401` in one place.
-- [src/lib/testCaseTypes.ts](src/lib/testCaseTypes.ts)
-  Shared generated-suite structure.
-- [src/lib/workspaceTypes.ts](src/lib/workspaceTypes.ts)
-  Shared frontend/backend request and storage models.
-
-## AI Generation Behavior
-
-The system uses the Gemini API to generate structured QA test coverage. The prompt is split
-into a **system instruction** (the QA architect persona, reasoning procedure, and output
-rules) and a **user message** (the PRD and knowledge-base documents). Both live in
-[geminiTestCaseService.ts](server/services/geminiTestCaseService.ts).
-
-### What the system prompt instructs
-
-Before writing any JSON, the model works through a reasoning procedure: requirement
-inventory, knowledge-base reconciliation, first-principles derivation, blast-radius
-analysis, and gap identification. It is then asked to:
-
-- produce **18 to 28 test cases**, sized to the actual surface area of the PRD
-- write **4 to 7 steps** per case, with 3 as an absolute floor
-- keep no more than 25% of cases on the happy path, and include at least four
-  negative or failure-mode cases
-- embed the expected result inside the step text, since the schema has no separate
-  expected-result field
-- use concrete test data rather than placeholders like "valid input"
-- assign criticality from an explicit rubric, keeping High at roughly 30% or less
-- record every inference, ambiguity, and document conflict in `assumptions`
-- ground every case in the PRD, the knowledge base, or a stated inference
-
-### Coverage areas
-
-`coverageArea` is a fixed enum, enforced in the Gemini response schema and re-checked by Zod:
-
-`Core Functional Flow` · `Input Validation & Error Handling` · `Permissions & Access Control` ·
-`API & Data Integrity` · `Integrations & External Dependencies` ·
-`State, Concurrency & Edge Cases` · `Cross-Module Impact & Regression` ·
-`Notifications & Messaging` · `Analytics & Instrumentation` · `Accessibility` ·
-`Performance & Load` · `Security`
-
-### Validation and retry
-
-The response is constrained three ways: a JSON response schema sent to the API (types,
-required keys, enums, `minItems`), a Zod parse on the reply, and the prompt itself for the
-rules a schema cannot express.
-
-- **Schema failure** → one automatic retry with the specific validation issues fed back.
-  If the retry also fails, the user gets a clean error rather than raw schema output.
-- **Quality failure** (placeholder phrases, duplicate case titles, mostly-thin cases) →
-  one automatic retry. These checks are *advisory*: if the retry does not improve the
-  result, the schema-valid suite is still returned rather than failing the run.
-
-Generation runs at `temperature: 0.2`. `gemini-2.5-flash` performs its reasoning with
-thinking enabled by default.
-
-## Supported Document Formats
-
-### PRD upload
-
-Supported:
-
-- PDF
-- DOCX
-- TXT
-- MD
-- RTF
-
-One PRD per run. Attaching a new PRD replaces the current one.
-
-### Knowledge-base upload
-
-Supported:
-
-- PDF
-- DOCX
-- TXT
-- MD
-- CSV
-- JSON
-- RTF
-
-Up to 10 files per upload action.
-
-## Document Size Limits
-
-Configured in [server/config.ts](server/config.ts):
-
-| Limit | Value |
-|---|---|
-| Max upload size | 15 MB per file |
-| Max extracted text per document | 200,000 characters |
-| Max combined knowledge-base text per generation | 600,000 characters |
-
-The PRD is **never** truncated to make room for knowledge-base context — only the knowledge
-base is trimmed. Any truncation that does occur is reported to the model in the user
-message so it can declare the gap in `assumptions` and flag which areas may be
-under-covered.
-
-## Persistence Model
-
-**The backend is stateless — it stores nothing.** Any instance can serve any request, and
-restarts and redeploys are harmless.
+### Persistence
 
 Data lives in the browser, namespaced by the signed-in Google account:
 
@@ -246,165 +132,194 @@ Data lives in the browser, namespaced by the signed-in Google account:
 Every record carries the Google `sub` claim and every read filters on it, so two people
 signing in on the same machine never see each other's data.
 
-**Consequences:** data does not sync across devices or browsers, and clearing site data
-erases it. Both are stated in the UI. See
-[ADR-0001](docs/decisions/0001-browser-scoped-persistence.md) for the reasoning and the
-restore path back to server-side persistence.
+**Consequences:** data does not sync across devices, and clearing site data erases it. Both
+are stated in the UI. See [ADR-0001](docs/decisions/0001-browser-scoped-persistence.md) for
+the reasoning and the restore path to server-side persistence.
 
-## Product, Design, and Decision Records
+### Backend files
 
-- [PRODUCT.md](PRODUCT.md) — durable product truth: primary user, purpose, positioning,
-  binding constraints, and explicitly open decisions.
-- [docs/original-product.md](docs/original-product.md) — the product as originally ideated,
-  including the full intended data model and API contract.
-- [docs/v1-scope.md](docs/v1-scope.md) — what version 1 ships, what it cuts, and the
-  restore path for every cut.
-- [docs/decisions/](docs/decisions/) — numbered decision records: what was chosen, what was
-  rejected, the trade-off accepted, and when to revisit.
-- [DESIGN.md](DESIGN.md) — the visual system: tokens, type ramp, named rules, and
-  component specifications.
-- [CHANGELOG.md](CHANGELOG.md) — dated record of changes.
-- `.impeccable/design.json` — machine-readable design sidecar.
+| File | Role |
+|---|---|
+| [server/index.ts](server/index.ts) | Starts the server; binds `0.0.0.0` |
+| [server/app.ts](server/app.ts) | Middleware order: helmet → CORS → health → auth → quotas → routes |
+| [server/config.ts](server/config.ts) | Model, limits, CORS origins, spend caps — all env-overridable |
+| [server/middleware/requireAuth.ts](server/middleware/requireAuth.ts) | Verifies the Google ID token per request |
+| [server/middleware/rateLimit.ts](server/middleware/rateLimit.ts) | Per-user and global spend caps |
+| [server/routes/parseDocuments.ts](server/routes/parseDocuments.ts) | Extracts text, stores nothing |
+| [server/routes/generateTestCases.ts](server/routes/generateTestCases.ts) | PRD upload, KB context, generation |
+| [server/services/documentParser.ts](server/services/documentParser.ts) | PDF/DOCX/text extraction, truncation flagging |
+| [server/services/geminiTestCaseService.ts](server/services/geminiTestCaseService.ts) | System prompt, schemas, validation, retry |
 
-> **Version 1 is code-complete.** Documentation, Google authentication, browser-scoped
-> storage, spend controls, and deployment configuration are all in place. See
-> [docs/deployment.md](docs/deployment.md) to put it online.
+### Frontend files
 
-## Local Development
+| File | Role |
+|---|---|
+| [src/pages/Index.tsx](src/pages/Index.tsx) | Workspace page and view-state controller |
+| [src/components/AppSidebar.tsx](src/components/AppSidebar.tsx) | Index-rail navigation |
+| [src/components/TestCaseExplorer.tsx](src/components/TestCaseExplorer.tsx) | Evidence columns, coverage list, step detail |
+| [src/contexts/AuthContext.tsx](src/contexts/AuthContext.tsx) | Session restore, sign-in, sign-out, expiry timer |
+| [src/components/AuthGate.tsx](src/components/AuthGate.tsx) · [SignIn.tsx](src/components/SignIn.tsx) | Sign-in gate and surface (UX only; the API is the boundary) |
+| [src/lib/auth.ts](src/lib/auth.ts) | GIS loader, token storage, claim decoding |
+| [src/lib/knowledgeBaseStore.ts](src/lib/knowledgeBaseStore.ts) | IndexedDB store, namespaced per account |
+| [src/lib/runHistoryStore.ts](src/lib/runHistoryStore.ts) | localStorage history, capped and quota-tolerant |
+| [src/lib/api.ts](src/lib/api.ts) | API client; attaches the token and handles `401` in one place |
+| [src/lib/testCaseTypes.ts](src/lib/testCaseTypes.ts) · [workspaceTypes.ts](src/lib/workspaceTypes.ts) | Shared contracts |
 
-### Environment variables
+---
 
-Create a `.env` file from [.env.example](.env.example).
+## AI generation
 
-Expected variables:
+The prompt is split into a **system instruction** (QA architect persona, reasoning
+procedure, output rules) and a **user message** (the documents). Both live in
+[geminiTestCaseService.ts](server/services/geminiTestCaseService.ts).
 
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-2.5-flash
-PORT=8787
+Before writing JSON the model works through requirement inventory, knowledge-base
+reconciliation, first-principles derivation, blast-radius analysis, and gap identification.
+It is then asked to:
 
-# Google sign-in. Both hold the same public OAuth client ID.
-GOOGLE_CLIENT_ID=your_client_id.apps.googleusercontent.com
-VITE_GOOGLE_CLIENT_ID=your_client_id.apps.googleusercontent.com
-```
+- produce **18–28 test cases**, sized to the PRD's actual surface area
+- write **4–7 steps** per case, 3 as an absolute floor
+- keep no more than 25% on the happy path; include at least four negative cases
+- embed expected results in step text, since the schema has no expected-result field
+- use concrete test data, never placeholders
+- assign criticality from an explicit rubric, High capped near 30%
+- record every inference and ambiguity in `assumptions`
 
-Sign-in is required. `http://localhost:8080` must be listed under **Authorized JavaScript
-origins** on the OAuth client, or the Google button will not render.
+### Coverage areas
 
-### Install dependencies
+A fixed enum, enforced in the Gemini response schema and re-checked by Zod:
+
+`Core Functional Flow` · `Input Validation & Error Handling` · `Permissions & Access Control` ·
+`API & Data Integrity` · `Integrations & External Dependencies` ·
+`State, Concurrency & Edge Cases` · `Cross-Module Impact & Regression` ·
+`Notifications & Messaging` · `Analytics & Instrumentation` · `Accessibility` ·
+`Performance & Load` · `Security`
+
+### Validation and retry
+
+Three layers: the API response schema (types, required keys, enums, `minItems`), a Zod parse
+(the authority), and the prompt for what a schema cannot express.
+
+- **Schema failure** → one retry with the specific issues fed back; a second failure returns
+  a clean error.
+- **Quality failure** (placeholders, duplicate titles, mostly-thin cases) → one retry.
+  **Advisory**: if the retry does not improve things, the schema-valid suite still ships.
+
+`temperature: 0.2`. The 18–28 range is deliberately *not* machine-enforced — `minItems: 18`
+would force padding, which the prompt forbids.
+
+### Limits
+
+| Limit | Value |
+|---|---|
+| Max upload size | 15 MB per file |
+| Max extracted text per document | 200,000 characters |
+| Max combined knowledge-base text per generation | 600,000 characters |
+
+The PRD is **never** truncated to make room for knowledge-base context. Any truncation is
+reported to the model so it can flag under-coverage in `assumptions`.
+
+**Supported formats** — PRD: PDF, DOCX, TXT, MD, RTF (one per run).
+Knowledge base: the same plus CSV and JSON (up to 10 files per upload).
+
+---
+
+## API
+
+All routes except `/api/health` require `Authorization: Bearer <google-id-token>` and return
+`401` without one.
+
+| Endpoint | Notes |
+|---|---|
+| `GET /api/health` | **Unauthenticated and unmetered** — the warm-up target pinged before any token exists. Exposes only liveness. |
+| `POST /api/parse` | Files in the `documents` field. Returns `{ documents: [{ fileName, text, excerpt, truncated }] }`. Stores nothing. |
+| `POST /api/generate-test-cases` | `prd` file + optional `knowledgeBase` JSON field. Returns `{ suite, meta }`. |
+
+`meta` carries `prdName`, `prdExcerpt`, `prdTruncated`, `generatedAt`, `modelName`, and
+`promptVersion`. The caller stores the run.
+
+### Spend controls
+
+| Control | Default | Env var |
+|---|---|---|
+| Generations per user per hour | 5 | `GENERATIONS_PER_USER_PER_HOUR` |
+| Generations across all users per day | 100 | `GENERATIONS_GLOBAL_PER_DAY` |
+| Document parses per user per hour | 40 | `PARSES_PER_USER_PER_HOUR` |
+
+Exceeding a limit returns `429` with `Retry-After`. Counters are in process memory and reset
+on restart — see [ADR-0010](docs/decisions/0010-v1-non-commercial-best-effort-limits.md).
+
+---
+
+## Local development
 
 ```bash
 npm install
-```
-
-### Run the app locally
-
-```bash
+cp .env.example .env   # then fill in the values
 npm run dev
 ```
 
-This starts:
+Frontend on `http://localhost:8080`, backend on `http://localhost:8787`, with `/api` proxied
+by Vite — only the frontend URL is needed in a browser.
 
-- frontend: `http://localhost:8080`
-- backend: `http://localhost:8787`
+`http://localhost:8080` must be listed under **Authorized JavaScript origins** on the OAuth
+client, or the Google button will not render (silently — no error).
 
-The frontend proxies `/api` to the backend, so only the frontend URL is needed in a browser.
+### Scripts
 
-### Production-style build
+| Command | Does |
+|---|---|
+| `npm run dev` | Frontend and backend together |
+| `npm run build` | Both builds |
+| `npm run build:client` | SPA only (what Vercel runs) |
+| `npm run build:server` | API only (what Render runs) |
+| `npm start` | Start the built backend |
+| `npm test` | Vitest |
+| `npm run lint` | ESLint |
 
-```bash
-npm run build
-```
+Deployment: [docs/deployment.md](docs/deployment.md).
 
-### Start built backend
+---
 
-```bash
-npm start
-```
-
-## API Endpoints
-
-All routes except `/api/health` require `Authorization: Bearer <google-id-token>` and
-return `401` without one.
-
-### `GET /api/health`
-
-Returns backend health status. **Deliberately unauthenticated** — it is the warm-up target
-the client pings on landing, before any token exists. Exposes only liveness.
-
-### `POST /api/parse`
-
-Accepts one or more files in the `documents` field. Extracts text and returns it. **The
-server keeps no copy**; the caller stores what comes back.
-
-Returns `{ documents: [{ fileName, text, excerpt, truncated }] }`.
-
-### `POST /api/generate-test-cases`
-
-Accepts:
-
-- `prd` — multipart file upload, exactly one
-- `knowledgeBase` — optional JSON string field, `[{ fileName, text }]`
-
-Behavior:
-
-- parses the PRD server-side
-- re-validates and re-caps the supplied knowledge-base context
-- generates a Gemini-backed test suite
-
-Returns `{ suite, meta }`, where `meta` carries `prdName`, `prdExcerpt`, `prdTruncated`,
-`generatedAt`, `modelName`, and `promptVersion`. The caller stores the run.
-
-## Testing and Validation
-
-### Automated checks
+## Testing
 
 ```bash
-npm test          # vitest
-npm run lint      # eslint
-npm run build     # client + server build
+npm test          # 15 tests
+npm run lint      # 0 errors, 8 warnings
+npm run build     # client + server
 ```
 
-### Current status
+Warnings are all `react-refresh/only-export-components` from the shadcn/ui scaffold and the
+auth context. They do not block the app.
 
-- Tests: passing.
-- Lint: passes with 0 errors and 8 warnings, all `react-refresh/only-export-components`
-  from the shadcn/ui scaffold and the auth context. They do not block the app.
-- Build: clean for both the client bundle and the server TypeScript output.
+Covered: the quota middleware (per-user limits, isolation, window expiry, the global cap,
+failing closed, bucket sweeping), the run history store (per-account isolation,
+de-duplication, corrupt-data tolerance, quota recovery), and workspace rendering.
 
-## Current Limitations
+**Not covered:** the authenticated end-to-end flow. See CONTEXT.md.
 
-- Data lives in one browser, for one Google account. It does not sync across devices, and
-  clearing site data erases it. See
-  [ADR-0001](docs/decisions/0001-browser-scoped-persistence.md).
-- Run history is capped at 50 runs; older runs are dropped.
-- Legacy `.doc` binaries are not supported. Use `.docx` or PDF.
-- In-browser preview of an attached PRD only works for text-like formats; PDF and DOCX
-  are parsed server-side and show no client-side excerpt.
-- Rate-limit counters live in process memory and reset when the service restarts or spins
-  down. They are a speed bump; the billing budget alert is the real backstop. See
-  [docs/deployment.md](docs/deployment.md).
-- Opening a run from **Previous runs** highlights **New analysis** in the rail; results are
-  treated as a child of the analysis flow.
-- There is no multi-tenancy. Google sign-in provides identity, not organisations or roles.
+---
 
-## Suggested Next Enhancements
+## Current limitations
 
-- export generated test cases to CSV, XLSX, or test-management tools
-- allow users to tag, group, or archive previous runs
-- add authentication and multi-user storage
-- support richer document ingestion and OCR for image-based PDFs
-- add prompt/version audit history for generated runs
-- enable editing and saving curated test cases after generation
+- Data lives in one browser, for one Google account — no cross-device sync; clearing site
+  data erases it ([ADR-0001](docs/decisions/0001-browser-scoped-persistence.md)).
+- Run history is capped at 50; older runs are dropped.
+- Legacy `.doc` binaries are unsupported. Use `.docx` or PDF.
+- In-browser PRD preview works only for text-like formats; PDF and DOCX are parsed
+  server-side and show no client-side excerpt.
+- Rate-limit counters reset on restart or spin-down; the billing alert is the real backstop.
+- Render free spins down after ~15 minutes idle. The client pings `/api/health` on landing
+  so the wake overlaps with sign-in, but it does not remove the wait.
+- Opening a run from **Previous runs** highlights **New analysis** in the rail.
+- No multi-tenancy — Google sign-in provides identity, not organisations or roles.
 
-## Project Status
+## Next
 
-As of the latest build, the system supports:
-
-- PRD-driven testcase generation via Gemini, targeting 18–28 cases across twelve
-  coverage areas
-- retained knowledge-base documents
-- persistent previous-run history
-- structured testcase review in the UI
-- a documented design system and product record
-- local end-to-end usage through one dev command
+- export generated cases to CSV, XLSX, or a test-management tool *(a binding constraint in
+  PRODUCT.md — the output model is already export-shaped)*
+- editing and curating cases after generation
+- tag, group, or archive previous runs
+- server-side persistence for cross-device access
+  ([restore path](docs/v1-scope.md))
+- OCR for image-based PDFs

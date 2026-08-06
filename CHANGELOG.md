@@ -1,5 +1,39 @@
 # Changelog
 
+## 2026-08-06 — Deployed to production, and documentation consolidated
+
+**v1 is live.** App on Vercel, API on Render, verified end to end.
+
+**Deployment**
+- Render service `ai-powered-testing-agent-api` created and deployed; Vercel project
+  `ai-testing-agent` imported from the repository.
+- `CORS_ORIGIN` restricted to the Vercel origins plus localhost; verified that a foreign
+  origin receives no `Access-Control-Allow-Origin` header.
+- Added `.env.production` carrying the public OAuth client ID, so production builds are
+  reproducible on any host without dashboard configuration. It contains no secrets — the
+  client ID ships in the browser bundle regardless and authorizes nothing on its own.
+- Regenerated `package-lock.json` after the package rename. `npm ci` validates the lockfile
+  against `package.json`, so the stale name would have failed the Render build.
+- Gitignored `.agents/`, `.claude/`, `.codex/`, `.gemini/` — roughly 200k lines of local
+  agent tooling across three duplicate copies that were about to enter the product repo.
+  The initial commit went from 516 files to 80.
+
+**Documentation**
+- Added [CONTEXT.md](CONTEXT.md) — a complete cold-start snapshot: state, live URLs,
+  infrastructure identifiers, outstanding actions, the traps already hit, and how the
+  project reached its current shape.
+- Added [DECISIONS.md](DECISIONS.md) — a root-level index over the ten decision records,
+  with the trade-off each accepted and the four that constrain everything else.
+- Rewrote [README.md](README.md) with an explicit documentation map showing which file owns
+  which kind of truth, how they relate, and the invariants that stop them drifting.
+- Corrected stale README claims: it still described runs as "stored in the backend database"
+  and listed authentication as a *future* enhancement.
+- Recorded the live environment and the missing Render webhook in
+  [docs/deployment.md](docs/deployment.md).
+
+**Known gap:** the authenticated end-to-end flow remains unverified by anyone. Documented
+prominently in CONTEXT.md rather than left implicit.
+
 ## 2026-08-06 — Spend controls and deployment configuration (v1, step 4 of 4)
 
 Completes the version 1 build. Implements the mitigations
