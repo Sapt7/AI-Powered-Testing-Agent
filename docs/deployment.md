@@ -5,6 +5,24 @@ Reasoning and rejected alternatives: [decisions/0002-hosting-topology.md](decisi
 
 Both platforms are used on their free tiers. The only variable cost is Gemini usage.
 
+## Live environment
+
+| | |
+|---|---|
+| App | https://ai-testing-agent-black.vercel.app |
+| API | https://ai-powered-testing-agent-api.onrender.com |
+| Vercel project | `ai-testing-agent` (team `mind-x2`) |
+| Render service | `ai-powered-testing-agent-api` (`srv-d9q3deqd0e5s738tm9k0`) |
+| Repository | https://github.com/Sapt7/AI-Powered-Testing-Agent |
+
+The browser only ever talks to the Vercel origin; `/api/*` is proxied to Render by the
+rewrite in [`../vercel.json`](../vercel.json), so no CORS preflight is involved on the
+normal path.
+
+> **Render auto-deploy is not wired up.** The service was created through the API, which
+> skips the GitHub OAuth flow that installs the push webhook. Connect the repository in the
+> Render dashboard to enable auto-deploy, or trigger deploys manually.
+
 ---
 
 ## Before you start
@@ -45,8 +63,8 @@ Environment variables:
 
 **Do not set `PORT`.** Render injects it, and `server/config.ts` already reads it.
 
-Verify: `curl https://<service>.onrender.com/api/health` returns `{"status":"ok"}`, and
-`curl -X POST https://<service>.onrender.com/api/parse` returns `401`.
+Verify: `curl https://ai-powered-testing-agent-api.onrender.com/api/health` returns
+`{"status":"ok"}`, and `curl -X POST .../api/parse` returns `401`.
 
 ## 2. Deploy the frontend to Vercel
 
@@ -70,7 +88,7 @@ Environment variable:
 
 | Variable | Value |
 |---|---|
-| `VITE_GOOGLE_CLIENT_ID` | your OAuth client ID |
+| _(none required)_ | `.env.production` carries the public client ID at build time |
 
 Leave `VITE_API_BASE_URL` unset. Empty means same-origin, which is what makes the rewrite
 work and avoids CORS entirely. Set it only if you deliberately want the browser calling
@@ -78,15 +96,15 @@ Render directly.
 
 ## 3. Close the loop
 
-Set `CORS_ORIGIN` on Render to your Vercel production origin
-(`https://your-app.vercel.app`) and redeploy.
+Set `CORS_ORIGIN` on Render to your Vercel production origin and redeploy. Currently set to
+`https://ai-testing-agent-black.vercel.app,https://ai-testing-agent-mind-x2.vercel.app,http://localhost:8080`.
 
 ## 4. Configure the OAuth client
 
 In Google Cloud Console → Credentials → your OAuth client:
 
 **Authorized JavaScript origins**
-- `https://your-app.vercel.app`
+- `https://ai-testing-agent-black.vercel.app`
 - `http://localhost:8080` (development)
 
 Vercel preview deployments get unique URLs and **will not authenticate** unless you add
