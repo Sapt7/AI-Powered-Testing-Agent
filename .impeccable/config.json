@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-08-02T11:39:03.129Z",
+        "reason": "User pinned Geist explicitly in the design brief"
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,53 +6,75 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 20% 14%;
+    /* --- Binder stock (beige): the ground everything is filed on --- */
+    --stock: 41 28% 88%;
+    --stock-sunk: 40 22% 84%;
+    --stock-edge: 38 18% 74%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 14%;
+    /* --- Sheet (white): the working surface --- */
+    --paper: 0 0% 100%;
+    --paper-sunk: 44 30% 97%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 14%;
+    /* --- Ink (black) --- */
+    --ink: 220 13% 9%;
+    /* Both tested against the beige rail, not just white: the stock ground is
+       the darkest surface secondary text sits on, so it sets the floor. */
+    --ink-soft: 222 8% 28%; /* 9.6:1 on paper, 6.8:1 on stock */
+    --ink-faint: 220 7% 38%; /* 6.4:1 on paper, 4.6:1 on stock */
 
-    --primary: 217 72% 56%;
+    /* --- Rules --- */
+    --rule: 40 14% 87%;
+    --rule-strong: 38 12% 76%;
+
+    /* --- Blue: printed rule, pulled tab, primary action --- */
+    --blue: 225 76% 44%;
+    --blue-deep: 227 78% 34%;
+    --blue-wash: 226 68% 96%;
+    --blue-line: 226 42% 84%;
+
+    /* --- shadcn token surface, remapped onto the binder world --- */
+    --background: var(--stock);
+    --foreground: var(--ink);
+
+    --card: var(--paper);
+    --card-foreground: var(--ink);
+
+    --popover: var(--paper);
+    --popover-foreground: var(--ink);
+
+    --primary: var(--blue);
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 96%;
-    --secondary-foreground: 220 14% 35%;
+    --secondary: var(--paper-sunk);
+    --secondary-foreground: var(--ink-soft);
 
-    --muted: 220 16% 94%;
-    --muted-foreground: 220 10% 50%;
+    --muted: var(--paper-sunk);
+    --muted-foreground: var(--ink-faint);
 
-    --accent: 217 72% 96%;
-    --accent-foreground: 217 72% 46%;
+    --accent: var(--blue-wash);
+    --accent-foreground: var(--blue-deep);
 
-    --destructive: 0 72% 51%;
+    --destructive: 4 66% 42%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 16% 91%;
-    --input: 220 16% 91%;
-    --ring: 217 72% 56%;
+    --border: var(--rule);
+    --input: var(--rule-strong);
+    --ring: var(--blue);
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    --bullish: 152 55% 40%;
-    --bearish: 0 60% 50%;
-    --neutral: 38 65% 50%;
-    --confidence: 217 72% 56%;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 14% 35%;
-    --sidebar-primary: 217 72% 56%;
+    /* Index rail = the tab dividers, cut from the same stock */
+    --sidebar-background: var(--stock-sunk);
+    --sidebar-foreground: var(--ink-soft);
+    --sidebar-primary: var(--blue);
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 72% 96%;
-    --sidebar-accent-foreground: 217 72% 46%;
-    --sidebar-border: 220 16% 93%;
-    --sidebar-ring: 217 72% 56%;
+    --sidebar-accent: var(--paper);
+    --sidebar-accent-foreground: var(--ink);
+    --sidebar-border: var(--stock-edge);
+    --sidebar-ring: var(--blue);
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
-    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+    /* One sheet shadow. Real offset, real blur, barely there. */
+    --shadow-sheet: 0 1px 2px 0 rgb(20 22 26 / 0.05), 0 1px 3px 0 rgb(20 22 26 / 0.04);
   }
 }
 
@@ -63,20 +85,76 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-synthesis-weight: none;
+  }
+
+  /* Numerals in a spec document line up in columns. */
+  th,
+  td,
+  time,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
   }
 }
 
 @layer utilities {
-  .font-mono-data {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  /*
+   * The previous world's display face. Retained as a name so any untouched
+   * call site inherits the binder voice instead of falling back to Georgia.
+   */
+  .font-serif {
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.021em;
   }
 
-  .shadow-card {
-    box-shadow: var(--shadow-card);
+  .tnum {
+    font-variant-numeric: tabular-nums;
   }
 
-  .shadow-card-hover {
-    box-shadow: var(--shadow-md);
+  /* Section label: restrained tracking, not the old 0.24em shout. */
+  .label-spec {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: hsl(var(--ink-faint));
+  }
+
+  .shadow-sheet {
+    box-shadow: var(--shadow-sheet);
+  }
+
+  /* The one authored moment: a sheet settling into the binder. */
+  .sheet-in {
+    animation: sheet-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes sheet-in {
+    from {
+      opacity: 0.7;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Loading: a rule being read left to right, not a spinning ring. */
+  @keyframes sheet-scan {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(300%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sheet-in {
+      animation: none;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -14,7 +15,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ['"JetBrains Mono"', '"Fira Code"', '"Courier New"', 'monospace'],
+        sans: ["Geist", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,10 +51,33 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        bullish: "hsl(var(--bullish))",
-        bearish: "hsl(var(--bearish))",
-        neutral: "hsl(var(--neutral))",
-        confidence: "hsl(var(--confidence))",
+
+        /* The binder world, addressable by name. */
+        stock: {
+          DEFAULT: "hsl(var(--stock))",
+          sunk: "hsl(var(--stock-sunk))",
+          edge: "hsl(var(--stock-edge))",
+        },
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          sunk: "hsl(var(--paper-sunk))",
+        },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          soft: "hsl(var(--ink-soft))",
+          faint: "hsl(var(--ink-faint))",
+        },
+        rule: {
+          DEFAULT: "hsl(var(--rule))",
+          strong: "hsl(var(--rule-strong))",
+        },
+        blue: {
+          DEFAULT: "hsl(var(--blue))",
+          deep: "hsl(var(--blue-deep))",
+          wash: "hsl(var(--blue-wash))",
+          line: "hsl(var(--blue-line))",
+        },
+
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -65,27 +89,42 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      /*
+       * Declared end to end so the scale can never invert again. The previous
+       * theme raised sm/md/lg above Tailwind's default xl, making rounded-xl
+       * smaller than rounded-lg.
+       */
       borderRadius: {
+        none: "0px",
+        sm: "2px",
+        DEFAULT: "3px",
+        md: "3px",
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        xl: "5px",
+        "2xl": "6px",
+        "3xl": "8px",
+        full: "9999px",
+      },
+      letterSpacing: {
+        tightest: "-0.032em",
+        tighter: "-0.024em",
+        tight: "-0.014em",
+        normal: "0em",
+        wide: "0.04em",
+        wider: "0.075em",
+        widest: "0.12em",
+      },
+      boxShadow: {
+        sheet: "var(--shadow-sheet)",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -94,5 +133,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

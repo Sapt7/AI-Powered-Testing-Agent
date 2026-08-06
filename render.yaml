@@ -1,0 +1,42 @@
+# Render Blueprint for the stateless API.
+#
+# The frontend is NOT served from here — it is a static SPA on Vercel, so the app
+# shell loads instantly even while this service is waking from a cold start.
+# See docs/decisions/0002-hosting-topology.md.
+#
+# Secrets are marked sync:false so Render prompts for them rather than storing
+# them in this file. Never commit GEMINI_API_KEY.
+services:
+  - type: web
+    name: test-case-generator-api
+    runtime: node
+    plan: free
+    region: oregon
+
+    # Only the API is built here; `npm run build` would also build the SPA.
+    buildCommand: npm ci && npm run build:server
+    startCommand: npm start
+
+    # Unauthenticated and unmetered by design — also Render's own health probe.
+    healthCheckPath: /api/health
+
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      # Comma-separated. Must list the Vercel production origin once known.
+      - key: CORS_ORIGIN
+        sync: false
+      # Spend controls. Tune these without a redeploy.
+      - key: GENERATIONS_PER_USER_PER_HOUR
+        value: "5"
+      - key: GENERATIONS_GLOBAL_PER_DAY
+        value: "100"
+      - key: PARSES_PER_USER_PER_HOUR
+        value: "40"
+    # PORT is injected by Render; server/config.ts already reads it. Do not set it.

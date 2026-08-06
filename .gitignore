@@ -9,8 +9,25 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-server
 dist-ssr
+data
+.env
+.env.*
+!.env.example
 *.local
+
+# Local agent/assistant tooling. Installed per-machine, not part of the product.
+.agents/
+.claude/
+.codex/
+.gemini/
+
+# Impeccable design-system output. design.json is the machine-readable companion to
+# DESIGN.md and is kept; runtime and cache files are not.
+.impeccable/*
+!.impeccable/design.json
+!.impeccable/config.json
 
 # Editor directories and files
 .vscode/*
