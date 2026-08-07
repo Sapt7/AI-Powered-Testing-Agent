@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-08-06 — Production verified end to end
+
+**Version 1 is live and working.** The authenticated flow was walked by hand against the
+deployed app:
+
+- Google sign-in loads and completes in production
+- The workspace opens with the signed-in identity
+- **Data survives a page refresh**, confirming the per-account IndexedDB and localStorage
+  layers behave as designed
+- The OAuth consent screen is published to Production, lifting the 100-user cap and the
+  7-day refresh-token expiry
+
+This closed the project's largest open risk, which had been carried and flagged since the
+storage rewrite: no automated test can cover it, because it needs a real Google sign-in.
+
+**Recorded as consciously deferred:** the Gemini billing budget and alert. ADR-0010 makes it
+the primary spend protection, since the in-app counters reset on restart. Assessed as low
+risk at current usage. CONTEXT.md now records the specific conditions that make it urgent —
+exposure of the URL rather than passage of time, because signup is open to anyone with a
+Google account.
+
+**Still open:** rotating the setup credentials, and connecting the repository in the Render
+dashboard so backend pushes auto-deploy.
+
 ## 2026-08-06 — Deployed to production, and documentation consolidated
 
 **v1 is live.** App on Vercel, API on Render, verified end to end.

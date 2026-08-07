@@ -9,7 +9,7 @@ supporting documents that accumulates across runs.
 | **App** | https://ai-testing-agent-black.vercel.app |
 | **API** | https://ai-powered-testing-agent-api.onrender.com |
 | **Repository** | https://github.com/Sapt7/AI-Powered-Testing-Agent |
-| **Status** | Version 1 deployed. Non-commercial. |
+| **Status** | Version 1 live and verified in production. Non-commercial. |
 
 ---
 
@@ -296,7 +296,9 @@ Covered: the quota middleware (per-user limits, isolation, window expiry, the gl
 failing closed, bucket sweeping), the run history store (per-account isolation,
 de-duplication, corrupt-data tolerance, quota recovery), and workspace rendering.
 
-**Not covered:** the authenticated end-to-end flow. See CONTEXT.md.
+The authenticated end-to-end flow — sign-in, generation, and data surviving a refresh — is
+verified by hand in production, not by automated tests. Automating it would need a headless
+Google sign-in, which is why it is a manual check. See [CONTEXT.md](CONTEXT.md).
 
 ---
 

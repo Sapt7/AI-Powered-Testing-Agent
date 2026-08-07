@@ -44,47 +44,56 @@ CORS echoes the allowed origin and withholds it from foreign origins · HSTS, no
 X-Frame-Options present · SPA deep links fall back correctly · `/api/*` proxies from Vercel
 through to Render.
 
-### ⚠️ NOT verified — the biggest open risk
+### Verified by hand in production (2026-08-06)
 
-**The authenticated end-to-end flow has never been run by anyone.** No one has signed in,
-uploaded a knowledge-base document, generated a suite, and confirmed it survives a refresh.
+The authenticated end-to-end flow has been walked and works:
 
-Walk this before trusting the deployment:
+- Google sign-in loads and completes on the live site
+- The workspace opens with the signed-in identity
+- **Data survives a page refresh** — the real test of the per-account IndexedDB and
+  localStorage layers
+- The OAuth consent screen is **published to Production**, so the 100-user cap and the
+  7-day refresh-token expiry no longer apply
 
-1. Sign in with Google
-2. Upload a knowledge-base document → confirm it appears
-3. **Refresh the page** → confirm it is still there *(this is the real IndexedDB test)*
-4. Generate a suite from a real PRD → expect 18–28 cases
-5. Confirm the run appears in Previous runs and survives a refresh
-6. Sign out and back in → confirm data returns
+This closed the project's largest open risk. The remaining unknowns are operational
+(see below), not functional.
 
-The first generation will be slow: Render cold start plus 1–3 minutes of model time.
+**Still worth watching on a cold instance:** the first generation after ~15 minutes of
+inactivity pays a Render cold start *plus* 1–3 minutes of model time. The landing-page
+health ping hides part of that behind sign-in, but not all of it.
 
 ---
 
 ## 3. Outstanding actions
 
-### Blocking sign-in
+### Done
 
-- [ ] **Add `https://ai-testing-agent-black.vercel.app` to Authorized JavaScript origins** on
-      the OAuth client. Until this is done the Google button does not render — and it fails
-      *silently*, with no error.
+- [x] Authorized JavaScript origin added — sign-in works in production
+- [x] OAuth consent screen published to Production
+- [x] End-to-end authenticated flow verified by hand
 
-### Important
+### Open
 
-- [ ] **Publish the OAuth consent screen to Production.** Testing mode caps at 100 users and
-      expires refresh tokens after 7 days, silently signing everyone out weekly. Scopes are
-      non-sensitive, so no Google review is required.
-- [ ] **Set a Gemini billing budget + alert.** Under [ADR-0010](docs/decisions/0010-v1-non-commercial-best-effort-limits.md)
-      this is the *primary* spend protection, not a backstop.
 - [ ] **Rotate the Render API key and the GitHub personal access token.** Both were shared in
-      a chat session during setup.
-
-### Operational
-
+      a chat session during setup. Nothing depends on them any more — the Render service and
+      the repository are fully configured — so rotating costs nothing.
 - [ ] **Connect the repository in the Render dashboard.** The service was created via API,
       which skips the GitHub OAuth flow that installs the push webhook — so **Render does not
-      auto-deploy**. Vercel does.
+      auto-deploy**. Vercel does. Until this is connected, every backend change needs a manual
+      deploy.
+
+### Consciously deferred
+
+- **Gemini billing budget + alert.** [ADR-0010](docs/decisions/0010-v1-non-commercial-best-effort-limits.md)
+  treats this as the primary spend protection, because the in-app rate-limit counters reset
+  whenever the free instance restarts. Assessed as low risk at current usage and deliberately
+  deferred.
+
+  **Revisit the moment any of these become true:** the URL is shared beyond a handful of
+  known people, sign-ups appear from unknown accounts, or the app is linked publicly. Signup
+  is open to anyone with a Google account
+  ([ADR-0004](docs/decisions/0004-open-signup.md)), so exposure is what turns this from
+  theoretical into urgent — not time.
 
 ---
 
