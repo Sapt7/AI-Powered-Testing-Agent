@@ -28,7 +28,8 @@ to reconstruct the reasoning without excavating git history or re-deriving trade
 | [0008](0008-visual-system.md) | Visual system — "The Specification Binder" | Superseded by 0011 | 2026-08-02 |
 | [0009](0009-data-model-authority.md) | Which data model is authoritative | Accepted | 2026-08-05 |
 | [0010](0010-v1-non-commercial-best-effort-limits.md) | v1 ships non-commercial with best-effort spend controls | Accepted | 2026-08-06 |
-| [0011](0011-visual-system-test-section.md) | Visual system — "The Test Section" | Accepted | 2026-10-22 |
+| [0011](0011-visual-system-test-section.md) | Visual system — "The Test Section" | Superseded by 0012 | 2026-10-22 |
+| [0012](0012-visual-system-workbench.md) | Visual system — "The Workbench" | Accepted | 2026-10-22 |
 
 ## Related documents
 

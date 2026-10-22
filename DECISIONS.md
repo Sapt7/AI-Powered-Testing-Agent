@@ -12,7 +12,7 @@ makes the reasoning auditable a year from now.
 
 ---
 
-## The eleven decisions
+## The twelve decisions
 
 | # | Decision | Trade-off accepted | Status |
 |---|---|---|---|
@@ -26,7 +26,8 @@ makes the reasoning auditable a year from now.
 | [0008](docs/decisions/0008-visual-system.md) | Visual system: "The Specification Binder" | Traded a memorable, atmospheric look for a legible, information-dense one | Superseded by 0011 |
 | [0009](docs/decisions/0009-data-model-authority.md) | The runtime contract is authoritative, not any storage schema | v1's browser storage is a dead end architecturally; transforming beats migrating | Accepted |
 | [0010](docs/decisions/0010-v1-non-commercial-best-effort-limits.md) | v1 ships non-commercial with best-effort spend controls | Enforcement strength traded for shipping speed, covered by a billing alert | Accepted |
-| [0011](docs/decisions/0011-visual-system-test-section.md) | Visual system: "The Test Section" (wind tunnel) | Restraint traded for a world with a point of view — spent only on instruments carrying real data | Accepted |
+| [0011](docs/decisions/0011-visual-system-test-section.md) | Visual system: "The Test Section" (wind tunnel) | Restraint traded for a world with a point of view — spent only on instruments carrying real data | Superseded by 0012 |
+| [0012](docs/decisions/0012-visual-system-workbench.md) | Visual system: "The Workbench" (native app, brief-pinned to lineaprompt.com) | A memorable metaphor traded for an interface that reads as familiar on first sight | Accepted |
 
 ---
 

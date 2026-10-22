@@ -42,7 +42,7 @@ describe("Index page", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText("AI Powered Testing Agent")).toBeInTheDocument();
+      expect(screen.getAllByText("AI Powered Testing Agent").length).toBeGreaterThan(0);
     });
     expect(screen.getByRole("heading", { name: "New analysis" })).toBeInTheDocument();
     expect(screen.getByText(/Source document/)).toBeInTheDocument();
@@ -62,7 +62,7 @@ describe("Index page", () => {
       expect(screen.getByText("QA Tester")).toBeInTheDocument();
     });
 
-    screen.getByRole("button", { name: "Sign out" }).click();
+    screen.getAllByRole("button", { name: "Sign out" })[0].click();
     expect(signOut).toHaveBeenCalledOnce();
   });
 });

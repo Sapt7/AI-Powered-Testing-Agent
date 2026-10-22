@@ -1,341 +1,297 @@
 ---
 name: AI Powered Testing Agent
-description: A wind-tunnel test section for PRDs — facility daylight, graphite windows where the flow is visible, safety yellow to start a run, manometer fluids for severity.
+description: The Workbench — a native-app product language. Cool blue-grey ground, white windows on deep soft shadows, the platform's own typeface, one indigo accent, mono for working content.
 colors:
-  facility: "#E8EAE6"
-  facility-deep: "#DBDDD9"
-  panel: "#F8F8F6"
-  line: "#D1D4CE"
-  line-strong: "#B3B6AF"
-  graphite: "#14161A"
-  graphite-2: "#1D2126"
-  graphite-3: "#282D34"
-  graphite-line: "#363C45"
-  ink: "#101418"
-  ink-2: "#3C4149"
-  ink-3: "#595B5F"
-  flow: "#EEF2F7"
-  flow-2: "#B2BCC7"
-  flow-3: "#8793A1"
-  safety: "#F5C219"
-  safety-deep: "#DBA400"
-  fluid-high: "#E0402E"
-  fluid-med: "#E99A1C"
-  fluid-low: "#307FD5"
-  fluid-high-text: "#B42318"
-  fluid-med-text: "#945100"
-  fluid-low-text: "#1D5AA5"
+  ground: "#ECF3F8"
+  ground-deep: "#E0E9F0"
+  window: "#FFFFFF"
+  window-sunk: "#F8FAFC"
+  border: "#D9DFE8"
+  ink: "#0D1521"
+  ink-2: "#3F495A"
+  ink-3: "#626B7A"
+  indigo: "#32389F"
+  indigo-deep: "#262A82"
+  indigo-soft: "#EEEFFC"
+  indigo-line: "#C6C9F1"
+  ok: "#279B65"
+  sev-high: "#CE2D22"
+  sev-high-bg: "#FEEDEC"
+  sev-med: "#A65707"
+  sev-med-bg: "#FEF2DC"
+  sev-low: "#19688F"
+  sev-low-bg: "#E8F6FC"
+  glass: "hsl(0 0% 100% / 0.72)"
+  glass-solid: "hsl(0 0% 100% / 0.96)"
+  light-wash: "hsl(0 0% 100% / 0.8)"
+  light-pool: "hsl(0 0% 100% / 0.9)"
+  indigo-pool: "hsl(236 70% 92% / 0.55)"
 typography:
   hero:
-    fontFamily: "Archivo, system-ui, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI', Roboto, sans-serif"
     fontSize: "72px"
-    fontWeight: 800
-    lineHeight: 0.9
-    letterSpacing: "-0.04em"
-    fontVariation: "'wdth' 125"
-  display:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "56px"
-    fontWeight: 800
-    lineHeight: 0.92
-    letterSpacing: "-0.035em"
-    fontVariation: "'wdth' 125"
-  headline:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "40px"
-    fontWeight: 800
-    lineHeight: 1.02
-    letterSpacing: "-0.025em"
-    fontVariation: "'wdth' 118"
-  subhead:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "28px"
-    fontWeight: 800
-    lineHeight: 1.1
-    letterSpacing: "-0.02em"
-    fontVariation: "'wdth' 118"
-  lead:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "16px"
     fontWeight: 700
-    lineHeight: 1.5
-    letterSpacing: "0em"
+    lineHeight: 1.0
+    letterSpacing: "-0.04em"
+  display:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "56px"
+    fontWeight: 700
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
+  headline:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "44px"
+    fontWeight: 700
+    lineHeight: 1.05
+    letterSpacing: "-0.03em"
+  title-lg:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "32px"
+    fontWeight: 700
+    lineHeight: 1.1
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "20px"
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "24px"
     fontWeight: 700
     lineHeight: 1.2
+    letterSpacing: "-0.02em"
+  subtitle:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "20px"
+    fontWeight: 600
+    lineHeight: 1.3
     letterSpacing: "-0.01em"
-    fontVariation: "'wdth' 84"
-  body:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "14px"
-    fontWeight: 400
-    lineHeight: 1.625
-    letterSpacing: "0em"
-  small:
-    fontFamily: "Archivo, system-ui, sans-serif"
-    fontSize: "13px"
+  lead:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: "0em"
-  placard:
-    fontFamily: "Archivo, system-ui, sans-serif"
+  body-lg:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "0em"
+  body:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "0em"
+  body-sm:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "0em"
+  small:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "13px"
+    fontWeight: 500
+    lineHeight: 1.45
+    letterSpacing: "0em"
+  caption:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "12px"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: "0em"
+  micro:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
     fontSize: "11px"
-    fontWeight: 650
-    lineHeight: 1
-    letterSpacing: "0.09em"
-    fontVariation: "'wdth' 68"
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: "0.04em"
+  tab-label:
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI', Roboto, sans-serif"
+    fontSize: "10px"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "0.01em"
   data:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
+    fontFamily: "'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
     fontSize: "12px"
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: "0em"
 rounded:
-  sm: "3px"
-  md: "4px"
-  lg: "6px"
-  xl: "8px"
-  2xl: "12px"
-  3xl: "16px"
+  sm: "4px"
+  md: "6px"
+  lg: "10px"
+  xl: "12px"
+  2xl: "16px"
+  3xl: "22px"
   full: "9999px"
 spacing:
-  xs: "6px"
-  sm: "12px"
-  md: "16px"
-  lg: "20px"
-  xl: "24px"
-  2xl: "32px"
+  gutter-phone: "16px"
+  gutter-desktop: "24px"
+  window-pad: "16px"
+  section-gap: "24px"
 components:
-  button-run:
-    backgroundColor: "{colors.safety}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "0 24px"
-    height: "48px"
-  button-run-disabled:
-    backgroundColor: "{colors.facility-deep}"
-    textColor: "{colors.ink-3}"
-  button-outline:
-    backgroundColor: "{colors.panel}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.lg}"
-    padding: "0 12px"
-    height: "32px"
-  button-graphite:
-    backgroundColor: "{colors.graphite-2}"
-    textColor: "{colors.flow}"
+  button-primary:
+    backgroundColor: "{colors.indigo}"
+    textColor: "{colors.window}"
     rounded: "{rounded.lg}"
     padding: "0 16px"
     height: "40px"
-  test-window:
-    backgroundColor: "{colors.graphite}"
-    textColor: "{colors.flow}"
-    rounded: "{rounded.2xl}"
-  panel:
-    backgroundColor: "{colors.panel}"
+  window:
+    backgroundColor: "{colors.window}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.xl}"
-  rail-item-active:
-    backgroundColor: "{colors.graphite-3}"
-    textColor: "{colors.flow}"
+    rounded: "{rounded.2xl}"
+  pill:
+    backgroundColor: "{colors.window}"
+    textColor: "{colors.ink-2}"
+    rounded: "{rounded.full}"
+    padding: "4px 10px"
+  row-selected:
+    backgroundColor: "{colors.indigo}"
+    textColor: "{colors.window}"
     rounded: "{rounded.lg}"
-    padding: "10px"
+  capsule-nav:
+    backgroundColor: "{colors.glass}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.full}"
 ---
 
 # Design System: AI Powered Testing Agent
 
 ## Overview
 
-**Creative North Star: "The Test Section"**
+**Creative North Star: "The Workbench"**
 
-Testing a PRD is a wind-tunnel run. The document is the model on the sting; the knowledge
-base is the honeycomb that conditions the flow before it arrives; generation is the run,
-with smoke streamlines made visible; and the result is read off a manometer board — a bank
-of fluid tubes, one per coverage area, that shows at a glance which areas are full, thin, or
-**dry**. The metaphor is not decoration: every element maps to something the product does.
+A QA tool should feel like a native app you already trust, not a dashboard. The Workbench is
+a desktop-app product language brought to the browser: a cool blue-grey ground lit softly
+from the top left, crisp white windows floating on deep, soft shadows, the platform's own
+typeface set bold and tight, one indigo accent, and mono for the working content (case IDs,
+counts, timers, dates).
 
-The facility has two lights. **Daylight** — painted-concrete grey working surfaces where a
-QA engineer reads dense text for long stretches. **Graphite** — the test-section windows and
-the instrument rail, where the flow is made visible and the product's moments happen. The
-two never blend: a surface is either a daylight panel or a graphite window.
+The direction is **brief-pinned**: the product owner named lineaprompt.com as the reference.
+The pin overrode the direction roll (`e85e233b`). What was taken from the reference is its
+grammar — native-app calm, windowed surfaces, solid-colour selection, a single hand-drawn
+flourish, keyboard-first movement — not its content or branding.
 
-The register is industrial and exact, not atmospheric. Type is one engineered family scaled
-across its *width* axis like facility signage — condensed placards, normal reading text,
-expanded wall lettering. Measurements (case IDs, counts, timers, sizes, dates) are set in
-mono because they are measurements. Yellow appears only where a facility would paint it.
-
-This world replaced "The Specification Binder," a flat beige/blue minimalist system that
-read as too basic. It refuses that flatness, and it refuses the neon-on-black AI dashboard.
+It replaced "The Test Section" (wind tunnel), which was judged off the point: the metaphor
+asked users to learn a world before they could use the tool.
 
 **Key Characteristics:**
-- Daylight panels for reading; graphite windows for the product's moments
-- Live SVG streamlines that part around a mounted PRD and speed up during a run
-- The manometer board: coverage gaps visible before a single case is read
-- Archivo across its width axis as the whole type system; mono only for measurements
-- Safety yellow as a fill for the one control that starts a run, and as the engaged indicator on graphite
+- White windows with a title bar, on a light ground; never cards inside cards
+- Solid indigo selection that **glides** between rows like a native list
+- Keyboard-first: `↑`/`↓`/`j`/`k` move through cases, `⌘↵`/`Ctrl↵` generates
+- One hand-drawn underline (Flourish) per screen, under the word carrying the promise
+- Phone gets its own shape: glass top bar, bottom tab bar, full-screen case sheet
 
 ## Colors
 
-Facility grey and graphite as the two grounds, ink for reading, smoke for type on graphite,
-safety yellow as the facility's attention colour, and three manometer fluids for severity.
+### Ground and windows
+- **Ground** `#ECF3F8` — the page; lit by two radial light pools (white top-left, faint indigo top-right).
+- **Window** `#FFFFFF` — every working surface. **Window sunk** `#F8FAFC` for inset wells.
+- **Hairlines** are ink at 8% / 14% alpha, not a separate grey, so they read on any surface.
 
-### Primary
-- **Safety Yellow** (`#F5C219`): Two roles, both facility-true. On daylight surfaces it is
-  the **fill** of the single control that starts a run — never text on a light ground. On
-  graphite it marks what is **engaged**: the active section's icon and lamp, a selected
-  manometer tube, the elapsed-time readout during a run. Also the brand mark's ground.
-- **Safety Deep** (`#DBA400`): The pressed edge of a yellow button.
+### Ink
+- **Ink** `#0D1521` for headings and primary text; **Ink 2** `#3F495A` body; **Ink 3** `#626B7A`
+  metadata. All three pass 4.5:1 on window and ground.
 
-### Neutral — daylight
-- **Facility** (`#E8EAE6`): The page ground, with faint 96px poured-concrete seams.
-- **Facility Deep** (`#DBDDD9`): Recessed controls, disabled run button, filter tracks.
-- **Panel** (`#F8F8F6`): Daylight working panels.
-- **Line / Line Strong** (`#D1D4CE` / `#B3B6AF`): Hairlines; outline-button and step-rail borders.
-- **Ink / Ink 2 / Ink 3** (`#101418` / `#3C4149` / `#595B5F`): Headings, body, meta.
+### Indigo — the one accent
+- **Indigo** `#32389F` — primary buttons, the selected row, focus rings, the Flourish, active nav.
+- **Indigo deep** `#262A82` hover/pressed; **Indigo soft** `#EEEFFC` tint wells; **Indigo line** `#C6C9F1` tinted borders.
 
-### Neutral — graphite
-- **Graphite / 2 / 3** (`#14161A` / `#1D2126` / `#282D34`): Window glass, controls, raised items.
-- **Graphite Line** (`#363C45`): Window and rail edges.
-- **Flow / Flow 2 / Flow 3** (`#EEF2F7` / `#B2BCC7` / `#8793A1`): Smoke — streamlines and type on graphite.
-
-### Manometer fluids — severity
-- **High** — fluid `#E0402E`, text `#B42318`
-- **Medium** — fluid `#E99A1C`, text `#945100`
-- **Low** — fluid `#307FD5`, text `#1D5AA5`
-
-Fluid values fill tubes and vials; text values are tuned to clear 4.5:1 on the facility
-ground. On graphite, lighter tints of the same hues are used for text.
+### Severity and status
+- High `#CE2D22` on `#FEEDEC`, Medium `#A65707` on `#FEF2DC`, Low `#19688F` on `#E8F6FC`.
+- **OK** `#279B65` — only the "Server online" dot.
 
 ### Named Rules
-
-**The Two Lights Rule.** A surface is a daylight panel or a graphite window. Do not tint a
-panel grey-blue or lighten a window toward panel — the contrast between them is the layout.
-
-**The Yellow Is Paint Rule.** Yellow is a fill or a lamp, never running text on a light
-ground. One yellow-filled control per surface, and it starts a run.
-
-**The Fluid Rule.** Red, amber, and blue mean High, Medium, Low severity — always paired with
-fill height (the vial) so the scale still reads in greyscale and to colour-blind users.
+- **One accent.** Indigo is the only brand colour. Severity hues mean severity and nothing else.
+- **Selection is solid.** A selected row is filled indigo with white text; its severity tag inverts to white.
+- **Glass only for chrome.** The translucent `glass` material is used for the capsule nav, the phone top bar and the bottom tab bar — never content. A solid fallback is provided where `backdrop-filter` is unsupported.
 
 ## Typography
 
-**Face:** Archivo (variable: `wdth` 62–125, `wght` 100–900) · **Data:** JetBrains Mono
+**System stack** (`font-display` for headings, the body stack for text): SF Pro on Apple
+devices, Segoe UI Variable on Windows, Roboto on Android. A native-app language should feel
+native on every device it opens on, and it costs zero font bytes.
 
-**Character:** One engineered grotesque doing every job by changing *width*, the way facility
-signage scales from equipment labels to wall lettering. Mono is reserved for values that are
-measured or identified — never as a costume for "technical".
+**IBM Plex Mono** (`font-mono-data`, tabular numerals) for measurements: case IDs, counts,
+elapsed time, file sizes, dates.
 
 ### Hierarchy
-- **Hero** (800, 72px, wdth 125): The product name on sign-in only.
-- **Display** (800, 56px / 40px mobile, wdth 125): Page titles — "New analysis", "Previous runs".
-- **Headline** (800, 40px / 28px mobile, wdth 118): The generated feature name in a run report.
-- **Title** (700, 20px, wdth 84): The selected test case.
-- **Body** (400, 14px, 1.625): Running copy, rationales, procedure steps. Measure ≤ 68ch.
-- **Small** (400, 13px / 12px): Excerpts, meta, helper text.
-- **Placard** (650, 11px, wdth 68, uppercase, 0.09em): Facility labels on instruments and regions.
-- **Data** (JetBrains Mono, 12–13px, tabular, slashed zero): TC-001, R-002, counts, timers, sizes, dates.
-
-Ramp: 11 · 12 · 13 · 14 · 16 · 20 · 28 · 40 · 56 · 72.
+Ramp: 72 / 56 / 44 / 32 / 24 / 20 / 18 / 16 / 15 / 14 / 13 / 12 / 11 / 10 px. Headings are
+bold (700) with negative tracking that tightens as size grows; body is 15px on desktop.
+11px is reserved for uppercase severity tags; 10px only for bottom-tab labels.
 
 ### Named Rules
-
-**The Width Axis Rule.** Emphasis changes width and weight before it changes size. Condensed
-labels, normal reading, expanded display.
-
-**The Placard Rule.** Placards label instruments and regions — a window's chrome bar, a panel
-header, a tube. They never sit above a heading as a kicker. A window's chrome bar carries
-readouts alongside its placard and is separated from content by a rule.
-
-**The Measurement Rule.** Mono for what is measured or identified. Prose is never mono.
+- **Mono is for measurements.** Never set prose or labels in mono.
+- **No eyebrows.** Section titles live in window title bars, not as tracked caps above headings.
 
 ## Layout
 
-A graphite instrument rail (collapsible to icons; off-canvas below 768px) beside a daylight
-facility. A 56px header carries a breadcrumb and the **tunnel lamp** (backend status). Content
-sits in a 72rem well with 24–40px vertical padding.
-
-Each page opens with an expanded display title and its lede beside it (stacked on mobile),
-then a graphite window for the page's moment, then daylight panels for the work.
-
-- **New analysis:** test-section window (PRD mount at centre) → Supporting context panel +
-  Run sheet panel, `1.3fr / 1fr`, top-aligned.
-- **Run report:** report window (title, summary, readout strip | manometer board) → three
-  evidence panels → Coverage panel as master–detail `1fr / 1.2fr`.
-- **Previous runs:** run log rows with a 12-tube coverage fingerprint per run.
-- **Knowledge base:** flow-conditioning window (honeycomb) → documents panel.
-
-The manometer board has a 540px minimum and scrolls inside its own container on narrow
-screens. Its root must carry `min-w-0` or it widens the parent grid and overflows the page.
+- **Desktop (≥1024px):** sticky glass capsule nav at the top; content max ~1200px. Results use a
+  three-column grid — 220px coverage-area sidebar, case list, detail pane.
+- **Tablet (768–1023px):** same capsule nav; results collapse to list + detail.
+- **Phone (<768px):** glass top bar (brand, name, sign out); bottom tab bar (Analyze / Runs /
+  Library) with safe-area padding; area filter becomes a horizontal chip rail; tapping a case
+  opens a full-screen sheet (Escape or Back closes; body scroll locks).
+- 16px phone gutter; no horizontal page scroll at 360px.
 
 ## Elevation & Depth
 
-Two depths. **Panels** sit on the facility with a hairline, an inner top highlight, and a
-soft drop (`0 10px 28px -16px` at 22% ink). **Windows** sit deeper (`0 28px 56px -28px` at
-55% ink) with a 1px smoke inner edge — glass set into a wall. Inside a window, depth is light:
-streamlines fade at the frame through a radial vignette, and the PRD card floats with a
-graphite moat ring.
-
-No glassmorphism, no gradient fields on daylight surfaces.
+Three shadows, all soft and low-contrast, tinted toward indigo at the far layer:
+- **window** — 1px contact + 28px mid + 72px indigo-tinted ambient. For windows.
+- **raised** — 1px + 16px. Pills, keycaps, small floating controls.
+- **select** — indigo-tinted lift under the selected row and primary button.
 
 ## Shapes
 
-Industrial and generous at scale: windows 12px, panels 8px, controls 6px, small tags 3px.
-The PRD mount is a 28px-radius capsule — the model on the sting. Manometer tubes are
-round-topped glass with a meniscus highlight; dry tubes have a dashed outline. Severity vials
-reuse the tube silhouette at 8×14px.
+Radii: 4 / 6 / 10 / 12 / 16 / 22 / full. Windows are 16px; rows and buttons 10px; pills and the
+capsule nav are full. Nested radii step down by the padding between them.
 
-Hazard banding (yellow/graphite, 45°) appears in exactly one place: the top edge of the
-run-in-progress window.
+## Motion
+
+All motion uses `--ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`); no bounce or elastic easing.
+- **rise** 560ms — windows and list rows arrive with a short upward fade, staggered per row.
+- **fade** 360ms, **pop** 360ms — overlays and sheets.
+- **draw** 900ms — the Flourish strokes itself once, 260ms after arrival.
+- **glide** — the selection highlight translates between rows instead of jumping.
+- **travel** — a dot moves down the run timeline during generation; **shimmer** on pending steps.
+- **breathe** — status dots while connecting or waking.
+- `prefers-reduced-motion: reduce` turns every animation and transition off.
 
 ## Components
 
-### Run button
-Safety yellow fill, ink text, 2px darker bottom edge, 48px tall. Disabled is a flat facility
-grey — never a faded yellow. Presses down 1px.
+### Window
+`src/components/bench/ui.tsx` — white, 16px radius, hairline border, window shadow, optional
+48px title bar with icon, title, and right-aligned controls.
 
-### Test window
-Graphite, 12px radius, 44px chrome bar (placard left, readouts right, rule beneath).
+### Capsule nav / bottom tabs
+`src/components/bench/AppShell.tsx` — desktop glass capsule with brand, three sections with
+count badges, server status, avatar, and sign-out; phone top bar + bottom tab bar.
 
-### Streamline field
-26–34 SVG paths displaced around a central body by `dy' = sign·√(dy² + H²·g(dx))` — smooth
-everywhere, no kinks — plus a decaying wake downstream. Dash pulses with a fixed 200-unit
-period loop seamlessly; golden-ratio phase offsets stop pulses aligning into columns.
-Speeds ×3.2 during a run. Static under `prefers-reduced-motion`.
+### Case list with gliding selection
+`useGlidingSelection` measures the `[data-selected='true']` row and positions one absolutely
+placed indigo highlight behind it.
 
-### Manometer board
-Twelve tubes in coverage-area order (plus "Other" for pre-enum runs). Fluid stacked High →
-Medium → Low from the bottom; height = case count on a shared scale. Fluids rise on arrival
-with a 45ms stagger. Each tube is a toggle that filters the case list, with a full spoken
-label ("Security: 2 cases — 1 high, 1 medium, 0 low"). Dry tubes are labelled as gaps.
+### Status pill
+Reports the backend's real state — Connecting / Server waking up / Server online / Server
+unreachable — so the free host's cold start is visible, not mysterious.
 
-### Tunnel lamp
-Grey checking → pulsing yellow "spinning up" (after 1.5s without a reply) → green online →
-red unreachable (after 2 minutes). Live region. Makes the free host's cold start honest.
+### Flourish
+An SVG path (pathLength 1) drawn once under one word on the sign-in and New analysis screens.
 
-### Rail item
-Icon tile, label, hint, mono count. Active: raised graphite, yellow-tinted icon tile, a lit
-6px lamp, yellow count badge.
-
-### Coverage list and procedure
-Mono case IDs, severity vial + label, coverage area in semi-condensed. Procedure steps are
-numbered mono circles joined by a vertical rail.
+### Kbd
+Keycaps appear only next to shortcuts that actually work.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep reading on daylight panels and put the product's moments in graphite windows.
-- **Do** use yellow as paint: one run button per surface, or an engaged lamp on graphite.
-- **Do** pair every severity hue with fill height.
-- **Do** scale emphasis through Archivo's width axis before reaching for size.
-- **Do** give any grid child containing a min-width instrument `min-w-0`.
-- **Do** keep the metaphor mapped to real behaviour — every instrument shows real data.
+- Put working content in windows with a title bar; keep the ground empty.
+- Use indigo for exactly one primary action per view.
+- Respect safe areas on phones and give every tap target ≥40px.
+- Show the server state wherever a user might be waiting on it.
 
 ### Don't:
-- **Don't** set yellow text on a light ground.
-- **Don't** invent progress: the run shows a real elapsed clock, not a percentage.
-- **Don't** put a placard above a heading as a kicker.
-- **Don't** use mono for prose.
-- **Don't** add glass, neon glows, or gradient text.
-- **Don't** reintroduce flat, borderless minimalism — that is the world this replaced.
+- Don't add a second accent colour, gradients on text, or neon-on-dark.
+- Don't use decorative grids, streamlines, or metaphor art — the product is the picture.
+- Don't nest cards, add coloured side-stripes, or use bounce easing.
+- Don't show a keyboard hint for a shortcut that doesn't exist, or on touch-only layouts.

@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-10-22 — Visual system replaced: "The Workbench"
+
+"The Test Section" was judged off the point. The product owner pinned **lineaprompt.com** as
+the reference, asked for animation, and asked for a genuinely mobile-friendly, compatible
+build. Implements [ADR-0012](docs/decisions/0012-visual-system-workbench.md), which supersedes
+ADR-0011. The pin overrode direction roll `e85e233b`.
+
+**The world**
+- Cool blue-grey ground with soft light; white windows with title bars on deep soft shadows.
+- One indigo accent (`#32389F`) for the primary action, focus, and solid row selection.
+- The platform's own typeface (SF Pro / Segoe UI Variable / Roboto) replaces Archivo; IBM Plex
+  Mono replaces JetBrains Mono for measurements. New indigo brand mark and favicon.
+
+**Interaction and motion**
+- Selection highlight glides between rows; `↑`/`↓`/`j`/`k` move through cases; `⌘↵`/`Ctrl↵`
+  generates. Keycaps appear only beside shortcuts that work.
+- Hand-drawn underline drawn once on sign-in and New analysis; staggered window/row arrival;
+  a traveling dot and shimmer on the run timeline; breathing status dots.
+- One ease-out curve everywhere; no bounce. Everything off under `prefers-reduced-motion`.
+
+**Mobile and compatibility**
+- Phone layout: glass top bar, bottom tab bar (Analyze / Runs / Library) with safe-area
+  padding, coverage chip rail, full-screen case sheet (Escape/back closes, scroll locks).
+- `100dvh`, `-webkit-text-size-adjust`, `backdrop-filter` with a solid fallback; no horizontal
+  scroll at 360px.
+
+**Removed:** `src/components/tunnel/*` (streamline field, manometer board, primitives, brand
+mark) and `src/components/AppSidebar.tsx`. New: `src/components/bench/`.
+
+**Docs:** DESIGN.md and `.impeccable/design.json` rewritten; ADR-0012 added, ADR-0011 marked
+superseded; README, CONTEXT, DECISIONS, PRODUCT updated. No behaviour, storage, auth, or API
+changes.
+
 ## 2026-10-22 — Visual system replaced: "The Test Section"
 
 The previous design ("The Specification Binder") was judged too basic. Every pin was released

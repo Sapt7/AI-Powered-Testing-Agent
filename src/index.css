@@ -1,93 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
- * THE TEST SECTION
+ * THE WORKBENCH
  *
- * A wind-tunnel facility. Daylight working surfaces in painted-concrete grey,
- * graphite test-section windows where the flow is made visible, safety yellow
- * on the one control that starts a run, and manometer fluids for severity.
+ * A native-app product language: a cool blue-grey ground lit from the top
+ * left, crisp white windows floating on deep soft shadows, the platform's own
+ * typeface set bold and tight, one indigo accent, and mono for working content.
  */
 @layer base {
   :root {
-    /* Facility — the working daylight surfaces */
-    --facility: 90 7% 91%;
-    --facility-deep: 90 6% 86%;
-    --panel: 80 14% 97%;
-    --line: 90 7% 82%;
-    --line-strong: 90 5% 70%;
+    /* Ground */
+    --ground: 207 46% 95%;
+    --ground-deep: 208 34% 91%;
 
-    /* Graphite — test-section glass and the instrument rail */
-    --graphite: 216 15% 9%;
-    --graphite-2: 214 14% 13%;
-    --graphite-3: 214 13% 18%;
-    --graphite-line: 213 12% 24%;
+    /* Windows */
+    --window: 0 0% 100%;
+    --window-sunk: 210 33% 98%;
+    --hairline: 215 35% 9% / 0.08;
+    --hairline-strong: 215 35% 9% / 0.14;
 
     /* Ink */
-    --ink: 216 20% 8%;
-    --ink-2: 215 11% 26%;
-    --ink-3: 215 8% 36%;
+    --ink: 217 42% 9%;
+    --ink-2: 217 18% 30%;
+    --ink-3: 217 11% 43%;
 
-    /* Smoke — streamlines and type on graphite */
-    --flow: 210 35% 95%;
-    --flow-2: 212 16% 74%;
-    --flow-3: 213 12% 58%;
+    /* Indigo — the accent and the selection */
+    --indigo: 237 52% 41%;
+    --indigo-deep: 237 55% 33%;
+    --indigo-soft: 236 70% 96%;
+    --indigo-line: 236 60% 86%;
 
-    /* Safety yellow — the start-a-run signal. Fill only; never text on light. */
-    --safety: 46 92% 53%;
-    --safety-deep: 45 100% 43%;
+    /* Status */
+    --ok: 152 60% 38%;
 
-    /* Manometer fluids — severity. Fill values for tubes and marks,
-       text values tuned to clear 4.5:1 on the facility ground. */
-    --fluid-high: 6 74% 53%;
-    --fluid-med: 37 82% 51%;
-    --fluid-low: 211 66% 51%;
-    --fluid-high-text: 4 76% 40%;
-    --fluid-med-text: 33 100% 29%;
-    --fluid-low-text: 213 70% 38%;
+    /* Severity */
+    --sev-high: 4 72% 47%;
+    --sev-high-bg: 4 90% 96%;
+    --sev-med: 30 92% 34%;
+    --sev-med-bg: 38 96% 93%;
+    --sev-low: 200 70% 33%;
+    --sev-low-bg: 200 80% 95%;
 
-    /* shadcn surface, mapped onto the facility */
-    --background: var(--facility);
+    /* shadcn surface, mapped onto the workbench */
+    --background: var(--ground);
     --foreground: var(--ink);
-    --card: var(--panel);
+    --card: var(--window);
     --card-foreground: var(--ink);
-    --popover: var(--panel);
+    --popover: var(--window);
     --popover-foreground: var(--ink);
-    --primary: var(--safety);
-    --primary-foreground: var(--ink);
-    --secondary: var(--facility-deep);
+    --primary: var(--indigo);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--window-sunk);
     --secondary-foreground: var(--ink-2);
-    --muted: var(--facility-deep);
+    --muted: var(--window-sunk);
     --muted-foreground: var(--ink-3);
-    --accent: var(--facility-deep);
-    --accent-foreground: var(--ink);
-    --destructive: var(--fluid-high-text);
+    --accent: var(--indigo-soft);
+    --accent-foreground: var(--indigo-deep);
+    --destructive: var(--sev-high);
     --destructive-foreground: 0 0% 100%;
-    --border: var(--line);
-    --input: var(--line-strong);
-    /* Ink, not yellow: a yellow ring fails 3:1 against the light ground. */
-    --ring: var(--ink);
-    --radius: 6px;
+    --border: 214 24% 88%;
+    --input: 214 20% 82%;
+    --ring: var(--indigo);
+    --radius: 10px;
 
-    --sidebar-background: var(--graphite);
-    --sidebar-foreground: var(--flow-2);
-    --sidebar-primary: var(--safety);
-    --sidebar-primary-foreground: var(--ink);
-    --sidebar-accent: var(--graphite-3);
-    --sidebar-accent-foreground: var(--flow);
-    --sidebar-border: var(--graphite-line);
-    --sidebar-ring: var(--safety);
-
-    --shadow-panel: inset 0 1px 0 hsl(0 0% 100% / 0.7), 0 1px 2px hsl(216 20% 8% / 0.06),
-      0 10px 28px -16px hsl(216 20% 8% / 0.22);
-    --shadow-window: inset 0 0 0 1px hsl(210 35% 95% / 0.05),
-      0 28px 56px -28px hsl(216 20% 8% / 0.55), 0 2px 6px hsl(216 20% 8% / 0.12);
+    --shadow-window: 0 1px 2px hsl(217 42% 9% / 0.04), 0 10px 28px -10px hsl(217 42% 9% / 0.12),
+      0 36px 72px -28px hsl(237 52% 41% / 0.2);
+    --shadow-raised: 0 1px 2px hsl(217 42% 9% / 0.05), 0 6px 16px -8px hsl(217 42% 9% / 0.14);
+    --shadow-select: 0 1px 2px hsl(237 52% 25% / 0.3), 0 8px 18px -8px hsl(237 52% 41% / 0.55);
 
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --flow-speed: 1;
+
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
 
@@ -98,148 +85,210 @@
 
   html {
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
+  /*
+   * The platform's own face: SF Pro on Apple devices, Segoe UI Variable on
+   * Windows, Roboto on Android. A native-app language should feel native on
+   * every device it opens on — that is also what makes it compatible.
+   */
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-variation-settings: 'wdth' 100;
+    @apply text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI',
+      Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    background-color: hsl(var(--ground));
+    background-image:
+      linear-gradient(135deg, hsl(0 0% 100% / 0.8), transparent 34%),
+      radial-gradient(940px 560px at 16% -4%, hsl(0 0% 100% / 0.9), transparent 60%),
+      radial-gradient(780px 520px at 92% 14%, hsl(236 70% 92% / 0.55), transparent 62%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
+
 
   ::selection {
-    background: hsl(var(--safety) / 0.55);
-    color: hsl(var(--ink));
+    background: hsl(var(--indigo) / 0.18);
   }
 }
 
 @layer utilities {
-  /* Archivo's width axis is the type system: condensed placards, normal text,
-     expanded wall lettering — one family scaled like facility signage. */
-  .w-condensed {
-    font-variation-settings: 'wdth' 68;
-  }
-  .w-semi-condensed {
-    font-variation-settings: 'wdth' 84;
-  }
-  .w-expanded {
-    font-variation-settings: 'wdth' 118;
-  }
-  .w-ultra {
-    font-variation-settings: 'wdth' 125;
+  .font-display {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI Variable Display', 'Segoe UI',
+      Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
 
   .font-mono-data {
-    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
     font-variant-numeric: tabular-nums;
-    font-feature-settings: 'zero' 1;
   }
 
   .tnum {
     font-variant-numeric: tabular-nums;
   }
 
-  /* Placard: a stencilled facility label. Marks a region or an instrument;
-     it never sits above a heading as an introduction. */
-  .placard {
-    font-variation-settings: 'wdth' 68;
-    font-size: 0.6875rem;
-    font-weight: 650;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    line-height: 1;
-  }
-
-  .shadow-panel {
-    box-shadow: var(--shadow-panel);
-  }
   .shadow-window {
     box-shadow: var(--shadow-window);
   }
+  .shadow-raised {
+    box-shadow: var(--shadow-raised);
+  }
+  .shadow-select {
+    box-shadow: var(--shadow-select);
+  }
 
-  /* Hazard banding — reserved for the run-in-progress barrier. */
-  .hazard-band {
-    background-image: repeating-linear-gradient(
-      -45deg,
-      hsl(var(--safety)) 0 10px,
-      hsl(var(--graphite)) 10px 20px
+  .hairline {
+    border-color: hsl(var(--hairline));
+  }
+  .hairline-strong {
+    border-color: hsl(var(--hairline-strong));
+  }
+
+  /* Floating nav glass: a real effect — content scrolls beneath it. */
+  .glass {
+    background-color: hsl(0 0% 100% / 0.72);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    backdrop-filter: saturate(180%) blur(18px);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background-color: hsl(0 0% 100% / 0.96);
+    }
+  }
+
+  .pb-safe {
+    padding-bottom: calc(var(--safe-bottom) + 0.5rem);
+  }
+  .bottom-safe-nav {
+    padding-bottom: calc(var(--safe-bottom) + 5.5rem);
+  }
+
+  /* ---- Motion ---- */
+
+  .rise {
+    animation: rise 560ms var(--ease-out) both;
+  }
+  .fade {
+    animation: fade 360ms var(--ease-out) both;
+  }
+  .pop {
+    animation: pop 360ms var(--ease-out) both;
+  }
+  .draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 900ms var(--ease-out) 260ms forwards;
+  }
+  .glide {
+    transition:
+      transform 360ms var(--ease-out),
+      height 360ms var(--ease-out),
+      opacity 200ms ease;
+  }
+  .travel {
+    animation: travel 1.8s var(--ease-out) infinite;
+  }
+  .breathe {
+    animation: breathe 1.8s ease-in-out infinite;
+  }
+  .shimmer {
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      hsl(var(--indigo) / 0.12) 50%,
+      transparent 80%
     );
+    background-size: 220% 100%;
+    animation: shimmer 2.2s linear infinite;
   }
 
-  /* Faint concrete-form texture on the facility ground: the board seams of a
-     poured wall, at a scale that never competes with content. */
-  .facility-ground {
-    background-color: hsl(var(--facility));
-    background-image: linear-gradient(hsl(var(--line) / 0.16) 1px, transparent 1px);
-    background-size: 100% 96px;
-  }
-
-  /* Honeycomb flow-straightener — the knowledge base literally conditions the flow. */
-  .honeycomb {
-    background-color: hsl(var(--graphite-2));
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48.5' viewBox='0 0 28 48.5'%3E%3Cpath d='M14 0 L28 8.1 L28 24.2 L14 32.3 L0 24.2 L0 8.1 Z M14 32.3 L14 48.5 M0 24.2 L0 40.4 L14 48.5 M28 24.2 L28 40.4 L14 48.5' fill='none' stroke='%23e9eef5' stroke-opacity='0.09' stroke-width='1'/%3E%3C/svg%3E");
-    background-size: 28px 48.5px;
-  }
-
-  .streamline {
-    animation: flow-dash calc(var(--dur, 14s) / var(--flow-speed)) linear infinite;
-  }
-
-  .fluid-rise {
-    animation: fluid-rise 900ms var(--ease-out) both;
-    transform-origin: bottom;
-  }
-
-  .enter {
-    animation: enter 420ms var(--ease-out) both;
-  }
-
-  .lamp-pulse {
-    animation: lamp-pulse 1.6s ease-in-out infinite;
-  }
-
-  @keyframes flow-dash {
-    to {
-      stroke-dashoffset: -400;
-    }
-  }
-
-  @keyframes fluid-rise {
+  @keyframes rise {
     from {
-      transform: scaleY(0);
-    }
-    to {
-      transform: scaleY(1);
-    }
-  }
-
-  @keyframes enter {
-    from {
-      opacity: 0.4;
-      transform: translateY(6px);
+      opacity: 0;
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
       transform: none;
     }
   }
-
-  @keyframes lamp-pulse {
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes travel {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(var(--travel, 120px));
+      opacity: 0;
+    }
+  }
+  @keyframes breathe {
     0%,
     100% {
       opacity: 1;
+      transform: scale(1);
     }
     50% {
-      opacity: 0.35;
+      opacity: 0.45;
+      transform: scale(0.82);
+    }
+  }
+  @keyframes shimmer {
+    from {
+      background-position: 120% 0;
+    }
+    to {
+      background-position: -120% 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .streamline,
-    .fluid-rise,
-    .enter,
-    .lamp-pulse {
+    .rise,
+    .fade,
+    .pop,
+    .travel,
+    .breathe,
+    .shimmer {
       animation: none;
+    }
+    .draw {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+    .glide {
+      transition: none;
     }
   }
 }

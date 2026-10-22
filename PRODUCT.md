@@ -76,7 +76,7 @@ Supporting this: generation is schema-validated rather than free-text, with an a
 
 **Name: AI Powered Testing Agent** — set by the product owner on 2026-10-22, replacing the earlier inconsistent "Test Case Generator" / "QA Test Generator". Used in the browser title, sign-in, and the instrument rail.
 
-The visual identity is "The Test Section" (a wind-tunnel facility) — see DESIGN.md. The brand mark is three streamlines parting around a body on safety yellow.
+The visual identity is "The Workbench" (a native-app product language) — see DESIGN.md. The brand mark is a checked test row on an indigo tile.
 
 ## Evidence on Hand
 

@@ -1,320 +1,182 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-22T08:30:02.074Z",
+  "generatedAt": "2026-10-22T12:19:04.964491Z",
   "title": "Design System: AI Powered Testing Agent",
   "extensions": {
     "colorMeta": {
-      "safety": {
+      "indigo": {
         "role": "primary",
-        "displayName": "Safety Yellow",
-        "canonical": "hsl(46 92% 53%)",
+        "displayName": "Indigo",
+        "canonical": "hsl(237 52% 41%)",
         "tonalRamp": [
-          "#3D2F02",
-          "#6B5203",
-          "#9C7804",
-          "#DBA400",
-          "#F5C219",
-          "#F8D45C",
-          "#FBE6A0",
-          "#FEF7E1"
+          "#0F102F",
+          "#1B1E55",
+          "#282D80",
+          "#32389F",
+          "#5157C8",
+          "#9296DD",
+          "#D0D2F0",
+          "#EFF0FA"
         ]
       },
-      "graphite": {
+      "ground": {
         "role": "neutral",
-        "displayName": "Graphite",
-        "canonical": "hsl(216 15% 9%)",
+        "displayName": "Ground",
+        "canonical": "hsl(207 46% 95%)",
         "tonalRamp": [
-          "#0B0C0F",
-          "#14161A",
-          "#1D2126",
-          "#282D34",
-          "#363C45",
-          "#5A6370",
-          "#9AA3AF",
-          "#E3E6EA"
-        ]
-      },
-      "facility": {
-        "role": "neutral",
-        "displayName": "Facility",
-        "canonical": "hsl(90 7% 91%)",
-        "tonalRamp": [
-          "#2F312C",
-          "#565951",
-          "#7E8277",
-          "#B3B6AF",
-          "#D1D4CE",
-          "#DBDDD9",
-          "#E8EAE6",
-          "#F8F8F6"
+          "#152028",
+          "#273A49",
+          "#3B576D",
+          "#496C88",
+          "#6A90AF",
+          "#A2BACD",
+          "#D7E1EA",
+          "#F2F5F8"
         ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
-        "canonical": "hsl(216 20% 8%)",
+        "canonical": "hsl(217 42% 9%)",
         "tonalRamp": [
-          "#101418",
-          "#22272E",
-          "#3C4149",
-          "#595B5F",
-          "#7B8088",
-          "#A3A8AF",
-          "#CDD0D4",
-          "#EEF0F2"
+          "#191D24",
+          "#2E3642",
+          "#455163",
+          "#56647B",
+          "#7887A1",
+          "#ABB5C4",
+          "#DBDFE6",
+          "#F3F4F7"
         ]
       },
-      "flow": {
-        "role": "neutral",
-        "displayName": "Smoke",
-        "canonical": "hsl(210 35% 95%)",
+      "severity-high": {
+        "role": "semantic",
+        "displayName": "Severity High",
+        "canonical": "hsl(4 72% 47%)",
         "tonalRamp": [
-          "#2A3440",
-          "#4A5868",
-          "#6B7A8B",
-          "#8793A1",
-          "#B2BCC7",
-          "#D0D7DF",
-          "#E3E8EF",
-          "#EEF2F7"
+          "#350C09",
+          "#601510",
+          "#912018",
+          "#B4271D",
+          "#DF453A",
+          "#EB8B84",
+          "#F6CDCA",
+          "#FCEEED"
         ]
       },
-      "fluid-high": {
-        "role": "tertiary",
-        "displayName": "Fluid High",
-        "canonical": "hsl(6 74% 53%)",
+      "severity-medium": {
+        "role": "semantic",
+        "displayName": "Severity Medium",
+        "canonical": "hsl(30 92% 34%)",
         "tonalRamp": [
-          "#3D0D07",
-          "#6E180E",
-          "#B42318",
-          "#E0402E",
-          "#E86A5B",
-          "#F09A8F",
-          "#F7C8C2",
-          "#FDEDEB"
+          "#3B1F02",
+          "#6C3804",
+          "#A25407",
+          "#C96908",
+          "#F68C23",
+          "#F9B876",
+          "#FDE0C4",
+          "#FEF5EB"
         ]
       },
-      "fluid-med": {
-        "role": "tertiary",
-        "displayName": "Fluid Medium",
-        "canonical": "hsl(37 82% 51%)",
+      "severity-low": {
+        "role": "semantic",
+        "displayName": "Severity Low",
+        "canonical": "hsl(200 70% 33%)",
         "tonalRamp": [
-          "#3A2302",
-          "#663D03",
-          "#945100",
-          "#E99A1C",
-          "#EEB04E",
-          "#F3C984",
-          "#F9E1BC",
-          "#FDF4E6"
+          "#092634",
+          "#11455F",
+          "#19688F",
+          "#1F81B2",
+          "#3CA7DD",
+          "#86C8EA",
+          "#CBE8F6",
+          "#EEF7FC"
         ]
       },
-      "fluid-low": {
-        "role": "tertiary",
-        "displayName": "Fluid Low",
-        "canonical": "hsl(211 66% 51%)",
+      "ok": {
+        "role": "semantic",
+        "displayName": "OK",
+        "canonical": "hsl(152 60% 38%)",
         "tonalRamp": [
-          "#0A1E36",
-          "#13365F",
-          "#1D5AA5",
-          "#307FD5",
-          "#5E9DE0",
-          "#8FBBEA",
-          "#C2DBF4",
-          "#EAF2FC"
+          "#0C3120",
+          "#165A3A",
+          "#228758",
+          "#2AA76D",
+          "#47D191",
+          "#8DE2BA",
+          "#CEF3E2",
+          "#EFFBF5"
         ]
       }
     },
     "typographyMeta": {
-      "hero": {
-        "displayName": "Hero",
-        "purpose": "Product name on sign-in only. Archivo wdth 125."
-      },
       "display": {
-        "displayName": "Display",
-        "purpose": "Page titles. Archivo wdth 125."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Generated feature name in a run report."
-      },
-      "title": {
-        "displayName": "Title",
-        "purpose": "Selected test case."
+        "family": "System UI (SF Pro Display / Segoe UI Variable / Roboto)",
+        "role": "headings"
       },
       "body": {
-        "displayName": "Body",
-        "purpose": "Running copy; measure ≤ 68ch."
-      },
-      "placard": {
-        "displayName": "Placard",
-        "purpose": "Condensed facility labels on instruments and regions; never a kicker."
+        "family": "System UI (SF Pro Text / Segoe UI Variable / Roboto)",
+        "role": "text"
       },
       "data": {
-        "displayName": "Data",
-        "purpose": "JetBrains Mono for case IDs, counts, timers, sizes, dates."
+        "family": "IBM Plex Mono",
+        "role": "measurements",
+        "source": "Google Fonts"
       }
     },
-    "shadows": [
-      {
-        "name": "panel",
-        "value": "inset 0 1px 0 hsl(0 0% 100% / 0.7), 0 1px 2px hsl(216 20% 8% / 0.06), 0 10px 28px -16px hsl(216 20% 8% / 0.22)",
-        "purpose": "Daylight panels on the facility ground."
-      },
-      {
-        "name": "window",
-        "value": "inset 0 0 0 1px hsl(210 35% 95% / 0.05), 0 28px 56px -28px hsl(216 20% 8% / 0.55), 0 2px 6px hsl(216 20% 8% / 0.12)",
-        "purpose": "Graphite test-section windows set into the wall."
-      }
-    ],
-    "motion": [
-      {
-        "name": "flow",
-        "value": "stroke-dashoffset -400 over 11–20s, linear, ×3.2 during a run",
-        "purpose": "Smoke streamlines. 200-unit dash period loops seamlessly."
-      },
-      {
-        "name": "fluid-rise",
-        "value": "900ms cubic-bezier(0.16,1,0.3,1), 45ms stagger",
-        "purpose": "Manometer fluids rising when a run report arrives."
-      },
-      {
-        "name": "enter",
-        "value": "420ms cubic-bezier(0.16,1,0.3,1)",
-        "purpose": "Windows and panels settling on view change."
-      },
-      {
-        "name": "lamp",
-        "value": "1.6s ease-in-out infinite",
-        "purpose": "Tunnel lamp while checking or spinning up."
-      }
-    ],
-    "breakpoints": [
-      {
-        "name": "sm",
-        "value": "640px"
-      },
-      {
-        "name": "md",
-        "value": "768px"
-      },
-      {
-        "name": "lg",
-        "value": "1024px"
-      },
-      {
-        "name": "xl",
-        "value": "1280px"
-      }
-    ]
-  },
-  "components": [
-    {
-      "name": "Run Button",
-      "kind": "button",
-      "refersTo": "button-run",
-      "description": "Safety-yellow fill: the one control that starts a run. Disabled is flat facility grey.",
-      "html": "<button class=\"ds-run\">Generate coverage</button> <button class=\"ds-run\" disabled>Generate coverage</button>",
-      "css": ".ds-run{height:48px;padding:0 24px;margin-right:8px;border:0;border-radius:6px;background:#F5C219;color:#101418;font:600 14px Archivo,system-ui,sans-serif;box-shadow:inset 0 -2px 0 #DBA400,0 1px 2px rgba(16,20,24,.15);cursor:pointer;transition:background-color .15s,transform .15s}.ds-run:hover:not(:disabled){background:#F7CC3A}.ds-run:active{transform:translateY(1px)}.ds-run:focus-visible{outline:none;box-shadow:0 0 0 2px #E8EAE6,0 0 0 4px #101418}.ds-run:disabled{background:#DBDDD9;color:#595B5F;box-shadow:none;cursor:default}"
+    "shadows": {
+      "window": "0 1px 2px hsl(217 42% 9% / 0.04), 0 10px 28px -10px hsl(217 42% 9% / 0.12), 0 36px 72px -28px hsl(237 52% 41% / 0.2)",
+      "raised": "0 1px 2px hsl(217 42% 9% / 0.05), 0 6px 16px -8px hsl(217 42% 9% / 0.14)",
+      "select": "0 1px 2px hsl(237 52% 25% / 0.3), 0 8px 18px -8px hsl(237 52% 41% / 0.55)"
     },
-    {
-      "name": "Test Window",
-      "kind": "card",
-      "refersTo": "test-window",
-      "description": "Graphite window with instrument chrome: placard, readouts, rule.",
-      "html": "<section class=\"ds-win\"><div class=\"ds-win-bar\"><span class=\"ds-placard\">Test section · Source document</span><span class=\"ds-lamp\"><i></i>Tunnel online</span></div><div class=\"ds-win-body\">Mount a PRD here.</div></section>",
-      "css": ".ds-win{border:1px solid #363C45;border-radius:12px;background:#14161A;color:#EEF2F7;overflow:hidden;box-shadow:0 28px 56px -28px rgba(16,20,24,.55)}.ds-win-bar{display:flex;align-items:center;min-height:44px;padding:0 20px;border-bottom:1px solid rgba(238,242,247,.08)}.ds-placard{font:650 11px Archivo,sans-serif;font-variation-settings:\"wdth\" 68;letter-spacing:.09em;text-transform:uppercase;color:#8793A1}.ds-lamp{margin-left:auto;display:flex;align-items:center;gap:8px;font:400 12px Archivo,sans-serif;color:#B2BCC7}.ds-lamp i{width:8px;height:8px;border-radius:50%;background:#2EBD6B}.ds-win-body{padding:48px 20px;text-align:center;font:400 14px Archivo,sans-serif;color:#B2BCC7}"
+    "motion": {
+      "easing": {
+        "out": "cubic-bezier(0.16, 1, 0.3, 1)"
+      },
+      "durations": {
+        "rise": "560ms",
+        "fade": "360ms",
+        "pop": "360ms",
+        "draw": "900ms"
+      },
+      "reducedMotion": "all animation and transition disabled"
     },
-    {
-      "name": "Manometer Tube",
-      "kind": "custom",
-      "refersTo": "test-window",
-      "description": "One coverage area. Fluid stacked High/Medium/Low by case count; dry tubes are coverage gaps.",
-      "html": "<div class=\"ds-mano\"><div class=\"ds-tube\"><b>4</b><span class=\"ds-glass\"><span class=\"ds-fluid\" style=\"height:80%\"><i class=\"l\" style=\"flex:1\"></i><i class=\"m\" style=\"flex:2\"></i><i class=\"h\" style=\"flex:1\"></i></span></span><em>Validation</em></div><div class=\"ds-tube dry\"><b>0</b><span class=\"ds-glass\"></span><em>Accessibility</em></div></div>",
-      "css": ".ds-mano{display:flex;gap:10px;padding:16px;background:#14161A;border-radius:12px}.ds-tube{display:flex;flex-direction:column;align-items:center;width:40px}.ds-tube b{font:500 12px \"JetBrains Mono\",monospace;color:#EEF2F7;margin-bottom:6px}.ds-tube.dry b{color:#8793A1}.ds-glass{position:relative;display:block;width:34px;height:140px;border:1px solid rgba(238,242,247,.2);border-radius:999px 999px 10px 10px;background:rgba(20,22,26,.8);overflow:hidden}.ds-tube.dry .ds-glass{border-style:dashed;border-color:rgba(238,242,247,.12)}.ds-fluid{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column}.ds-fluid i{display:block}.ds-fluid .h{background:#E0402E}.ds-fluid .m{background:#E99A1C}.ds-fluid .l{background:#307FD5}.ds-tube em{margin-top:10px;writing-mode:vertical-rl;transform:rotate(180deg);font:650 11px Archivo,sans-serif;font-style:normal;font-variation-settings:\"wdth\" 68;letter-spacing:.09em;text-transform:uppercase;color:#B2BCC7}"
-    },
-    {
-      "name": "Severity Vial",
-      "kind": "chip",
-      "refersTo": "panel",
-      "description": "Hue names the level; fill height repeats it.",
-      "html": "<span class=\"ds-sev\"><i style=\"--f:100%;--c:#E0402E\"></i><b style=\"color:#B42318\">High</b></span><span class=\"ds-sev\"><i style=\"--f:62%;--c:#E99A1C\"></i><b style=\"color:#945100\">Medium</b></span><span class=\"ds-sev\"><i style=\"--f:30%;--c:#307FD5\"></i><b style=\"color:#1D5AA5\">Low</b></span>",
-      "css": ".ds-sev{display:inline-flex;align-items:center;gap:6px;margin-right:14px}.ds-sev i{position:relative;width:8px;height:14px;border:1px solid rgba(16,20,24,.25);border-radius:999px 999px 3px 3px;background:#F8F8F6;overflow:hidden}.ds-sev i::after{content:\"\";position:absolute;left:0;right:0;bottom:0;height:var(--f);background:var(--c)}.ds-sev b{font:600 11px Archivo,sans-serif;font-variation-settings:\"wdth\" 84;letter-spacing:.05em;text-transform:uppercase}"
-    },
-    {
-      "name": "Rail Item",
-      "kind": "nav",
-      "refersTo": "rail-item-active",
-      "description": "Instrument-panel navigation. Active: raised graphite, yellow-tinted icon tile, lit lamp.",
-      "html": "<nav class=\"ds-rail\"><a class=\"ds-ri on\"><span class=\"t\">◉</span><span><b>New analysis</b><small>Mount a PRD and run it</small></span><i></i></a><a class=\"ds-ri\"><span class=\"t\">◷</span><span><b>Previous runs</b><small>The run log</small></span><em>2</em></a></nav>",
-      "css": ".ds-rail{display:flex;flex-direction:column;gap:4px;padding:10px;background:#14161A;border-radius:12px;width:240px}.ds-ri{position:relative;display:flex;align-items:center;gap:12px;padding:10px;border-radius:6px;color:#B2BCC7;font-family:Archivo,sans-serif;text-decoration:none;cursor:pointer}.ds-ri:hover{background:#1D2126;color:#EEF2F7}.ds-ri.on{background:#282D34;color:#EEF2F7}.ds-ri .t{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;border:1px solid rgba(238,242,247,.1);background:#1D2126}.ds-ri.on .t{border-color:rgba(245,194,25,.4);background:rgba(245,194,25,.12);color:#F5C219}.ds-ri b{display:block;font-size:13px;font-weight:600}.ds-ri small{display:block;font-size:12px;color:#8793A1}.ds-ri em{margin-left:auto;font:500 11px \"JetBrains Mono\",monospace;font-style:normal;padding:2px 6px;border-radius:3px;background:#1D2126}.ds-ri i{position:absolute;right:6px;top:6px;width:6px;height:6px;border-radius:50%;background:#F5C219;box-shadow:0 0 6px #F5C219}"
-    },
-    {
-      "name": "Panel",
-      "kind": "card",
-      "refersTo": "panel",
-      "description": "Daylight working panel with a placard header.",
-      "html": "<section class=\"ds-panel\"><div class=\"ds-ph\"><span class=\"ds-pl\">Run sheet</span></div><div class=\"ds-row\"><span class=\"ds-pl\">Coverage areas</span><span class=\"ds-v\">12</span></div></section>",
-      "css": ".ds-panel{border:1px solid #D1D4CE;border-radius:8px;background:#F8F8F6;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 10px 28px -16px rgba(16,20,24,.22)}.ds-ph{min-height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid #D1D4CE}.ds-pl{font:650 11px Archivo,sans-serif;font-variation-settings:\"wdth\" 68;letter-spacing:.09em;text-transform:uppercase;color:#595B5F}.ds-row{display:flex;justify-content:space-between;align-items:center;padding:12px 20px}.ds-v{font:500 13px \"JetBrains Mono\",monospace;color:#101418}"
+    "breakpoints": {
+      "phone": "<768px",
+      "tablet": "768px",
+      "desktop": "1024px"
     }
-  ],
+  },
+  "components": {
+    "window": {
+      "file": "src/components/bench/ui.tsx"
+    },
+    "pill": {
+      "file": "src/components/bench/ui.tsx"
+    },
+    "status-pill": {
+      "file": "src/components/bench/ui.tsx"
+    },
+    "flourish": {
+      "file": "src/components/bench/ui.tsx"
+    },
+    "kbd": {
+      "file": "src/components/bench/ui.tsx"
+    },
+    "app-shell": {
+      "file": "src/components/bench/AppShell.tsx"
+    },
+    "case-explorer": {
+      "file": "src/components/TestCaseExplorer.tsx"
+    },
+    "button": {
+      "file": "src/components/ui/button.tsx"
+    }
+  },
   "narrative": {
-    "northStar": "The Test Section",
-    "overview": "Testing a PRD is a wind-tunnel run. The document is the model on the sting; the knowledge base is the honeycomb that conditions the flow; generation is the run, with smoke streamlines made visible; and the result is read off a manometer board that shows which coverage areas are full, thin, or dry. Daylight panels for reading, graphite windows for the product's moments.",
-    "keyCharacteristics": [
-      "Daylight panels for reading; graphite windows for the product's moments",
-      "Live SVG streamlines that part around a mounted PRD and speed up during a run",
-      "The manometer board: coverage gaps visible before a single case is read",
-      "Archivo across its width axis as the whole type system; mono only for measurements",
-      "Safety yellow as a fill for the one control that starts a run, and as the engaged indicator on graphite"
-    ],
-    "rules": [
-      {
-        "name": "The Two Lights Rule",
-        "body": "A surface is a daylight panel or a graphite window.",
-        "section": "colors"
-      },
-      {
-        "name": "The Yellow Is Paint Rule",
-        "body": "Yellow is a fill or a lamp, never running text on a light ground. One yellow-filled control per surface, and it starts a run.",
-        "section": "colors"
-      },
-      {
-        "name": "The Fluid Rule",
-        "body": "Red, amber, blue mean High, Medium, Low — always paired with fill height.",
-        "section": "colors"
-      },
-      {
-        "name": "The Width Axis Rule",
-        "body": "Emphasis changes width and weight before it changes size.",
-        "section": "typography"
-      },
-      {
-        "name": "The Placard Rule",
-        "body": "Placards label instruments and regions; never a kicker above a heading.",
-        "section": "typography"
-      },
-      {
-        "name": "The Measurement Rule",
-        "body": "Mono for what is measured or identified. Prose is never mono.",
-        "section": "typography"
-      }
-    ],
-    "dos": [
-      "Do keep reading on daylight panels and put the product's moments in graphite windows.",
-      "Do use yellow as paint: one run button per surface, or an engaged lamp on graphite.",
-      "Do pair every severity hue with fill height.",
-      "Do scale emphasis through Archivo's width axis before reaching for size.",
-      "Do give any grid child containing a min-width instrument min-w-0.",
-      "Do keep the metaphor mapped to real behaviour — every instrument shows real data."
-    ],
-    "donts": [
-      "Don't set yellow text on a light ground.",
-      "Don't invent progress: the run shows a real elapsed clock, not a percentage.",
-      "Don't put a placard above a heading as a kicker.",
-      "Don't use mono for prose.",
-      "Don't add glass, neon glows, or gradient text.",
-      "Don't reintroduce flat, borderless minimalism — that is the world this replaced."
-    ]
+    "northStar": "The Workbench",
+    "summary": "A native-app product language: cool blue-grey ground, white windows on deep soft shadows, the platform typeface, one indigo accent with solid gliding selection, IBM Plex Mono for measurements. Brief-pinned to lineaprompt.com; roll e85e233b overridden.",
+    "supersedes": "The Test Section"
   }
 }

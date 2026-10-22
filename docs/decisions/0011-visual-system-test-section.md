@@ -1,6 +1,6 @@
 # 0011 — Visual system: "The Test Section"
 
-**Status:** Accepted
+**Status:** Superseded by [0012](0012-visual-system-workbench.md)
 **Date:** 2026-10-22
 **Supersedes:** [0008](0008-visual-system.md)
 

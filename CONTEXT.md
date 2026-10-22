@@ -136,13 +136,13 @@ anywhere in the system.
 | **CONTEXT.md** (this) | The whole picture, for resuming cold |
 | **PRODUCT.md** | Durable product truth — user, purpose, constraints, open decisions |
 | **DESIGN.md** | The visual system — tokens, type ramp, named rules, components |
-| **DECISIONS.md** | Index of all eleven architectural decisions and their trade-offs |
+| **DECISIONS.md** | Index of all twelve architectural decisions and their trade-offs |
 | **CHANGELOG.md** | Dated record of what changed and why |
 | **README.md** | How the implementation works today |
 | `docs/deployment.md` | Runbook, live environment, spend controls, gotchas |
 | `docs/v1-scope.md` | What v1 cuts, and a restore path per cut |
 | `docs/original-product.md` | The full original intent, including the intended data model |
-| `docs/decisions/` | The eleven records in full |
+| `docs/decisions/` | The twelve records in full |
 
 **Invariants that keep these honest:**
 
@@ -231,15 +231,16 @@ fails with "no open ports detected."
 once JSON escaping is counted. It is raised to 4 MB via `maxKnowledgeBaseFieldBytes`. Lower
 it and the knowledge base is silently truncated.
 
-**`useIsMobile` breaks at 768px.** Below that the sidebar goes off-canvas and the rail
-disappears. That is correct behaviour, not a bug — do not "fix" it.
+**The layout changes shape at 768px.** Below it the capsule nav becomes a glass top bar plus
+a bottom tab bar, the area sidebar becomes a chip rail, and the case detail opens as a
+full-screen sheet. That is the designed phone layout, not a bug — do not "fix" it.
 
 **The design hook flags fonts and sizes against `DESIGN.md`.** After a deliberate design
 change, the fix is to update `DESIGN.md`, not to add an ignore rule.
 
-**Any grid child holding the manometer board needs `min-w-0`.** The board has a 540px
-minimum; without `min-w-0` on its root it widens the parent grid and the whole run report
-overflows the page on phones instead of the board scrolling in its own container.
+**Brand marks need unique gradient ids.** The responsive shell renders the mark twice, one
+copy in a `display:none` subtree; a shared SVG id resolves to the hidden copy and the visible
+mark loses its fill. `BrandMark` uses `useId` — keep it that way.
 
 **Do not commit `.agents/`, `.claude/`, `.gemini/`, `.codex/`.** They are local agent tooling
 — ~200k lines across three duplicate copies. Already gitignored; keep it that way.
@@ -296,6 +297,10 @@ Useful for understanding why things look the way they do.
    "The Test Section" — a wind-tunnel facility with live streamlines, a manometer board for
    coverage, and a tunnel lamp for cold-start state. Product renamed to **AI Powered Testing
    Agent**. See [ADR-0011](docs/decisions/0011-visual-system-test-section.md).
+9. **Third visual replacement (2026-10-22).** The wind tunnel read as off the point. Replaced
+   with "The Workbench" — a native-app language brief-pinned to lineaprompt.com: white windows,
+   one indigo accent, gliding selection, keyboard navigation, and a designed phone layout
+   (bottom tabs, case sheet). See [ADR-0012](docs/decisions/0012-visual-system-workbench.md).
 
 **A note on the original design:** the project's own technical specification described a
 *stateless* MVP with knowledge-base files sent on the generation request. The SQLite phase

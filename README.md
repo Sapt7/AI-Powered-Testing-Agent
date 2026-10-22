@@ -23,7 +23,7 @@ and they are meant to be read in a particular order. **If you are new here, star
 |---|---|---|
 | **[CONTEXT.md](CONTEXT.md)** | The whole picture in one place: state, URLs, architecture, what's done, what's not | You are starting cold and need to get oriented fast |
 | **[PRODUCT.md](PRODUCT.md)** | Durable product truth — user, purpose, positioning, binding constraints, open decisions | You are deciding *what* to build |
-| **[DESIGN.md](DESIGN.md)** | The visual system ("The Test Section") — tokens, type ramp, named rules, component specs | You are building or changing any UI |
+| **[DESIGN.md](DESIGN.md)** | The visual system ("The Workbench") — tokens, type ramp, named rules, component specs | You are building or changing any UI |
 | **[DECISIONS.md](DECISIONS.md)** | Index of every architectural decision, with the trade-off each accepted | You are wondering *why* something is the way it is |
 | **[CHANGELOG.md](CHANGELOG.md)** | Dated record of what changed and why | You want the history of a specific change |
 | **[README.md](README.md)** | How the thing works today — architecture, API, how to run it | You are operating or extending the code |
@@ -36,7 +36,7 @@ PRODUCT.md ──── defines the problem and constraints
      ├──> DESIGN.md ──── how it looks and behaves, derived from the product's mode
      │                   (machine-readable companion: .impeccable/design.json)
      │
-     ├──> DECISIONS.md ─┬─ docs/decisions/0001..0011  the full records
+     ├──> DECISIONS.md ─┬─ docs/decisions/0001..0012  the full records
      │                  └─ each decision cites PRODUCT.md constraints it honours
      │
      └──> docs/v1-scope.md ──── what v1 cuts from the full product, and how to restore it
@@ -67,7 +67,7 @@ CONTEXT.md ──── snapshot of all of the above, for resuming cold
 | [docs/deployment.md](docs/deployment.md) | Deployment runbook, live environment, spend controls, operational gotchas |
 | [docs/v1-scope.md](docs/v1-scope.md) | What v1 ships, every cut, and a restore path per cut |
 | [docs/original-product.md](docs/original-product.md) | The originally ideated product, including the full intended data model |
-| [docs/decisions/](docs/decisions/) | The eleven numbered decision records in full |
+| [docs/decisions/](docs/decisions/) | The twelve numbered decision records in full |
 | `.impeccable/design.json` | Machine-readable design tokens and component snippets |
 
 ---
@@ -87,25 +87,27 @@ future analysis.
 
 ### The visual system
 
-The interface is a wind-tunnel facility — **"The Test Section"** ([DESIGN.md](DESIGN.md),
-[ADR-0011](docs/decisions/0011-visual-system-test-section.md)). The PRD is mounted in a
-graphite test section where smoke streamlines part around it; generation is a live run with
-a real elapsed clock; and results arrive on a **manometer board**.
+The interface is a native-app product language — **"The Workbench"** ([DESIGN.md](DESIGN.md),
+[ADR-0012](docs/decisions/0012-visual-system-workbench.md)). White windows float on a cool
+ground; one indigo accent marks the primary action and the selected row, which glides between
+cases. `↑`/`↓`/`j`/`k` move through cases and `⌘↵`/`Ctrl↵` starts a run. On phones the app has
+its own shape: a bottom tab bar, a chip rail for coverage areas, and a full-screen case sheet.
+Motion respects `prefers-reduced-motion`.
 
 ### The run report
 
-- feature name, summary, and a readout strip (document, date, cases, high, dry areas)
-- **the manometer board** — twelve fluid tubes, one per coverage area, filled red / amber /
-  blue by severity. A **dry tube** is a coverage area the run never reached, visible before
-  a single case is read. Each tube filters the case list.
+- feature name, summary, and pills (cases, high severity, coverage gaps, document, date)
+- **the Coverage window** — the twelve coverage areas with case counts; areas the run never
+  reached are greyed out, so gaps are visible before a single case is read. Each area filters
+  the case list, alongside a severity filter.
 - three evidence panels: risk scan, source context, assumptions
 - a numbered, filterable coverage list paired with a detail pane and its procedure
 
-Severity hue is always paired with fill height (a miniature vial), so the scale still reads
-in greyscale and to colour-blind users.
+Severity is always written out as a word next to its colour, so it reads in greyscale and to
+colour-blind users.
 
-A **tunnel lamp** in the header reports the backend's real state — checking, spinning up,
-online, or unreachable — so the free host's cold start is visible rather than mysterious.
+A **status pill** reports the backend's real state — connecting, waking up, online, or
+unreachable — so the free host's cold start is visible rather than mysterious.
 
 ---
 
@@ -166,10 +168,10 @@ the reasoning and the restore path to server-side persistence.
 | File | Role |
 |---|---|
 | [src/pages/Index.tsx](src/pages/Index.tsx) | Workspace page and view-state controller |
-| [src/components/AppSidebar.tsx](src/components/AppSidebar.tsx) | Index-rail navigation |
-| [src/components/TestCaseExplorer.tsx](src/components/TestCaseExplorer.tsx) | Run report: readouts, manometer board, evidence, filterable coverage |
-| [src/components/tunnel/](src/components/tunnel/) | The world's instruments: streamline field, manometer board, windows, lamp, severity vial, brand mark |
-| [src/hooks/use-tunnel-status.ts](src/hooks/use-tunnel-status.ts) | Backend cold-start status for the tunnel lamp |
+| [src/components/bench/AppShell.tsx](src/components/bench/AppShell.tsx) | Capsule nav (desktop), top bar + bottom tab bar (phone) |
+| [src/components/bench/ui.tsx](src/components/bench/ui.tsx) | Primitives: window, pill, keycap, status pill, severity tag, flourish, brand mark, gliding selection |
+| [src/components/TestCaseExplorer.tsx](src/components/TestCaseExplorer.tsx) | Run report: coverage areas, keyboard-navigable case list, detail pane / phone sheet, evidence |
+| [src/hooks/use-tunnel-status.ts](src/hooks/use-tunnel-status.ts) | Backend cold-start status for the status pill |
 | [src/lib/coverage.ts](src/lib/coverage.ts) | The twelve coverage areas and per-area readings |
 | [src/contexts/AuthContext.tsx](src/contexts/AuthContext.tsx) | Session restore, sign-in, sign-out, expiry timer |
 | [src/components/AuthGate.tsx](src/components/AuthGate.tsx) · [SignIn.tsx](src/components/SignIn.tsx) | Sign-in gate and surface (UX only; the API is the boundary) |
