@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
+const hsl = (token: string) => `hsl(var(--${token}))`;
+const hslA = (token: string) => `hsl(var(--${token}) / <alpha-value>)`;
+
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
@@ -9,113 +12,75 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       fontFamily: {
-        sans: ["Geist", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        sans: ["Archivo", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "SF Mono", "Menlo", "monospace"],
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        border: hsl("border"),
+        input: hsl("input"),
+        ring: hsl("ring"),
+        background: hsl("background"),
+        foreground: hsl("foreground"),
+        primary: { DEFAULT: hsl("primary"), foreground: hsl("primary-foreground") },
+        secondary: { DEFAULT: hsl("secondary"), foreground: hsl("secondary-foreground") },
+        destructive: { DEFAULT: hsl("destructive"), foreground: hsl("destructive-foreground") },
+        muted: { DEFAULT: hsl("muted"), foreground: hsl("muted-foreground") },
+        accent: { DEFAULT: hsl("accent"), foreground: hsl("accent-foreground") },
+        popover: { DEFAULT: hsl("popover"), foreground: hsl("popover-foreground") },
+        card: { DEFAULT: hsl("card"), foreground: hsl("card-foreground") },
 
-        /* The binder world, addressable by name. */
-        stock: {
-          DEFAULT: "hsl(var(--stock))",
-          sunk: "hsl(var(--stock-sunk))",
-          edge: "hsl(var(--stock-edge))",
+        /* The test-section world, addressable by name. */
+        facility: { DEFAULT: hslA("facility"), deep: hslA("facility-deep") },
+        panel: hslA("panel"),
+        line: { DEFAULT: hslA("line"), strong: hslA("line-strong") },
+        graphite: {
+          DEFAULT: hslA("graphite"),
+          2: hslA("graphite-2"),
+          3: hslA("graphite-3"),
+          line: hslA("graphite-line"),
         },
-        paper: {
-          DEFAULT: "hsl(var(--paper))",
-          sunk: "hsl(var(--paper-sunk))",
-        },
-        ink: {
-          DEFAULT: "hsl(var(--ink))",
-          soft: "hsl(var(--ink-soft))",
-          faint: "hsl(var(--ink-faint))",
-        },
-        rule: {
-          DEFAULT: "hsl(var(--rule))",
-          strong: "hsl(var(--rule-strong))",
-        },
-        blue: {
-          DEFAULT: "hsl(var(--blue))",
-          deep: "hsl(var(--blue-deep))",
-          wash: "hsl(var(--blue-wash))",
-          line: "hsl(var(--blue-line))",
+        ink: { DEFAULT: hslA("ink"), 2: hslA("ink-2"), 3: hslA("ink-3") },
+        flow: { DEFAULT: hslA("flow"), 2: hslA("flow-2"), 3: hslA("flow-3") },
+        safety: { DEFAULT: hslA("safety"), deep: hslA("safety-deep") },
+        fluid: {
+          high: hslA("fluid-high"),
+          med: hslA("fluid-med"),
+          low: hslA("fluid-low"),
+          "high-text": hslA("fluid-high-text"),
+          "med-text": hslA("fluid-med-text"),
+          "low-text": hslA("fluid-low-text"),
         },
 
         sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+          DEFAULT: hsl("sidebar-background"),
+          foreground: hsl("sidebar-foreground"),
+          primary: hsl("sidebar-primary"),
+          "primary-foreground": hsl("sidebar-primary-foreground"),
+          accent: hsl("sidebar-accent"),
+          "accent-foreground": hsl("sidebar-accent-foreground"),
+          border: hsl("sidebar-border"),
+          ring: hsl("sidebar-ring"),
         },
       },
-      /*
-       * Declared end to end so the scale can never invert again. The previous
-       * theme raised sm/md/lg above Tailwind's default xl, making rounded-xl
-       * smaller than rounded-lg.
-       */
+      /* Declared end to end so the scale can never invert. */
       borderRadius: {
         none: "0px",
-        sm: "2px",
-        DEFAULT: "3px",
-        md: "3px",
+        sm: "3px",
+        DEFAULT: "4px",
+        md: "4px",
         lg: "var(--radius)",
-        xl: "5px",
-        "2xl": "6px",
-        "3xl": "8px",
+        xl: "8px",
+        "2xl": "12px",
+        "3xl": "16px",
         full: "9999px",
       },
-      letterSpacing: {
-        tightest: "-0.032em",
-        tighter: "-0.024em",
-        tight: "-0.014em",
-        normal: "0em",
-        wide: "0.04em",
-        wider: "0.075em",
-        widest: "0.12em",
-      },
       boxShadow: {
-        sheet: "var(--shadow-sheet)",
+        panel: "var(--shadow-panel)",
+        window: "var(--shadow-window)",
       },
       keyframes: {
         "accordion-down": {

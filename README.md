@@ -1,4 +1,4 @@
-# Test Case Generator
+# AI Powered Testing Agent
 
 An AI-powered QA workspace that turns a Product Requirements Document into structured,
 review-ready test coverage using Gemini — grounded in a knowledge base of your own
@@ -23,7 +23,7 @@ and they are meant to be read in a particular order. **If you are new here, star
 |---|---|---|
 | **[CONTEXT.md](CONTEXT.md)** | The whole picture in one place: state, URLs, architecture, what's done, what's not | You are starting cold and need to get oriented fast |
 | **[PRODUCT.md](PRODUCT.md)** | Durable product truth — user, purpose, positioning, binding constraints, open decisions | You are deciding *what* to build |
-| **[DESIGN.md](DESIGN.md)** | The visual system — tokens, type ramp, named rules, component specs | You are building or changing any UI |
+| **[DESIGN.md](DESIGN.md)** | The visual system ("The Test Section") — tokens, type ramp, named rules, component specs | You are building or changing any UI |
 | **[DECISIONS.md](DECISIONS.md)** | Index of every architectural decision, with the trade-off each accepted | You are wondering *why* something is the way it is |
 | **[CHANGELOG.md](CHANGELOG.md)** | Dated record of what changed and why | You want the history of a specific change |
 | **[README.md](README.md)** | How the thing works today — architecture, API, how to run it | You are operating or extending the code |
@@ -36,7 +36,7 @@ PRODUCT.md ──── defines the problem and constraints
      ├──> DESIGN.md ──── how it looks and behaves, derived from the product's mode
      │                   (machine-readable companion: .impeccable/design.json)
      │
-     ├──> DECISIONS.md ─┬─ docs/decisions/0001..0010  the full records
+     ├──> DECISIONS.md ─┬─ docs/decisions/0001..0011  the full records
      │                  └─ each decision cites PRODUCT.md constraints it honours
      │
      └──> docs/v1-scope.md ──── what v1 cuts from the full product, and how to restore it
@@ -67,7 +67,7 @@ CONTEXT.md ──── snapshot of all of the above, for resuming cold
 | [docs/deployment.md](docs/deployment.md) | Deployment runbook, live environment, spend controls, operational gotchas |
 | [docs/v1-scope.md](docs/v1-scope.md) | What v1 ships, every cut, and a restore path per cut |
 | [docs/original-product.md](docs/original-product.md) | The originally ideated product, including the full intended data model |
-| [docs/decisions/](docs/decisions/) | The ten numbered decision records in full |
+| [docs/decisions/](docs/decisions/) | The eleven numbered decision records in full |
 | `.impeccable/design.json` | Machine-readable design tokens and component snippets |
 
 ---
@@ -85,16 +85,27 @@ count, and high-priority count.
 **3. Knowledge base** — add, review, and remove the supporting documents that ground every
 future analysis.
 
-### The results sheet
+### The visual system
 
-- feature name and a short summary of the PRD
-- a title block: document, generation date, case count, high-priority count
-- three evidence columns: risk scan, source context, assumptions
-- a numbered coverage list paired with a detail pane for the selected case
+The interface is a wind-tunnel facility — **"The Test Section"** ([DESIGN.md](DESIGN.md),
+[ADR-0011](docs/decisions/0011-visual-system-test-section.md)). The PRD is mounted in a
+graphite test section where smoke streamlines part around it; generation is a live run with
+a real elapsed clock; and results arrive on a **manometer board**.
 
-Each case carries a title, criticality, rationale, coverage area, and ordered steps.
-Priority is encoded by **fill density** rather than colour — solid, half, hollow — so the
-scale survives greyscale printing and colour-blind reading.
+### The run report
+
+- feature name, summary, and a readout strip (document, date, cases, high, dry areas)
+- **the manometer board** — twelve fluid tubes, one per coverage area, filled red / amber /
+  blue by severity. A **dry tube** is a coverage area the run never reached, visible before
+  a single case is read. Each tube filters the case list.
+- three evidence panels: risk scan, source context, assumptions
+- a numbered, filterable coverage list paired with a detail pane and its procedure
+
+Severity hue is always paired with fill height (a miniature vial), so the scale still reads
+in greyscale and to colour-blind users.
+
+A **tunnel lamp** in the header reports the backend's real state — checking, spinning up,
+online, or unreachable — so the free host's cold start is visible rather than mysterious.
 
 ---
 
@@ -156,7 +167,10 @@ the reasoning and the restore path to server-side persistence.
 |---|---|
 | [src/pages/Index.tsx](src/pages/Index.tsx) | Workspace page and view-state controller |
 | [src/components/AppSidebar.tsx](src/components/AppSidebar.tsx) | Index-rail navigation |
-| [src/components/TestCaseExplorer.tsx](src/components/TestCaseExplorer.tsx) | Evidence columns, coverage list, step detail |
+| [src/components/TestCaseExplorer.tsx](src/components/TestCaseExplorer.tsx) | Run report: readouts, manometer board, evidence, filterable coverage |
+| [src/components/tunnel/](src/components/tunnel/) | The world's instruments: streamline field, manometer board, windows, lamp, severity vial, brand mark |
+| [src/hooks/use-tunnel-status.ts](src/hooks/use-tunnel-status.ts) | Backend cold-start status for the tunnel lamp |
+| [src/lib/coverage.ts](src/lib/coverage.ts) | The twelve coverage areas and per-area readings |
 | [src/contexts/AuthContext.tsx](src/contexts/AuthContext.tsx) | Session restore, sign-in, sign-out, expiry timer |
 | [src/components/AuthGate.tsx](src/components/AuthGate.tsx) · [SignIn.tsx](src/components/SignIn.tsx) | Sign-in gate and surface (UX only; the API is the boundary) |
 | [src/lib/auth.ts](src/lib/auth.ts) | GIS loader, token storage, claim decoding |
@@ -313,7 +327,6 @@ Google sign-in, which is why it is a manual check. See [CONTEXT.md](CONTEXT.md).
 - Rate-limit counters reset on restart or spin-down; the billing alert is the real backstop.
 - Render free spins down after ~15 minutes idle. The client pings `/api/health` on landing
   so the wake overlaps with sign-in, but it does not remove the wait.
-- Opening a run from **Previous runs** highlights **New analysis** in the rail.
 - No multi-tenancy — Google sign-in provides identity, not organisations or roles.
 
 ## Next

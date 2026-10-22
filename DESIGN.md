@@ -1,67 +1,104 @@
 ---
-name: Test Case Generator
-description: A filed specification — beige index stock, white spec sheets, one ink blue, set in Geist.
+name: AI Powered Testing Agent
+description: A wind-tunnel test section for PRDs — facility daylight, graphite windows where the flow is visible, safety yellow to start a run, manometer fluids for severity.
 colors:
-  stock: "#E9E4D8"
-  stock-sunk: "#DFD9CD"
-  stock-edge: "#C9C0B1"
-  paper: "#FFFFFF"
-  paper-sunk: "#FAF8F5"
-  ink: "#14161A"
-  ink-soft: "#42454D"
-  ink-faint: "#5A5F68"
-  rule: "#E3DFD9"
-  rule-strong: "#C9C4BA"
-  blue: "#1B46C5"
-  blue-deep: "#13309A"
-  blue-wash: "#EEF1FC"
-  blue-line: "#C5CDE7"
-  destructive: "#B22E24"
+  facility: "#E8EAE6"
+  facility-deep: "#DBDDD9"
+  panel: "#F8F8F6"
+  line: "#D1D4CE"
+  line-strong: "#B3B6AF"
+  graphite: "#14161A"
+  graphite-2: "#1D2126"
+  graphite-3: "#282D34"
+  graphite-line: "#363C45"
+  ink: "#101418"
+  ink-2: "#3C4149"
+  ink-3: "#595B5F"
+  flow: "#EEF2F7"
+  flow-2: "#B2BCC7"
+  flow-3: "#8793A1"
+  safety: "#F5C219"
+  safety-deep: "#DBA400"
+  fluid-high: "#E0402E"
+  fluid-med: "#E99A1C"
+  fluid-low: "#307FD5"
+  fluid-high-text: "#B42318"
+  fluid-med-text: "#945100"
+  fluid-low-text: "#1D5AA5"
 typography:
+  hero:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "72px"
+    fontWeight: 800
+    lineHeight: 0.9
+    letterSpacing: "-0.04em"
+    fontVariation: "'wdth' 125"
+  display:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "56px"
+    fontWeight: 800
+    lineHeight: 0.92
+    letterSpacing: "-0.035em"
+    fontVariation: "'wdth' 125"
+  headline:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "40px"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.025em"
+    fontVariation: "'wdth' 118"
+  subhead:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "28px"
+    fontWeight: 800
+    lineHeight: 1.1
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 118"
+  lead:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "16px"
+    fontWeight: 700
+    lineHeight: 1.5
+    letterSpacing: "0em"
   title:
-    fontFamily: "Geist, system-ui, -apple-system, sans-serif"
-    fontSize: "26px"
-    fontWeight: 600
-    lineHeight: 1.15
-    letterSpacing: "-0.024em"
-  heading:
-    fontFamily: "Geist, system-ui, -apple-system, sans-serif"
-    fontSize: "24px"
-    fontWeight: 600
-    lineHeight: 1.15
-    letterSpacing: "-0.024em"
-  subheading:
-    fontFamily: "Geist, system-ui, -apple-system, sans-serif"
-    fontSize: "17px"
-    fontWeight: 600
-    lineHeight: 1.35
-    letterSpacing: "-0.014em"
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "20px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.01em"
+    fontVariation: "'wdth' 84"
   body:
-    fontFamily: "Geist, system-ui, -apple-system, sans-serif"
-    fontSize: "13px"
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.625
     letterSpacing: "0em"
-  bodySmall:
-    fontFamily: "Geist, system-ui, -apple-system, sans-serif"
-    fontSize: "12px"
+  small:
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: "13px"
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: "0em"
-  label:
-    fontFamily: "Geist, system-ui, -apple-system, sans-serif"
+  placard:
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: "11px"
+    fontWeight: 650
+    lineHeight: 1
+    letterSpacing: "0.09em"
+    fontVariation: "'wdth' 68"
+  data:
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
+    fontSize: "12px"
     fontWeight: 500
     lineHeight: 1.4
-    letterSpacing: "0.075em"
+    letterSpacing: "0em"
 rounded:
-  none: "0px"
-  sm: "2px"
-  md: "3px"
-  lg: "4px"
-  xl: "5px"
-  2xl: "6px"
-  3xl: "8px"
+  sm: "3px"
+  md: "4px"
+  lg: "6px"
+  xl: "8px"
+  2xl: "12px"
+  3xl: "16px"
   full: "9999px"
 spacing:
   xs: "6px"
@@ -71,228 +108,234 @@ spacing:
   xl: "24px"
   2xl: "32px"
 components:
-  button-primary:
-    backgroundColor: "{colors.blue}"
-    textColor: "{colors.paper}"
-    typography: "{typography.body}"
-    rounded: "{rounded.lg}"
-    padding: "0 14px"
-    height: "36px"
-  button-primary-hover:
-    backgroundColor: "{colors.blue-deep}"
-  button-primary-disabled:
-    backgroundColor: "{colors.stock-edge}"
-    textColor: "{colors.ink-faint}"
-  button-outline:
-    backgroundColor: "{colors.paper}"
+  button-run:
+    backgroundColor: "{colors.safety}"
     textColor: "{colors.ink}"
-    typography: "{typography.body}"
+    rounded: "{rounded.lg}"
+    padding: "0 24px"
+    height: "48px"
+  button-run-disabled:
+    backgroundColor: "{colors.facility-deep}"
+    textColor: "{colors.ink-3}"
+  button-outline:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.lg}"
     padding: "0 12px"
     height: "32px"
-  sheet:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
+  button-graphite:
+    backgroundColor: "{colors.graphite-2}"
+    textColor: "{colors.flow}"
     rounded: "{rounded.lg}"
-    padding: "0px"
-  section-rule:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink-faint}"
-    typography: "{typography.label}"
-    padding: "12px 24px"
-  title-block-field:
-    backgroundColor: "{colors.paper}"
+    padding: "0 16px"
+    height: "40px"
+  test-window:
+    backgroundColor: "{colors.graphite}"
+    textColor: "{colors.flow}"
+    rounded: "{rounded.2xl}"
+  panel:
+    backgroundColor: "{colors.panel}"
     textColor: "{colors.ink}"
-    padding: "14px 20px"
-  register-row:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    padding: "16px 24px"
-  register-row-active:
-    backgroundColor: "{colors.blue-wash}"
-    textColor: "{colors.ink}"
-  tab-rest:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-soft}"
-    padding: "12px 12px 12px 16px"
-  tab-active:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "12px 12px 12px 16px"
+    rounded: "{rounded.xl}"
+  rail-item-active:
+    backgroundColor: "{colors.graphite-3}"
+    textColor: "{colors.flow}"
+    rounded: "{rounded.lg}"
+    padding: "10px"
 ---
 
-# Design System: Test Case Generator
+# Design System: AI Powered Testing Agent
 
 ## Overview
 
-**Creative North Star: "The Specification Binder"**
+**Creative North Star: "The Test Section"**
 
-QA coverage is filed, not fed. The interface is a ring binder of technical specifications: beige index stock holds the tabs, white sheets hold the work, and a single ink blue does every job that ink blue does in a printed spec — rules a section, marks the pulled tab, numbers a procedure step, and flags what is critical. Nothing floats, nothing glows, nothing is translucent. A surface is either stock or sheet, and you always know which one you are looking at.
+Testing a PRD is a wind-tunnel run. The document is the model on the sting; the knowledge
+base is the honeycomb that conditions the flow before it arrives; generation is the run,
+with smoke streamlines made visible; and the result is read off a manometer board — a bank
+of fluid tubes, one per coverage area, that shows at a glance which areas are full, thin, or
+**dry**. The metaphor is not decoration: every element maps to something the product does.
 
-The register is **precise and instrumental**. Hierarchy comes from weight and rule placement rather than from size, color, or elevation: the largest type on any screen is 26px, and it earns its authority by being the only 600-weight thing above 17px. Secondary information is not made quiet by graying it into illegibility — every text color in this system was measured against the beige stock, not just against white, because stock is the darkest ground secondary text ever sits on.
+The facility has two lights. **Daylight** — painted-concrete grey working surfaces where a
+QA engineer reads dense text for long stretches. **Graphite** — the test-section windows and
+the instrument rail, where the flow is made visible and the product's moments happen. The
+two never blend: a surface is either a daylight panel or a graphite window.
 
-This world deliberately refuses two neighbours. It is not the dark AI-tool dashboard with a neon accent and a sparkle icon, and it is not the warm-cream editorial calm it replaced — an aesthetic that put a 48px literary serif over a gradient field and asked a QA engineer under deadline to admire it. The binder answers the same content with flat value separation, hairlines, and tabular numerals.
+The register is industrial and exact, not atmospheric. Type is one engineered family scaled
+across its *width* axis like facility signage — condensed placards, normal reading text,
+expanded wall lettering. Measurements (case IDs, counts, timers, sizes, dates) are set in
+mono because they are measurements. Yellow appears only where a facility would paint it.
+
+This world replaced "The Specification Binder," a flat beige/blue minimalist system that
+read as too basic. It refuses that flatness, and it refuses the neon-on-black AI dashboard.
 
 **Key Characteristics:**
-- Two grounds only: beige stock and white sheet, separated by value and a hairline
-- One accent — ink blue — carrying rules, tabs, step numbers, and priority alike
-- Weight and rule position carry hierarchy; size range is deliberately narrow
-- Priority encoded by fill density, not hue, so it survives monochrome and colour-blind reading
-- Radii of 2–8px, no translucency, no gradient, one near-invisible shadow
+- Daylight panels for reading; graphite windows for the product's moments
+- Live SVG streamlines that part around a mounted PRD and speed up during a run
+- The manometer board: coverage gaps visible before a single case is read
+- Archivo across its width axis as the whole type system; mono only for measurements
+- Safety yellow as a fill for the one control that starts a run, and as the engaged indicator on graphite
 
 ## Colors
 
-Four materials: the beige stock a document is filed on, the white sheet it is printed on, the black it is set in, and the one blue the press adds.
+Facility grey and graphite as the two grounds, ink for reading, smoke for type on graphite,
+safety yellow as the facility's attention colour, and three manometer fluids for severity.
 
 ### Primary
-- **Ink Blue** (`#1B46C5`): The only accent. It rules a section, fills the pulled tab marker, numbers a procedure step, marks High priority, and fills the single primary action. Nothing else in the interface is chromatic.
-- **Blue Deep** (`#13309A`): The pressed and hovered state of any blue surface.
-- **Blue Wash** (`#EEF1FC`): The selected row. The palest possible tint that still reads as "this one", used on the active test case and hovered register rows.
-- **Blue Line** (`#C5CDE7`): Blue at rule weight, for the rare divider that must read as part of the accent rather than as neutral structure.
+- **Safety Yellow** (`#F5C219`): Two roles, both facility-true. On daylight surfaces it is
+  the **fill** of the single control that starts a run — never text on a light ground. On
+  graphite it marks what is **engaged**: the active section's icon and lamp, a selected
+  manometer tube, the elapsed-time readout during a run. Also the brand mark's ground.
+- **Safety Deep** (`#DBA400`): The pressed edge of a yellow button.
 
-### Neutral — stock
-- **Stock** (`#E9E4D8`): The page ground. Every sheet is filed on this; it is never a content surface itself.
-- **Stock Sunk** (`#DFD9CD`): The index rail. One step deeper than the page so the tabs read as a separate physical part.
-- **Stock Edge** (`#C9C0B1`): Tab and rail edges, and the disabled fill of the primary action.
+### Neutral — daylight
+- **Facility** (`#E8EAE6`): The page ground, with faint 96px poured-concrete seams.
+- **Facility Deep** (`#DBDDD9`): Recessed controls, disabled run button, filter tracks.
+- **Panel** (`#F8F8F6`): Daylight working panels.
+- **Line / Line Strong** (`#D1D4CE` / `#B3B6AF`): Hairlines; outline-button and step-rail borders.
+- **Ink / Ink 2 / Ink 3** (`#101418` / `#3C4149` / `#595B5F`): Headings, body, meta.
 
-### Neutral — sheet
-- **Paper** (`#FFFFFF`): The working surface. All content lives here.
-- **Paper Sunk** (`#FAF8F5`): A recessed band inside a sheet — the footer that holds an action, the hovered list row, the drop target at rest.
-- **Rule** (`#E3DFD9`): The hairline. Every division in this system is this colour at 1px.
-- **Rule Strong** (`#C9C4BA`): The dashed drop edge and the outline button border.
+### Neutral — graphite
+- **Graphite / 2 / 3** (`#14161A` / `#1D2126` / `#282D34`): Window glass, controls, raised items.
+- **Graphite Line** (`#363C45`): Window and rail edges.
+- **Flow / Flow 2 / Flow 3** (`#EEF2F7` / `#B2BCC7` / `#8793A1`): Smoke — streamlines and type on graphite.
 
-### Neutral — ink
-- **Ink** (`#14161A`): Headings, titles, and any value the eye must land on.
-- **Ink Soft** (`#42454D`): Running body copy. 9.6:1 on paper, 6.8:1 on stock.
-- **Ink Faint** (`#5A5F68`): Labels, meta, timestamps, counts. 6.4:1 on paper, 4.6:1 on stock — the floor, and the reason this value is not lighter.
-- **Destructive** (`#B22E24`): Reserved for the destructive hover on a remove control. Never used for priority.
+### Manometer fluids — severity
+- **High** — fluid `#E0402E`, text `#B42318`
+- **Medium** — fluid `#E99A1C`, text `#945100`
+- **Low** — fluid `#307FD5`, text `#1D5AA5`
+
+Fluid values fill tubes and vials; text values are tuned to clear 4.5:1 on the facility
+ground. On graphite, lighter tints of the same hues are used for text.
 
 ### Named Rules
 
-**The Two Grounds Rule.** A surface is stock or it is sheet. There is no third ground, no translucency between them, and no gradient inside either. If you need a new level, recess to Paper Sunk — do not invent a tint.
+**The Two Lights Rule.** A surface is a daylight panel or a graphite window. Do not tint a
+panel grey-blue or lighten a window toward panel — the contrast between them is the layout.
 
-**The One Ink Rule.** Blue is the only chromatic value in the interface. Priority, status, success, and warning must all be expressed in ink weight, fill density, or position. The moment a second hue appears, the blue stops meaning anything.
+**The Yellow Is Paint Rule.** Yellow is a fill or a lamp, never running text on a light
+ground. One yellow-filled control per surface, and it starts a run.
 
-**The Measured-On-Stock Rule.** Every text colour is verified against Stock Sunk, not against white. Stock is the darkest ground secondary text sits on, so it sets the contrast floor for the whole system.
+**The Fluid Rule.** Red, amber, and blue mean High, Medium, Low severity — always paired with
+fill height (the vial) so the scale still reads in greyscale and to colour-blind users.
 
 ## Typography
 
-**Face:** Geist (with system-ui, -apple-system, sans-serif) — variable, weights 100–900, loaded 100..900.
+**Face:** Archivo (variable: `wdth` 62–125, `wght` 100–900) · **Data:** JetBrains Mono
 
-**Character:** One engineered grotesque doing every job. Geist has the neutral, slightly technical letterform of a modern specification document and enough weight range to carry hierarchy without changing size much. There is no second face: a spec binder is typeset in one family, and the discipline is the point.
+**Character:** One engineered grotesque doing every job by changing *width*, the way facility
+signage scales from equipment labels to wall lettering. Mono is reserved for values that are
+measured or identified — never as a costume for "technical".
 
 ### Hierarchy
-- **Title** (600, 26px, 1.15, −0.024em): The name of the view — "New analysis", "Previous runs", "Knowledge base". One per sheet.
-- **Heading** (600, 24px, 1.15, −0.024em): The generated feature name on a results sheet.
-- **Subheading** (600, 17px, 1.35, −0.014em): The selected test case title in the detail pane.
-- **Body** (400, 13px, 1.625): All running copy, rationales, procedure steps, list titles (at 500), and button labels. Measure capped at 68ch.
-- **Body Small** (400, 12px, 1.55): Excerpts, secondary meta, back links.
-- **Label** (500, 11px, 0.075em, uppercase): Section rules, title-block field names, priority marks, counts.
+- **Hero** (800, 72px, wdth 125): The product name on sign-in only.
+- **Display** (800, 56px / 40px mobile, wdth 125): Page titles — "New analysis", "Previous runs".
+- **Headline** (800, 40px / 28px mobile, wdth 118): The generated feature name in a run report.
+- **Title** (700, 20px, wdth 84): The selected test case.
+- **Body** (400, 14px, 1.625): Running copy, rationales, procedure steps. Measure ≤ 68ch.
+- **Small** (400, 13px / 12px): Excerpts, meta, helper text.
+- **Placard** (650, 11px, wdth 68, uppercase, 0.09em): Facility labels on instruments and regions.
+- **Data** (JetBrains Mono, 12–13px, tabular, slashed zero): TC-001, R-002, counts, timers, sizes, dates.
 
-Numerals are tabular wherever they align in a column: title-block values, register counts and dates, case indices, step numbers.
+Ramp: 11 · 12 · 13 · 14 · 16 · 20 · 28 · 40 · 56 · 72.
 
 ### Named Rules
 
-**The Narrow Range Rule.** The whole system lives between 11px and 26px. If something needs more emphasis, it gets more weight or a rule above it — never a larger size. A 48px display would break the binder immediately.
+**The Width Axis Rule.** Emphasis changes width and weight before it changes size. Condensed
+labels, normal reading, expanded display.
 
-**The One Family Rule.** Geist sets everything, including numerals and labels. Do not introduce a mono face to signal "technical" — tabular numerals already do that job, and a second family would make this a different document.
+**The Placard Rule.** Placards label instruments and regions — a window's chrome bar, a panel
+header, a tube. They never sit above a heading as a kicker. A window's chrome bar carries
+readouts alongside its placard and is separated from content by a rule.
 
-**No Eyebrows.** A small tracked label never sits above a heading to introduce it. Labels mark *regions* — a section rule, a title-block field — and always stand alone with no heading beneath them. Headings carry their own weight.
+**The Measurement Rule.** Mono for what is measured or identified. Prose is never mono.
 
 ## Layout
 
-A two-part shell: the index rail on stock at the left, and the sheet canvas filling the rest. The canvas carries a 48px header bar on white holding the rail toggle and a single line of orientation copy; everything below is stock ground with sheets laid on it at 20px padding, stepping to 32px at the medium breakpoint.
+A graphite instrument rail (collapsible to icons; off-canvas below 768px) beside a daylight
+facility. A 56px header carries a breadcrumb and the **tunnel lamp** (backend status). Content
+sits in a 72rem well with 24–40px vertical padding.
 
-Sheets are centred in wells sized to their density: 4xl (56rem) for the single-column analysis form and empty states, 5xl (64rem) for the register, the knowledge base, and results. Sheets stack with a 16px gap.
+Each page opens with an expanded display title and its lede beside it (stacked on mobile),
+then a graphite window for the page's moment, then daylight panels for the work.
 
-Inside a sheet, structure is horizontal bands separated by full-bleed hairlines: a header band, one or more ruled section bands, and sometimes a recessed footer band carrying the action. Bands are padded 24px horizontally and 16–20px vertically. This is the system's primary composition device — a sheet is a stack of ruled bands, not a grid of cards.
+- **New analysis:** test-section window (PRD mount at centre) → Supporting context panel +
+  Run sheet panel, `1.3fr / 1fr`, top-aligned.
+- **Run report:** report window (title, summary, readout strip | manometer board) → three
+  evidence panels → Coverage panel as master–detail `1fr / 1.2fr`.
+- **Previous runs:** run log rows with a 12-tube coverage fingerprint per run.
+- **Knowledge base:** flow-conditioning window (honeycomb) → documents panel.
 
-Two grids recur. The **title block** is a 4-across metadata strip (2-across below `sm`) with dividers on every edge. The **coverage split** is an asymmetric master–detail at `1fr / 1.15fr` from `lg`, weighted toward the detail pane; below `lg` it stacks, list first.
-
-### Named Rules
-
-**The Ruled Band Rule.** Sheets divide into full-bleed horizontal bands separated by 1px rules. Never nest a bordered box inside a sheet to group content — add a band and rule it.
-
-**The Asymmetric Split Rule.** The master–detail split favours the detail side. Reading a case matters more than choosing one.
+The manometer board has a 540px minimum and scrolls inside its own container on narrow
+screens. Its root must carry `min-w-0` or it widens the parent grid and overflows the page.
 
 ## Elevation & Depth
 
-**This system is flat.** Depth is value separation plus a hairline: a white sheet on beige stock with a 1px rule around it is already unambiguously "above". There is no translucency, no backdrop blur, and no gradient anywhere in the interface.
+Two depths. **Panels** sit on the facility with a hairline, an inner top highlight, and a
+soft drop (`0 10px 28px -16px` at 22% ink). **Windows** sit deeper (`0 28px 56px -28px` at
+55% ink) with a 1px smoke inner edge — glass set into a wall. Inside a window, depth is light:
+streamlines fade at the frame through a radial vignette, and the PRD card floats with a
+graphite moat ring.
 
-One shadow exists, and it is close to invisible by design — a 1px offset with a 2–3px blur at 4–5% ink. Its only job is to keep the sheet's bottom edge from dissolving into the stock at low display gamma. It never grows, never stacks, and never signals state.
-
-### Shadow Vocabulary
-- **Sheet** (`0 1px 2px 0 rgb(20 22 26 / 0.05), 0 1px 3px 0 rgb(20 22 26 / 0.04)`): Every sheet. Unchanged, everywhere.
-
-### Named Rules
-
-**The Flat Rule.** State is signalled by fill and rule, never by elevation. Hover changes background; selection changes background; nothing lifts.
+No glassmorphism, no gradient fields on daylight surfaces.
 
 ## Shapes
 
-Tight and rectilinear. The radius scale runs 2 / 3 / 4 / 5 / 6 / 8px, and the working values are 4px for sheets, buttons, and the drop target, and 2px for the small priority mark. Nothing is a pill: badges were removed from this system entirely, and the fully-round value survives only for genuinely circular affordances.
+Industrial and generous at scale: windows 12px, panels 8px, controls 6px, small tags 3px.
+The PRD mount is a 28px-radius capsule — the model on the sting. Manometer tubes are
+round-topped glass with a meniscus highlight; dry tubes have a dashed outline. Severity vials
+reuse the tube silhouette at 8×14px.
 
-The scale is declared end to end in the theme. The previous theme raised `sm`/`md`/`lg` above the framework's untouched `xl`, which made `rounded-xl` *smaller* than `rounded-lg`; every step is now explicit so the ordering cannot invert again.
-
-Two recurring marks: a **3×10px blue tick** that opens a section rule and marks the pulled tab, and an **8px square** whose fill density encodes priority. Borders are 1px everywhere. The only dashed edge in the system is the PRD drop target.
-
-### Named Rules
-
-**The Dashed-Means-Drop Rule.** A dashed border appears on exactly one thing: a surface that accepts a file.
-
-**The No-Pill Rule.** Status and metadata are set as type with a mark beside them, not as filled rounded capsules. A pill in this interface is a foreign object.
+Hazard banding (yellow/graphite, 45°) appears in exactly one place: the top edge of the
+run-in-progress window.
 
 ## Components
 
-### Buttons
-- **Primary:** Ink Blue fill, white label, 4px radius, 36px tall, 13px/500. Hover deepens to Blue Deep. Disabled takes a Stock Edge fill with Ink Faint text at full opacity — a deliberate flat state, never a faded blue.
-- **Outline:** White fill, Rule Strong border, ink label, 32px at `sm`. Hover moves border and label to blue.
-- **Ghost:** No fill at rest, Paper Sunk on hover. Used for the destructive Remove control, which moves to Destructive on hover.
-- **Focus:** 2px blue ring at 2px offset on every variant.
+### Run button
+Safety yellow fill, ink text, 2px darker bottom edge, 48px tall. Disabled is a flat facility
+grey — never a faded yellow. Presses down 1px.
 
-### Sheet
-The system's only container. White, 4px radius, 1px Rule border, the Sheet shadow. Contains ruled bands; never contains another bordered container.
+### Test window
+Graphite, 12px radius, 44px chrome bar (placard left, readouts right, rule beneath).
 
-### Section rule
-A band header: a 3×10px blue tick, then an 11px uppercase label at 0.075em, on a 12px vertical band closed by a hairline. Marks a region. Never introduces a heading.
+### Streamline field
+26–34 SVG paths displaced around a central body by `dy' = sign·√(dy² + H²·g(dx))` — smooth
+everywhere, no kinks — plus a decaying wake downstream. Dash pulses with a fixed 200-unit
+period loop seamlessly; golden-ratio phase offsets stop pulses aligning into columns.
+Speeds ×3.2 during a run. Static under `prefers-reduced-motion`.
 
-### Title block
-A divided metadata strip at the head of a results sheet — field label above value, 4 across, dividers on all internal edges, values in tabular numerals and truncated with a title attribute. This is a record header, not a stats row: it carries identity fields (document, date) alongside counts, and no field is visually promoted above the others.
+### Manometer board
+Twelve tubes in coverage-area order (plus "Other" for pre-enum runs). Fluid stacked High →
+Medium → Low from the bottom; height = case count on a shared scale. Fluids rise on arrival
+with a 45ms stagger. Each tube is a toggle that filters the case list, with a full spoken
+label ("Security: 2 cases — 1 high, 1 medium, 0 low"). Dry tubes are labelled as gaps.
 
-### Register row
-The previous-runs list. A zero-padded index in a fixed 24px column, the document name at 13px/500, an excerpt beneath at 12px, and a right-aligned tabular group of counts and date that hides below `sm`. Rows divide with hairlines and wash blue on hover.
+### Tunnel lamp
+Grey checking → pulsing yellow "spinning up" (after 1.5s without a reply) → green online →
+red unreachable (after 2 minutes). Live region. Makes the free host's cold start honest.
 
-### Index tab
-Rail navigation. Each tab is a band, not a card: a 3px blue marker that appears only when pulled, a 16px icon, a 13px label with a right-aligned count, and a 11px description. The active tab takes the white Paper fill and pulls a pixel to the right to sit over the rail's edge — the binder-tab gesture. Rest state is transparent on stock; hover is a light stock wash.
+### Rail item
+Icon tile, label, hint, mono count. Active: raised graphite, yellow-tinted icon tile, a lit
+6px lamp, yellow count badge.
 
-### Priority mark
-An 8px square plus an 11px uppercase word. **High** is a solid blue square with blue text; **Medium** is a 40%-blue square with soft ink text; **Low** is a hollow square with a Rule Strong border and faint ink text. Fill density is the encoding, so the scale reads correctly in greyscale and to a colour-blind reader.
-
-### Procedure list
-Ordered steps as a blue tabular numeral in a fixed 24px column beside 13px body text capped at 68ch. No chips, no numeral circles, no row fills.
-
-### Inputs
-The product still has no visible text input; file entry runs through hidden native inputs behind the drop target and buttons. Design one deliberately when a real field is first needed rather than inheriting the unused library primitive.
+### Coverage list and procedure
+Mono case IDs, severity vial + label, coverage area in semi-condensed. Procedure steps are
+numbered mono circles joined by a vertical rail.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** build a sheet as a stack of full-bleed ruled bands.
-- **Do** keep every chromatic decision on the single Ink Blue.
-- **Do** encode priority, status, and severity by fill density or weight.
-- **Do** verify text colours against Stock Sunk, not only against white.
-- **Do** use tabular numerals for anything that aligns in a column.
-- **Do** hold the type range between 11px and 26px, and reach for weight when you need emphasis.
-- **Do** keep radii at 4px for surfaces and controls.
+- **Do** keep reading on daylight panels and put the product's moments in graphite windows.
+- **Do** use yellow as paint: one run button per surface, or an engaged lamp on graphite.
+- **Do** pair every severity hue with fill height.
+- **Do** scale emphasis through Archivo's width axis before reaching for size.
+- **Do** give any grid child containing a min-width instrument `min-w-0`.
+- **Do** keep the metaphor mapped to real behaviour — every instrument shows real data.
 
 ### Don't:
-- **Don't** introduce translucency, backdrop blur, or a gradient. The world is flat by construction.
-- **Don't** put a small tracked label above a heading. Labels mark regions and stand alone.
-- **Don't** add a second accent hue, or reintroduce hue-coded severity.
-- **Don't** nest a bordered box inside a sheet — add a ruled band instead.
-- **Don't** use pills or capsules for status or metadata.
-- **Don't** signal state with elevation; change fill or rule.
-- **Don't** add a monospace face to look technical. Tabular Geist already is.
-- **Don't** let a display size above 26px into the interface.
-- **Don't** reintroduce `--bullish`, `--bearish`, `--neutral`, or `--confidence` — inherited scaffold tokens with no consumer, removed with this world.
+- **Don't** set yellow text on a light ground.
+- **Don't** invent progress: the run shows a real elapsed clock, not a percentage.
+- **Don't** put a placard above a heading as a kicker.
+- **Don't** use mono for prose.
+- **Don't** add glass, neon glows, or gradient text.
+- **Don't** reintroduce flat, borderless minimalism — that is the world this replaced.

@@ -1,207 +1,320 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-02T00:00:00.000Z",
-  "title": "Design System: Test Case Generator",
+  "generatedAt": "2026-10-22T08:30:02.074Z",
+  "title": "Design System: AI Powered Testing Agent",
   "extensions": {
     "colorMeta": {
-      "blue": {
+      "safety": {
         "role": "primary",
-        "displayName": "Ink Blue",
-        "canonical": "hsl(225 76% 44%)",
-        "tonalRamp": ["#0A1A4D", "#0F2779", "#13309A", "#1B46C5", "#3560DC", "#6E8CE8", "#A9B9F1", "#EEF1FC"]
+        "displayName": "Safety Yellow",
+        "canonical": "hsl(46 92% 53%)",
+        "tonalRamp": [
+          "#3D2F02",
+          "#6B5203",
+          "#9C7804",
+          "#DBA400",
+          "#F5C219",
+          "#F8D45C",
+          "#FBE6A0",
+          "#FEF7E1"
+        ]
       },
-      "blue-wash": {
-        "role": "primary",
-        "displayName": "Blue Wash",
-        "canonical": "hsl(226 68% 96%)",
-        "tonalRamp": ["#0A1A4D", "#13309A", "#1B46C5", "#3560DC", "#6E8CE8", "#A9B9F1", "#C5CDE7", "#EEF1FC"]
-      },
-      "stock": {
+      "graphite": {
         "role": "neutral",
-        "displayName": "Stock",
-        "canonical": "hsl(41 28% 88%)",
-        "tonalRamp": ["#40392C", "#5C5443", "#7F755E", "#A79C82", "#C9C0B1", "#DFD9CD", "#E9E4D8", "#FAF8F5"]
+        "displayName": "Graphite",
+        "canonical": "hsl(216 15% 9%)",
+        "tonalRamp": [
+          "#0B0C0F",
+          "#14161A",
+          "#1D2126",
+          "#282D34",
+          "#363C45",
+          "#5A6370",
+          "#9AA3AF",
+          "#E3E6EA"
+        ]
       },
-      "stock-sunk": {
+      "facility": {
         "role": "neutral",
-        "displayName": "Stock Sunk",
-        "canonical": "hsl(40 22% 84%)",
-        "tonalRamp": ["#40392C", "#5C5443", "#7F755E", "#A79C82", "#C9C0B1", "#DFD9CD", "#E9E4D8", "#FAF8F5"]
-      },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Paper",
-        "canonical": "#FFFFFF",
-        "tonalRamp": ["#40392C", "#7F755E", "#A79C82", "#C9C4BA", "#E3DFD9", "#F2EFEA", "#FAF8F5", "#FFFFFF"]
+        "displayName": "Facility",
+        "canonical": "hsl(90 7% 91%)",
+        "tonalRamp": [
+          "#2F312C",
+          "#565951",
+          "#7E8277",
+          "#B3B6AF",
+          "#D1D4CE",
+          "#DBDDD9",
+          "#E8EAE6",
+          "#F8F8F6"
+        ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
-        "canonical": "hsl(220 13% 9%)",
-        "tonalRamp": ["#14161A", "#22252C", "#33373F", "#42454D", "#5A5F68", "#8B8F98", "#C2C5CB", "#EDEEF0"]
+        "canonical": "hsl(216 20% 8%)",
+        "tonalRamp": [
+          "#101418",
+          "#22272E",
+          "#3C4149",
+          "#595B5F",
+          "#7B8088",
+          "#A3A8AF",
+          "#CDD0D4",
+          "#EEF0F2"
+        ]
       },
-      "ink-soft": {
+      "flow": {
         "role": "neutral",
-        "displayName": "Ink Soft",
-        "canonical": "hsl(222 8% 28%)",
-        "tonalRamp": ["#14161A", "#22252C", "#33373F", "#42454D", "#5A5F68", "#8B8F98", "#C2C5CB", "#EDEEF0"]
+        "displayName": "Smoke",
+        "canonical": "hsl(210 35% 95%)",
+        "tonalRamp": [
+          "#2A3440",
+          "#4A5868",
+          "#6B7A8B",
+          "#8793A1",
+          "#B2BCC7",
+          "#D0D7DF",
+          "#E3E8EF",
+          "#EEF2F7"
+        ]
       },
-      "ink-faint": {
-        "role": "neutral",
-        "displayName": "Ink Faint",
-        "canonical": "hsl(220 7% 38%)",
-        "tonalRamp": ["#14161A", "#22252C", "#33373F", "#42454D", "#5A5F68", "#8B8F98", "#C2C5CB", "#EDEEF0"]
-      },
-      "destructive": {
+      "fluid-high": {
         "role": "tertiary",
-        "displayName": "Destructive",
-        "canonical": "hsl(4 66% 42%)",
-        "tonalRamp": ["#3B0F0B", "#641A14", "#8A241C", "#B22E24", "#CE4A3F", "#DE7C74", "#EDB3AE", "#FBE9E7"]
+        "displayName": "Fluid High",
+        "canonical": "hsl(6 74% 53%)",
+        "tonalRamp": [
+          "#3D0D07",
+          "#6E180E",
+          "#B42318",
+          "#E0402E",
+          "#E86A5B",
+          "#F09A8F",
+          "#F7C8C2",
+          "#FDEDEB"
+        ]
+      },
+      "fluid-med": {
+        "role": "tertiary",
+        "displayName": "Fluid Medium",
+        "canonical": "hsl(37 82% 51%)",
+        "tonalRamp": [
+          "#3A2302",
+          "#663D03",
+          "#945100",
+          "#E99A1C",
+          "#EEB04E",
+          "#F3C984",
+          "#F9E1BC",
+          "#FDF4E6"
+        ]
+      },
+      "fluid-low": {
+        "role": "tertiary",
+        "displayName": "Fluid Low",
+        "canonical": "hsl(211 66% 51%)",
+        "tonalRamp": [
+          "#0A1E36",
+          "#13365F",
+          "#1D5AA5",
+          "#307FD5",
+          "#5E9DE0",
+          "#8FBBEA",
+          "#C2DBF4",
+          "#EAF2FC"
+        ]
       }
     },
     "typographyMeta": {
-      "title": { "displayName": "Title", "purpose": "The name of a view. One per sheet." },
-      "heading": { "displayName": "Heading", "purpose": "The generated feature name on a results sheet." },
-      "subheading": { "displayName": "Subheading", "purpose": "Selected test case title in the detail pane." },
-      "body": { "displayName": "Body", "purpose": "All running copy, list titles at 500, and button labels. Measure capped at 68ch." },
-      "bodySmall": { "displayName": "Body Small", "purpose": "Excerpts, secondary meta, back links." },
-      "label": { "displayName": "Label", "purpose": "Section rules, title-block fields, priority marks. Never sits above a heading." }
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Product name on sign-in only. Archivo wdth 125."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles. Archivo wdth 125."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Generated feature name in a run report."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Selected test case."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy; measure ≤ 68ch."
+      },
+      "placard": {
+        "displayName": "Placard",
+        "purpose": "Condensed facility labels on instruments and regions; never a kicker."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "JetBrains Mono for case IDs, counts, timers, sizes, dates."
+      }
     },
     "shadows": [
       {
-        "name": "sheet",
-        "value": "0 1px 2px 0 rgb(20 22 26 / 0.05), 0 1px 3px 0 rgb(20 22 26 / 0.04)",
-        "purpose": "The only shadow. Keeps a sheet's bottom edge from dissolving into the stock at low gamma. Never grows, never signals state."
+        "name": "panel",
+        "value": "inset 0 1px 0 hsl(0 0% 100% / 0.7), 0 1px 2px hsl(216 20% 8% / 0.06), 0 10px 28px -16px hsl(216 20% 8% / 0.22)",
+        "purpose": "Daylight panels on the facility ground."
+      },
+      {
+        "name": "window",
+        "value": "inset 0 0 0 1px hsl(210 35% 95% / 0.05), 0 28px 56px -28px hsl(216 20% 8% / 0.55), 0 2px 6px hsl(216 20% 8% / 0.12)",
+        "purpose": "Graphite test-section windows set into the wall."
       }
     ],
     "motion": [
-      { "name": "sheet-in", "value": "260ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "A sheet settling into the binder on view change. Exponential ease-out from an already-visible default; disabled under prefers-reduced-motion." },
-      { "name": "state", "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Background and border colour changes on hover, selection, and focus." },
-      { "name": "sheet-scan", "value": "1.4s ease-in-out infinite", "purpose": "Loading: a rule read left to right across a hairline, in place of a spinner." }
+      {
+        "name": "flow",
+        "value": "stroke-dashoffset -400 over 11–20s, linear, ×3.2 during a run",
+        "purpose": "Smoke streamlines. 200-unit dash period loops seamlessly."
+      },
+      {
+        "name": "fluid-rise",
+        "value": "900ms cubic-bezier(0.16,1,0.3,1), 45ms stagger",
+        "purpose": "Manometer fluids rising when a run report arrives."
+      },
+      {
+        "name": "enter",
+        "value": "420ms cubic-bezier(0.16,1,0.3,1)",
+        "purpose": "Windows and panels settling on view change."
+      },
+      {
+        "name": "lamp",
+        "value": "1.6s ease-in-out infinite",
+        "purpose": "Tunnel lamp while checking or spinning up."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" },
-      { "name": "xl", "value": "1280px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
     ]
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Run Button",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "The single concluding action on a sheet. Its disabled state is a deliberate flat fill, not a faded blue.",
-      "html": "<button class=\"ds-btn\">Generate coverage</button> <button class=\"ds-btn\" disabled>Generate coverage</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 36px; padding: 0 14px; margin-right: 8px; background: #1B46C5; color: #FFFFFF; border: none; border-radius: 4px; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn:hover:not(:disabled) { background: #13309A; } .ds-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #1B46C5; } .ds-btn:disabled { background: #C9C0B1; color: #5A5F68; cursor: default; }"
+      "refersTo": "button-run",
+      "description": "Safety-yellow fill: the one control that starts a run. Disabled is flat facility grey.",
+      "html": "<button class=\"ds-run\">Generate coverage</button> <button class=\"ds-run\" disabled>Generate coverage</button>",
+      "css": ".ds-run{height:48px;padding:0 24px;margin-right:8px;border:0;border-radius:6px;background:#F5C219;color:#101418;font:600 14px Archivo,system-ui,sans-serif;box-shadow:inset 0 -2px 0 #DBA400,0 1px 2px rgba(16,20,24,.15);cursor:pointer;transition:background-color .15s,transform .15s}.ds-run:hover:not(:disabled){background:#F7CC3A}.ds-run:active{transform:translateY(1px)}.ds-run:focus-visible{outline:none;box-shadow:0 0 0 2px #E8EAE6,0 0 0 4px #101418}.ds-run:disabled{background:#DBDDD9;color:#595B5F;box-shadow:none;cursor:default}"
     },
     {
-      "name": "Outline Button",
-      "kind": "button",
-      "refersTo": "button-outline",
-      "description": "Secondary action sitting inside a ruled band.",
-      "html": "<button class=\"ds-btn-outline\">Manage</button>",
-      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 12px; background: #FFFFFF; color: #14161A; border: 1px solid #C9C4BA; border-radius: 4px; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-outline:hover { border-color: #1B46C5; color: #1B46C5; } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #1B46C5; }"
-    },
-    {
-      "name": "Sheet with ruled bands",
+      "name": "Test Window",
       "kind": "card",
-      "refersTo": "sheet",
-      "description": "The system's only container. A stack of full-bleed horizontal bands divided by hairlines — never a grid of nested boxes.",
-      "html": "<div class=\"ds-sheet\"><div class=\"ds-band\"><h2 class=\"ds-sheet-title\">New analysis</h2><p class=\"ds-sheet-sub\">Attach a product requirements document. The retained knowledge base is applied automatically.</p></div><div class=\"ds-rule-band\"><span class=\"ds-tick\"></span><span class=\"ds-label\">Source document</span></div><div class=\"ds-band-plain\"><p class=\"ds-body\">Rows of content sit in the band below the rule.</p></div><div class=\"ds-band-foot\"><span class=\"ds-body-sm\">Attach a PRD to continue.</span></div></div>",
-      "css": ".ds-sheet { background: #FFFFFF; border: 1px solid #E3DFD9; border-radius: 4px; box-shadow: 0 1px 2px 0 rgb(20 22 26 / 0.05), 0 1px 3px 0 rgb(20 22 26 / 0.04); overflow: hidden; } .ds-band { padding: 20px 24px; border-bottom: 1px solid #E3DFD9; } .ds-band-plain { padding: 20px 24px; } .ds-band-foot { padding: 16px 24px; background: #FAF8F5; border-top: 1px solid #E3DFD9; } .ds-rule-band { display: flex; align-items: center; gap: 12px; padding: 12px 24px; border-bottom: 1px solid #E3DFD9; } .ds-tick { display: block; width: 3px; height: 10px; border-radius: 2px; background: #1B46C5; } .ds-label { font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.075em; text-transform: uppercase; color: #5A5F68; } .ds-sheet-title { margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 26px; font-weight: 600; line-height: 1.15; letter-spacing: -0.024em; color: #14161A; } .ds-sheet-sub { margin: 6px 0 0; max-width: 68ch; font-family: Geist, system-ui, sans-serif; font-size: 13px; line-height: 1.625; color: #42454D; } .ds-body { margin: 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; line-height: 1.625; color: #42454D; } .ds-body-sm { font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #5A5F68; }"
+      "refersTo": "test-window",
+      "description": "Graphite window with instrument chrome: placard, readouts, rule.",
+      "html": "<section class=\"ds-win\"><div class=\"ds-win-bar\"><span class=\"ds-placard\">Test section · Source document</span><span class=\"ds-lamp\"><i></i>Tunnel online</span></div><div class=\"ds-win-body\">Mount a PRD here.</div></section>",
+      "css": ".ds-win{border:1px solid #363C45;border-radius:12px;background:#14161A;color:#EEF2F7;overflow:hidden;box-shadow:0 28px 56px -28px rgba(16,20,24,.55)}.ds-win-bar{display:flex;align-items:center;min-height:44px;padding:0 20px;border-bottom:1px solid rgba(238,242,247,.08)}.ds-placard{font:650 11px Archivo,sans-serif;font-variation-settings:\"wdth\" 68;letter-spacing:.09em;text-transform:uppercase;color:#8793A1}.ds-lamp{margin-left:auto;display:flex;align-items:center;gap:8px;font:400 12px Archivo,sans-serif;color:#B2BCC7}.ds-lamp i{width:8px;height:8px;border-radius:50%;background:#2EBD6B}.ds-win-body{padding:48px 20px;text-align:center;font:400 14px Archivo,sans-serif;color:#B2BCC7}"
     },
     {
-      "name": "Title Block",
+      "name": "Manometer Tube",
       "kind": "custom",
-      "refersTo": "title-block-field",
-      "description": "The record header at the head of a results sheet. Identity fields sit level with counts — no field is promoted, so it never becomes a stats row.",
-      "html": "<dl class=\"ds-titleblock\"><div><dt class=\"ds-label\">Document</dt><dd class=\"ds-tb-val\">CV-Vegapay - Credit Managem…</dd></div><div><dt class=\"ds-label\">Generated</dt><dd class=\"ds-tb-val\">02/08/2026</dd></div><div><dt class=\"ds-label\">Cases</dt><dd class=\"ds-tb-val\">6</dd></div><div><dt class=\"ds-label\">High priority</dt><dd class=\"ds-tb-val\">3</dd></div></dl>",
-      "css": ".ds-titleblock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; background: #FFFFFF; border: 1px solid #E3DFD9; border-radius: 4px; } .ds-titleblock > div { padding: 14px 20px; border-left: 1px solid #E3DFD9; } .ds-titleblock > div:first-child { border-left: none; } .ds-tb-val { margin: 6px 0 0; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; line-height: 1.2; color: #14161A; font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } @media (max-width: 640px) { .ds-titleblock { grid-template-columns: repeat(2, minmax(0, 1fr)); } }"
+      "refersTo": "test-window",
+      "description": "One coverage area. Fluid stacked High/Medium/Low by case count; dry tubes are coverage gaps.",
+      "html": "<div class=\"ds-mano\"><div class=\"ds-tube\"><b>4</b><span class=\"ds-glass\"><span class=\"ds-fluid\" style=\"height:80%\"><i class=\"l\" style=\"flex:1\"></i><i class=\"m\" style=\"flex:2\"></i><i class=\"h\" style=\"flex:1\"></i></span></span><em>Validation</em></div><div class=\"ds-tube dry\"><b>0</b><span class=\"ds-glass\"></span><em>Accessibility</em></div></div>",
+      "css": ".ds-mano{display:flex;gap:10px;padding:16px;background:#14161A;border-radius:12px}.ds-tube{display:flex;flex-direction:column;align-items:center;width:40px}.ds-tube b{font:500 12px \"JetBrains Mono\",monospace;color:#EEF2F7;margin-bottom:6px}.ds-tube.dry b{color:#8793A1}.ds-glass{position:relative;display:block;width:34px;height:140px;border:1px solid rgba(238,242,247,.2);border-radius:999px 999px 10px 10px;background:rgba(20,22,26,.8);overflow:hidden}.ds-tube.dry .ds-glass{border-style:dashed;border-color:rgba(238,242,247,.12)}.ds-fluid{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column}.ds-fluid i{display:block}.ds-fluid .h{background:#E0402E}.ds-fluid .m{background:#E99A1C}.ds-fluid .l{background:#307FD5}.ds-tube em{margin-top:10px;writing-mode:vertical-rl;transform:rotate(180deg);font:650 11px Archivo,sans-serif;font-style:normal;font-variation-settings:\"wdth\" 68;letter-spacing:.09em;text-transform:uppercase;color:#B2BCC7}"
     },
     {
-      "name": "Index Tab",
-      "kind": "nav",
-      "refersTo": "tab-active",
-      "description": "Rail navigation. The active tab takes the white sheet fill and pulls a pixel right to sit over the rail edge — the binder-tab gesture.",
-      "html": "<nav class=\"ds-rail\"><button class=\"ds-tab ds-tab--active\"><span class=\"ds-tab-mark\"></span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-tab-icon\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"/><path d=\"M14 2v5h5\"/><path d=\"M9 15h4\"/><path d=\"M11 13v4\"/></svg><span class=\"ds-tab-text\"><span class=\"ds-tab-top\"><span class=\"ds-tab-label\">New analysis</span></span><span class=\"ds-tab-desc\">Upload a PRD and generate coverage.</span></span></button><button class=\"ds-tab\"><span class=\"ds-tab-mark\"></span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-tab-icon\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 3\"/></svg><span class=\"ds-tab-text\"><span class=\"ds-tab-top\"><span class=\"ds-tab-label\">Previous runs</span><span class=\"ds-tab-count\">2</span></span><span class=\"ds-tab-desc\">Reopen a generated suite.</span></span></button></nav>",
-      "css": ".ds-rail { display: flex; flex-direction: column; padding-top: 12px; background: #DFD9CD; border-right: 1px solid #C9C0B1; } .ds-tab { display: flex; align-items: flex-start; gap: 10px; width: 100%; margin-right: -1px; padding: 12px 12px 12px 16px; text-align: left; background: transparent; border: 1px solid transparent; border-left: none; border-right: none; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-tab:hover { background: rgba(233, 228, 216, 0.6); } .ds-tab--active { background: #FFFFFF; border-top-color: #C9C0B1; border-bottom-color: #C9C0B1; } .ds-tab-mark { display: block; width: 3px; height: 14px; margin-top: 3px; border-radius: 2px; background: transparent; } .ds-tab--active .ds-tab-mark { background: #1B46C5; } .ds-tab-icon { flex-shrink: 0; margin-top: 1px; color: #5A5F68; } .ds-tab--active .ds-tab-icon { color: #1B46C5; } .ds-tab-text { flex: 1; min-width: 0; } .ds-tab-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; } .ds-tab-label { font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; color: #42454D; } .ds-tab--active .ds-tab-label { color: #14161A; } .ds-tab-count { font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 500; color: #5A5F68; font-variant-numeric: tabular-nums; } .ds-tab-desc { display: block; margin-top: 4px; font-family: Geist, system-ui, sans-serif; font-size: 11px; line-height: 1.4; color: #5A5F68; }"
-    },
-    {
-      "name": "Priority Mark",
+      "name": "Severity Vial",
       "kind": "chip",
-      "refersTo": "sheet",
-      "description": "Priority encoded by fill density rather than hue, so the scale survives greyscale printing and colour-blind reading. There is no pill.",
-      "html": "<span class=\"ds-pri\"><span class=\"ds-pri-sq ds-pri-sq--high\"></span><span class=\"ds-pri-t ds-pri-t--high\">High</span></span><span class=\"ds-pri\"><span class=\"ds-pri-sq ds-pri-sq--med\"></span><span class=\"ds-pri-t ds-pri-t--med\">Medium</span></span><span class=\"ds-pri\"><span class=\"ds-pri-sq ds-pri-sq--low\"></span><span class=\"ds-pri-t ds-pri-t--low\">Low</span></span>",
-      "css": ".ds-pri { display: inline-flex; align-items: center; gap: 6px; margin-right: 16px; } .ds-pri-sq { display: block; width: 8px; height: 8px; border-radius: 1px; border: 1px solid; } .ds-pri-sq--high { background: #1B46C5; border-color: #1B46C5; } .ds-pri-sq--med { background: rgba(27, 70, 197, 0.4); border-color: rgba(27, 70, 197, 0.6); } .ds-pri-sq--low { background: transparent; border-color: #C9C4BA; } .ds-pri-t { font-family: Geist, system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.075em; text-transform: uppercase; } .ds-pri-t--high { color: #1B46C5; } .ds-pri-t--med { color: #42454D; } .ds-pri-t--low { color: #5A5F68; }"
+      "refersTo": "panel",
+      "description": "Hue names the level; fill height repeats it.",
+      "html": "<span class=\"ds-sev\"><i style=\"--f:100%;--c:#E0402E\"></i><b style=\"color:#B42318\">High</b></span><span class=\"ds-sev\"><i style=\"--f:62%;--c:#E99A1C\"></i><b style=\"color:#945100\">Medium</b></span><span class=\"ds-sev\"><i style=\"--f:30%;--c:#307FD5\"></i><b style=\"color:#1D5AA5\">Low</b></span>",
+      "css": ".ds-sev{display:inline-flex;align-items:center;gap:6px;margin-right:14px}.ds-sev i{position:relative;width:8px;height:14px;border:1px solid rgba(16,20,24,.25);border-radius:999px 999px 3px 3px;background:#F8F8F6;overflow:hidden}.ds-sev i::after{content:\"\";position:absolute;left:0;right:0;bottom:0;height:var(--f);background:var(--c)}.ds-sev b{font:600 11px Archivo,sans-serif;font-variation-settings:\"wdth\" 84;letter-spacing:.05em;text-transform:uppercase}"
     },
     {
-      "name": "Register Row",
-      "kind": "custom",
-      "refersTo": "register-row",
-      "description": "The previous-runs list. Zero-padded index, document name, excerpt, and a right-aligned tabular metric group that hides on small screens.",
-      "html": "<ul class=\"ds-register\"><li><button class=\"ds-reg-row\"><span class=\"ds-reg-idx\">02</span><span class=\"ds-reg-main\"><span class=\"ds-reg-name\">CV-Vegapay - Delinquency Audit - v1.00.pdf</span><span class=\"ds-reg-exc\">Vegapay - Credit Management System - Delinquency Audit…</span></span><span class=\"ds-reg-meta\"><span>6 cases</span><span>3 high</span><span class=\"ds-reg-date\">02/08/2026</span></span></button></li><li><button class=\"ds-reg-row\"><span class=\"ds-reg-idx\">01</span><span class=\"ds-reg-main\"><span class=\"ds-reg-name\">CV-Vegapay - BBPS Payment - v1.00.pdf</span><span class=\"ds-reg-exc\">Vegapay Credit Management System - BBPS Payment…</span></span><span class=\"ds-reg-meta\"><span>6 cases</span><span>4 high</span><span class=\"ds-reg-date\">08/06/2026</span></span></button></li></ul>",
-      "css": ".ds-register { margin: 0; padding: 0; list-style: none; background: #FFFFFF; border: 1px solid #E3DFD9; border-radius: 4px; overflow: hidden; } .ds-register li + li { border-top: 1px solid #E3DFD9; } .ds-reg-row { display: flex; align-items: flex-start; gap: 16px; width: 100%; padding: 16px 24px; text-align: left; background: transparent; border: none; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-reg-row:hover { background: #EEF1FC; } .ds-reg-idx { flex-shrink: 0; width: 24px; margin-top: 2px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 500; color: #5A5F68; font-variant-numeric: tabular-nums; } .ds-reg-main { flex: 1; min-width: 0; } .ds-reg-name { display: block; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; color: #14161A; } .ds-reg-exc { display: block; margin-top: 4px; font-family: Geist, system-ui, sans-serif; font-size: 12px; line-height: 1.55; color: #5A5F68; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ds-reg-meta { display: flex; align-items: baseline; gap: 20px; flex-shrink: 0; font-family: Geist, system-ui, sans-serif; font-size: 12px; color: #42454D; font-variant-numeric: tabular-nums; } .ds-reg-date { color: #5A5F68; } @media (max-width: 640px) { .ds-reg-meta { display: none; } }"
+      "name": "Rail Item",
+      "kind": "nav",
+      "refersTo": "rail-item-active",
+      "description": "Instrument-panel navigation. Active: raised graphite, yellow-tinted icon tile, lit lamp.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-ri on\"><span class=\"t\">◉</span><span><b>New analysis</b><small>Mount a PRD and run it</small></span><i></i></a><a class=\"ds-ri\"><span class=\"t\">◷</span><span><b>Previous runs</b><small>The run log</small></span><em>2</em></a></nav>",
+      "css": ".ds-rail{display:flex;flex-direction:column;gap:4px;padding:10px;background:#14161A;border-radius:12px;width:240px}.ds-ri{position:relative;display:flex;align-items:center;gap:12px;padding:10px;border-radius:6px;color:#B2BCC7;font-family:Archivo,sans-serif;text-decoration:none;cursor:pointer}.ds-ri:hover{background:#1D2126;color:#EEF2F7}.ds-ri.on{background:#282D34;color:#EEF2F7}.ds-ri .t{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:4px;border:1px solid rgba(238,242,247,.1);background:#1D2126}.ds-ri.on .t{border-color:rgba(245,194,25,.4);background:rgba(245,194,25,.12);color:#F5C219}.ds-ri b{display:block;font-size:13px;font-weight:600}.ds-ri small{display:block;font-size:12px;color:#8793A1}.ds-ri em{margin-left:auto;font:500 11px \"JetBrains Mono\",monospace;font-style:normal;padding:2px 6px;border-radius:3px;background:#1D2126}.ds-ri i{position:absolute;right:6px;top:6px;width:6px;height:6px;border-radius:50%;background:#F5C219;box-shadow:0 0 6px #F5C219}"
     },
     {
-      "name": "Procedure List",
-      "kind": "custom",
-      "refersTo": "sheet",
-      "description": "Ordered tester actions. A blue tabular numeral in a fixed column beside body text — no chips, no numeral circles, no row fills.",
-      "html": "<div class=\"ds-proc\"><span class=\"ds-label\">Procedure</span><ol class=\"ds-proc-list\"><li><span class=\"ds-proc-n\">1.</span><span class=\"ds-proc-t\">Pre-configure an account with a delinquent balance and record its CURRENT_DPD and TAD values.</span></li><li><span class=\"ds-proc-n\">2.</span><span class=\"ds-proc-t\">Process a full repayment for the account, ensuring it clears the delinquency.</span></li></ol></div>",
-      "css": ".ds-proc { padding: 20px 24px; background: #FFFFFF; } .ds-proc-list { margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; } .ds-proc-list li { display: flex; gap: 12px; } .ds-proc-n { flex-shrink: 0; width: 24px; margin-top: 1px; font-family: Geist, system-ui, sans-serif; font-size: 12px; font-weight: 500; color: #1B46C5; font-variant-numeric: tabular-nums; } .ds-proc-t { max-width: 68ch; font-family: Geist, system-ui, sans-serif; font-size: 13px; line-height: 1.625; color: #42454D; }"
-    },
-    {
-      "name": "Drop Target",
-      "kind": "custom",
-      "refersTo": "sheet",
-      "description": "The only dashed edge in the system. A dashed border means one thing: this surface accepts a file.",
-      "html": "<button class=\"ds-drop\"><span class=\"ds-drop-icon\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z\"/><path d=\"M14 2v6h6\"/><path d=\"M12 18v-6\"/><path d=\"m9 15 3-3 3 3\"/></svg></span><span class=\"ds-drop-text\"><span class=\"ds-drop-title\">Attach a PRD</span><span class=\"ds-drop-sub\">PDF, DOCX, TXT, MD or RTF. One document per run.</span></span></button>",
-      "css": ".ds-drop { display: flex; align-items: center; gap: 16px; width: 100%; padding: 20px; text-align: left; background: #FAF8F5; border: 1px dashed #C9C4BA; border-radius: 4px; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-drop:hover { border-color: #1B46C5; background: #EEF1FC; } .ds-drop:focus-visible { outline: none; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #1B46C5; } .ds-drop-icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; background: #FFFFFF; border: 1px solid #C9C4BA; border-radius: 3px; color: #42454D; } .ds-drop-title { display: block; font-family: Geist, system-ui, sans-serif; font-size: 13px; font-weight: 500; color: #14161A; } .ds-drop-sub { display: block; margin-top: 2px; font-family: Geist, system-ui, sans-serif; font-size: 12px; line-height: 1.4; color: #5A5F68; }"
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Daylight working panel with a placard header.",
+      "html": "<section class=\"ds-panel\"><div class=\"ds-ph\"><span class=\"ds-pl\">Run sheet</span></div><div class=\"ds-row\"><span class=\"ds-pl\">Coverage areas</span><span class=\"ds-v\">12</span></div></section>",
+      "css": ".ds-panel{border:1px solid #D1D4CE;border-radius:8px;background:#F8F8F6;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 10px 28px -16px rgba(16,20,24,.22)}.ds-ph{min-height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid #D1D4CE}.ds-pl{font:650 11px Archivo,sans-serif;font-variation-settings:\"wdth\" 68;letter-spacing:.09em;text-transform:uppercase;color:#595B5F}.ds-row{display:flex;justify-content:space-between;align-items:center;padding:12px 20px}.ds-v{font:500 13px \"JetBrains Mono\",monospace;color:#101418}"
     }
   ],
   "narrative": {
-    "northStar": "The Specification Binder",
-    "overview": "QA coverage is filed, not fed. The interface is a ring binder of technical specifications: beige index stock holds the tabs, white sheets hold the work, and a single ink blue does every job that ink blue does in a printed spec — rules a section, marks the pulled tab, numbers a procedure step, and flags what is critical. Nothing floats, nothing glows, nothing is translucent. A surface is either stock or sheet, and you always know which one you are looking at.\n\nThe register is precise and instrumental. Hierarchy comes from weight and rule placement rather than from size, color, or elevation: the largest type on any screen is 26px, and it earns its authority by being the only 600-weight thing above 17px. Secondary information is not made quiet by graying it into illegibility — every text color in this system was measured against the beige stock, not just against white, because stock is the darkest ground secondary text ever sits on.\n\nThis world deliberately refuses two neighbours. It is not the dark AI-tool dashboard with a neon accent and a sparkle icon, and it is not the warm-cream editorial calm it replaced — an aesthetic that put a 48px literary serif over a gradient field and asked a QA engineer under deadline to admire it. The binder answers the same content with flat value separation, hairlines, and tabular numerals.",
+    "northStar": "The Test Section",
+    "overview": "Testing a PRD is a wind-tunnel run. The document is the model on the sting; the knowledge base is the honeycomb that conditions the flow; generation is the run, with smoke streamlines made visible; and the result is read off a manometer board that shows which coverage areas are full, thin, or dry. Daylight panels for reading, graphite windows for the product's moments.",
     "keyCharacteristics": [
-      "Two grounds only: beige stock and white sheet, separated by value and a hairline",
-      "One accent — ink blue — carrying rules, tabs, step numbers, and priority alike",
-      "Weight and rule position carry hierarchy; size range is deliberately narrow",
-      "Priority encoded by fill density, not hue, so it survives monochrome and colour-blind reading",
-      "Radii of 2–8px, no translucency, no gradient, one near-invisible shadow"
+      "Daylight panels for reading; graphite windows for the product's moments",
+      "Live SVG streamlines that part around a mounted PRD and speed up during a run",
+      "The manometer board: coverage gaps visible before a single case is read",
+      "Archivo across its width axis as the whole type system; mono only for measurements",
+      "Safety yellow as a fill for the one control that starts a run, and as the engaged indicator on graphite"
     ],
     "rules": [
-      { "name": "The Two Grounds Rule", "body": "A surface is stock or it is sheet. There is no third ground, no translucency between them, and no gradient inside either. If you need a new level, recess to Paper Sunk — do not invent a tint.", "section": "colors" },
-      { "name": "The One Ink Rule", "body": "Blue is the only chromatic value in the interface. Priority, status, success, and warning must all be expressed in ink weight, fill density, or position. The moment a second hue appears, the blue stops meaning anything.", "section": "colors" },
-      { "name": "The Measured-On-Stock Rule", "body": "Every text colour is verified against Stock Sunk, not against white. Stock is the darkest ground secondary text sits on, so it sets the contrast floor for the whole system.", "section": "colors" },
-      { "name": "The Narrow Range Rule", "body": "The whole system lives between 11px and 26px. If something needs more emphasis, it gets more weight or a rule above it — never a larger size. A 48px display would break the binder immediately.", "section": "typography" },
-      { "name": "The One Family Rule", "body": "Geist sets everything, including numerals and labels. Do not introduce a mono face to signal technical — tabular numerals already do that job, and a second family would make this a different document.", "section": "typography" },
-      { "name": "No Eyebrows", "body": "A small tracked label never sits above a heading to introduce it. Labels mark regions — a section rule, a title-block field — and always stand alone with no heading beneath them. Headings carry their own weight.", "section": "typography" },
-      { "name": "The Ruled Band Rule", "body": "Sheets divide into full-bleed horizontal bands separated by 1px rules. Never nest a bordered box inside a sheet to group content — add a band and rule it.", "section": "layout" },
-      { "name": "The Asymmetric Split Rule", "body": "The master–detail split favours the detail side. Reading a case matters more than choosing one.", "section": "layout" },
-      { "name": "The Flat Rule", "body": "State is signalled by fill and rule, never by elevation. Hover changes background; selection changes background; nothing lifts.", "section": "elevation" },
-      { "name": "The Dashed-Means-Drop Rule", "body": "A dashed border appears on exactly one thing: a surface that accepts a file.", "section": "shapes" },
-      { "name": "The No-Pill Rule", "body": "Status and metadata are set as type with a mark beside them, not as filled rounded capsules. A pill in this interface is a foreign object.", "section": "shapes" }
+      {
+        "name": "The Two Lights Rule",
+        "body": "A surface is a daylight panel or a graphite window.",
+        "section": "colors"
+      },
+      {
+        "name": "The Yellow Is Paint Rule",
+        "body": "Yellow is a fill or a lamp, never running text on a light ground. One yellow-filled control per surface, and it starts a run.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fluid Rule",
+        "body": "Red, amber, blue mean High, Medium, Low — always paired with fill height.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Axis Rule",
+        "body": "Emphasis changes width and weight before it changes size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Placard Rule",
+        "body": "Placards label instruments and regions; never a kicker above a heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Measurement Rule",
+        "body": "Mono for what is measured or identified. Prose is never mono.",
+        "section": "typography"
+      }
     ],
     "dos": [
-      "Do build a sheet as a stack of full-bleed ruled bands.",
-      "Do keep every chromatic decision on the single Ink Blue.",
-      "Do encode priority, status, and severity by fill density or weight.",
-      "Do verify text colours against Stock Sunk, not only against white.",
-      "Do use tabular numerals for anything that aligns in a column.",
-      "Do hold the type range between 11px and 26px, and reach for weight when you need emphasis.",
-      "Do keep radii at 4px for surfaces and controls."
+      "Do keep reading on daylight panels and put the product's moments in graphite windows.",
+      "Do use yellow as paint: one run button per surface, or an engaged lamp on graphite.",
+      "Do pair every severity hue with fill height.",
+      "Do scale emphasis through Archivo's width axis before reaching for size.",
+      "Do give any grid child containing a min-width instrument min-w-0.",
+      "Do keep the metaphor mapped to real behaviour — every instrument shows real data."
     ],
     "donts": [
-      "Don't introduce translucency, backdrop blur, or a gradient. The world is flat by construction.",
-      "Don't put a small tracked label above a heading. Labels mark regions and stand alone.",
-      "Don't add a second accent hue, or reintroduce hue-coded severity.",
-      "Don't nest a bordered box inside a sheet — add a ruled band instead.",
-      "Don't use pills or capsules for status or metadata.",
-      "Don't signal state with elevation; change fill or rule.",
-      "Don't add a monospace face to look technical. Tabular Geist already is.",
-      "Don't let a display size above 26px into the interface.",
-      "Don't reintroduce --bullish, --bearish, --neutral, or --confidence — inherited scaffold tokens with no consumer, removed with this world."
+      "Don't set yellow text on a light ground.",
+      "Don't invent progress: the run shows a real elapsed clock, not a percentage.",
+      "Don't put a placard above a heading as a kicker.",
+      "Don't use mono for prose.",
+      "Don't add glass, neon glows, or gradient text.",
+      "Don't reintroduce flat, borderless minimalism — that is the world this replaced."
     ]
   }
 }

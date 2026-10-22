@@ -1,6 +1,6 @@
 # 0008 — Visual system: "The Specification Binder"
 
-**Status:** Accepted
+**Status:** Superseded by [0011](0011-visual-system-test-section.md)
 **Date:** 2026-08-02 *(recorded retrospectively 2026-08-05)*
 
 ## Context

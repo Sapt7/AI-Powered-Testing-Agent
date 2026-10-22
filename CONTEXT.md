@@ -1,6 +1,6 @@
 # Project Context
 
-**Read this first.** It is a complete snapshot of the project as of **2026-08-06** — what it
+**Read this first.** It is a complete snapshot of the project as of **2026-10-22** — what it
 is, what state it is in, what is deployed, what works, and what does not. It exists so work
 can resume from a cold start without reconstructing anything.
 
@@ -8,7 +8,7 @@ can resume from a cold start without reconstructing anything.
 
 ## 1. What this is
 
-An AI-powered QA workspace. A QA engineer attaches a Product Requirements Document; the
+**AI Powered Testing Agent** — an AI-powered QA workspace. A QA engineer attaches a Product Requirements Document; the
 system analyses it against a knowledge base of the team's own supporting documents and
 returns 18–28 executable test cases across twelve fixed coverage areas.
 
@@ -136,13 +136,13 @@ anywhere in the system.
 | **CONTEXT.md** (this) | The whole picture, for resuming cold |
 | **PRODUCT.md** | Durable product truth — user, purpose, constraints, open decisions |
 | **DESIGN.md** | The visual system — tokens, type ramp, named rules, components |
-| **DECISIONS.md** | Index of all ten architectural decisions and their trade-offs |
+| **DECISIONS.md** | Index of all eleven architectural decisions and their trade-offs |
 | **CHANGELOG.md** | Dated record of what changed and why |
 | **README.md** | How the implementation works today |
 | `docs/deployment.md` | Runbook, live environment, spend controls, gotchas |
 | `docs/v1-scope.md` | What v1 cuts, and a restore path per cut |
 | `docs/original-product.md` | The full original intent, including the intended data model |
-| `docs/decisions/` | The ten records in full |
+| `docs/decisions/` | The eleven records in full |
 
 **Invariants that keep these honest:**
 
@@ -237,6 +237,10 @@ disappears. That is correct behaviour, not a bug — do not "fix" it.
 **The design hook flags fonts and sizes against `DESIGN.md`.** After a deliberate design
 change, the fix is to update `DESIGN.md`, not to add an ignore rule.
 
+**Any grid child holding the manometer board needs `min-w-0`.** The board has a 540px
+minimum; without `min-w-0` on its root it widens the parent grid and the whole run report
+overflows the page on phones instead of the board scrolling in its own container.
+
 **Do not commit `.agents/`, `.claude/`, `.gemini/`, `.codex/`.** They are local agent tooling
 — ~200k lines across three duplicate copies. Already gitignored; keep it that way.
 
@@ -288,6 +292,10 @@ Useful for understanding why things look the way they do.
 6. **Auth, then storage.** Deliberately in that order, so IndexedDB could be namespaced by
    Google `sub` from the first line rather than retrofitted.
 7. **Deployment.** Render via API, Vercel via Git import, CORS closed, spend caps applied.
+8. **Second visual replacement (2026-10-22).** The binder read as too basic. Replaced with
+   "The Test Section" — a wind-tunnel facility with live streamlines, a manometer board for
+   coverage, and a tunnel lamp for cold-start state. Product renamed to **AI Powered Testing
+   Agent**. See [ADR-0011](docs/decisions/0011-visual-system-test-section.md).
 
 **A note on the original design:** the project's own technical specification described a
 *stateless* MVP with knowledge-base files sent on the generation request. The SQLite phase

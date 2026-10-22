@@ -1,5 +1,59 @@
 # Changelog
 
+## 2026-10-22 — Visual system replaced: "The Test Section"
+
+The previous design ("The Specification Binder") was judged too basic. Every pin was released
+— palette, type, structure, copy — and the interface was rebuilt as a wind-tunnel facility.
+Implements [ADR-0011](docs/decisions/0011-visual-system-test-section.md), which supersedes
+ADR-0008. Direction roll seed `1d3ddec9`, assigned candidate 4 of 7, chosen by the product
+owner over two dealt challengers and the category standard.
+
+**Product name:** **AI Powered Testing Agent** (set by the product owner), now used in the
+browser title, sign-in, and the instrument rail. Recorded in PRODUCT.md as a brand commitment.
+
+**The world**
+- Facility-grey daylight panels for reading; graphite test-section windows for the product's
+  moments; safety yellow for the run button and engaged indicators; manometer fluids
+  (red/amber/blue) for severity.
+- Archivo variable across its width axis (condensed placards → expanded wall lettering);
+  JetBrains Mono only for measurements. Replaces Geist.
+- New brand mark and favicon: three streamlines parting around a body, on safety yellow.
+
+**New instruments — each carries real data**
+- **Streamline field** (`src/components/tunnel/StreamlineField.tsx`): SVG smoke streamlines
+  that part around the mounted PRD and run ×3.2 faster during generation. Smooth displacement
+  (`dy' = sign·√(dy² + H²·g(dx))`) — no kinks; seamless dash loops; scattered phases.
+- **Manometer board** (`ManometerBoard.tsx`): twelve tubes, one per coverage area, fluid
+  stacked by severity. **Dry tubes expose coverage gaps at a glance.** Each tube filters the
+  case list.
+- **Tunnel lamp** (`use-tunnel-status.ts`): reports checking / spinning up / online /
+  unreachable, making the free host's cold start visible instead of mysterious.
+- **Severity vial**: hue paired with fill height, so severity reads in greyscale.
+- **Coverage fingerprint** on every run in the history log.
+
+**Interaction**
+- PRDs can be dragged onto the test section, with file-type validation.
+- Coverage list filterable by area (via the board) and by severity.
+- The run view shows a real elapsed clock — no invented progress percentage.
+- **Fixed:** opening a run from *Previous runs* no longer highlights *New analysis*.
+- The rail's collapsed state now shows icon buttons instead of hiding navigation entirely;
+  sign-out and the signed-in identity moved into the rail footer.
+
+**Verification**
+- Desktop (1440px) and mobile (390px) inspected across sign-in, new analysis (empty and
+  mounted), and the run report.
+- Fixed in the inspection rounds: streamline kinks at the body, aligned dash pulses reading
+  as a barcode, a truncated readout strip, the PRD card swallowing the mobile test section,
+  a duplicated status lamp on mobile, and **the run report overflowing horizontally on
+  phones** (manometer board widening its parent grid — fixed with `min-w-0`).
+- Contrast sweep across every text node on the run report: 0 failures.
+- Design detector: 0 findings after the DESIGN.md rewrite. 15/15 tests passing.
+- **Not visually verified:** the run-in-progress view, which needs a real authenticated
+  generation to trigger. It is composed from the same verified components.
+
+**Documentation:** DESIGN.md and `.impeccable/design.json` rewritten from the built world;
+ADR-0011 added; ADR-0008 marked superseded; README, CONTEXT, DECISIONS, and PRODUCT updated.
+
 ## 2026-08-06 — Production verified end to end
 
 **Version 1 is live and working.** The authenticated flow was walked by hand against the

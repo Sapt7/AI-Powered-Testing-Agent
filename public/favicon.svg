@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Test Case Generator">
-  <rect width="32" height="32" rx="6" fill="#14161A"/>
-  <rect x="9" y="6.5" width="14" height="19" rx="1.5" fill="#FFFFFF"/>
-  <rect x="11.5" y="10" width="2.5" height="8" rx="1.25" fill="#1B46C5"/>
-  <rect x="16" y="10.5" width="4.5" height="1.5" rx="0.75" fill="#C9C4BA"/>
-  <rect x="16" y="14" width="4.5" height="1.5" rx="0.75" fill="#C9C4BA"/>
-  <rect x="11.5" y="20.5" width="9" height="1.5" rx="0.75" fill="#C9C4BA"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="AI Powered Testing Agent">
+  <rect width="32" height="32" rx="8" fill="#F5C518"/>
+  <g fill="none" stroke="#111419" stroke-width="2" stroke-linecap="round">
+    <path d="M4 9.5 C10 9.5 12 6.5 16 6.5 C20 6.5 22 9.5 28 9.5"/>
+    <path d="M4 22.5 C10 22.5 12 25.5 16 25.5 C20 25.5 22 22.5 28 22.5"/>
+    <path d="M4 16 H9.5"/>
+    <path d="M22.5 16 C24.5 14.6 26 17.4 28 16"/>
+  </g>
+  <ellipse cx="16" cy="16" rx="5.5" ry="3.6" fill="#111419"/>
 </svg>

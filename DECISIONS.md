@@ -12,7 +12,7 @@ makes the reasoning auditable a year from now.
 
 ---
 
-## The ten decisions
+## The eleven decisions
 
 | # | Decision | Trade-off accepted | Status |
 |---|---|---|---|
@@ -23,9 +23,10 @@ makes the reasoning auditable a year from now.
 | [0005](docs/decisions/0005-cold-start-warm-up.md) | Warm the backend with a health ping on landing | Some users still wait; we declined the keep-alive cron that would hide it | Accepted |
 | [0006](docs/decisions/0006-gemini-swappable-provider.md) | Gemini is the implementation, not a commitment | A provider swap means rewriting one file, not flipping a config value | Accepted |
 | [0007](docs/decisions/0007-generation-prompt-contract.md) | The generation prompt contract | Longer, costlier requests in exchange for suites a tester can actually execute | Accepted |
-| [0008](docs/decisions/0008-visual-system.md) | Visual system: "The Specification Binder" | Traded a memorable, atmospheric look for a legible, information-dense one | Accepted |
+| [0008](docs/decisions/0008-visual-system.md) | Visual system: "The Specification Binder" | Traded a memorable, atmospheric look for a legible, information-dense one | Superseded by 0011 |
 | [0009](docs/decisions/0009-data-model-authority.md) | The runtime contract is authoritative, not any storage schema | v1's browser storage is a dead end architecturally; transforming beats migrating | Accepted |
 | [0010](docs/decisions/0010-v1-non-commercial-best-effort-limits.md) | v1 ships non-commercial with best-effort spend controls | Enforcement strength traded for shipping speed, covered by a billing alert | Accepted |
+| [0011](docs/decisions/0011-visual-system-test-section.md) | Visual system: "The Test Section" (wind tunnel) | Restraint traded for a world with a point of view — spent only on instruments carrying real data | Accepted |
 
 ---
 

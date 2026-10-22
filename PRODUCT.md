@@ -74,9 +74,9 @@ Supporting this: generation is schema-validated rather than free-text, with an a
 
 ## Brand Commitments
 
-No confirmed brand identity, voice, or asset commitments yet.
+**Name: AI Powered Testing Agent** — set by the product owner on 2026-10-22, replacing the earlier inconsistent "Test Case Generator" / "QA Test Generator". Used in the browser title, sign-in, and the instrument rail.
 
-The product name is currently inconsistent in-product and unresolved: "Test Case Generator" (app header, README, product docs) versus "QA Test Generator" (sidebar). The browser title is still the unmodified scaffold default. Future work must not silently canonicalize one of these — it is a decision the user has not made.
+The visual identity is "The Test Section" (a wind-tunnel facility) — see DESIGN.md. The brand mark is three streamlines parting around a body on safety yellow.
 
 ## Evidence on Hand
 

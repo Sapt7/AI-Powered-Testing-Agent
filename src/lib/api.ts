@@ -98,6 +98,16 @@ export async function generateTestCases(
   return (await response.json()) as GenerateTestCasesResponse;
 }
 
+/** Resolves true once the backend answers its health check, false on failure. */
+export async function pingHealth(signal?: AbortSignal): Promise<boolean> {
+  try {
+    const response = await fetch(url("/api/health"), { cache: "no-store", signal });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Fire-and-forget wake-up for the backend. Never awaited on the render path and
  * never surfaces an error: on a cold host this request hangs for the duration of

@@ -25,9 +25,10 @@ to reconstruct the reasoning without excavating git history or re-deriving trade
 | [0005](0005-cold-start-warm-up.md) | Warm the backend with a health ping on landing | Accepted | 2026-08-05 |
 | [0006](0006-gemini-swappable-provider.md) | Gemini is the implementation, not a commitment | Accepted | 2026-08-03 |
 | [0007](0007-generation-prompt-contract.md) | The generation prompt contract | Accepted | 2026-08-03 |
-| [0008](0008-visual-system.md) | Visual system — "The Specification Binder" | Accepted | 2026-08-02 |
+| [0008](0008-visual-system.md) | Visual system — "The Specification Binder" | Superseded by 0011 | 2026-08-02 |
 | [0009](0009-data-model-authority.md) | Which data model is authoritative | Accepted | 2026-08-05 |
 | [0010](0010-v1-non-commercial-best-effort-limits.md) | v1 ships non-commercial with best-effort spend controls | Accepted | 2026-08-06 |
+| [0011](0011-visual-system-test-section.md) | Visual system — "The Test Section" | Accepted | 2026-10-22 |
 
 ## Related documents
 

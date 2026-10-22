@@ -1,80 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400..700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * THE TEST SECTION
+ *
+ * A wind-tunnel facility. Daylight working surfaces in painted-concrete grey,
+ * graphite test-section windows where the flow is made visible, safety yellow
+ * on the one control that starts a run, and manometer fluids for severity.
+ */
 @layer base {
   :root {
-    /* --- Binder stock (beige): the ground everything is filed on --- */
-    --stock: 41 28% 88%;
-    --stock-sunk: 40 22% 84%;
-    --stock-edge: 38 18% 74%;
+    /* Facility — the working daylight surfaces */
+    --facility: 90 7% 91%;
+    --facility-deep: 90 6% 86%;
+    --panel: 80 14% 97%;
+    --line: 90 7% 82%;
+    --line-strong: 90 5% 70%;
 
-    /* --- Sheet (white): the working surface --- */
-    --paper: 0 0% 100%;
-    --paper-sunk: 44 30% 97%;
+    /* Graphite — test-section glass and the instrument rail */
+    --graphite: 216 15% 9%;
+    --graphite-2: 214 14% 13%;
+    --graphite-3: 214 13% 18%;
+    --graphite-line: 213 12% 24%;
 
-    /* --- Ink (black) --- */
-    --ink: 220 13% 9%;
-    /* Both tested against the beige rail, not just white: the stock ground is
-       the darkest surface secondary text sits on, so it sets the floor. */
-    --ink-soft: 222 8% 28%; /* 9.6:1 on paper, 6.8:1 on stock */
-    --ink-faint: 220 7% 38%; /* 6.4:1 on paper, 4.6:1 on stock */
+    /* Ink */
+    --ink: 216 20% 8%;
+    --ink-2: 215 11% 26%;
+    --ink-3: 215 8% 36%;
 
-    /* --- Rules --- */
-    --rule: 40 14% 87%;
-    --rule-strong: 38 12% 76%;
+    /* Smoke — streamlines and type on graphite */
+    --flow: 210 35% 95%;
+    --flow-2: 212 16% 74%;
+    --flow-3: 213 12% 58%;
 
-    /* --- Blue: printed rule, pulled tab, primary action --- */
-    --blue: 225 76% 44%;
-    --blue-deep: 227 78% 34%;
-    --blue-wash: 226 68% 96%;
-    --blue-line: 226 42% 84%;
+    /* Safety yellow — the start-a-run signal. Fill only; never text on light. */
+    --safety: 46 92% 53%;
+    --safety-deep: 45 100% 43%;
 
-    /* --- shadcn token surface, remapped onto the binder world --- */
-    --background: var(--stock);
+    /* Manometer fluids — severity. Fill values for tubes and marks,
+       text values tuned to clear 4.5:1 on the facility ground. */
+    --fluid-high: 6 74% 53%;
+    --fluid-med: 37 82% 51%;
+    --fluid-low: 211 66% 51%;
+    --fluid-high-text: 4 76% 40%;
+    --fluid-med-text: 33 100% 29%;
+    --fluid-low-text: 213 70% 38%;
+
+    /* shadcn surface, mapped onto the facility */
+    --background: var(--facility);
     --foreground: var(--ink);
-
-    --card: var(--paper);
+    --card: var(--panel);
     --card-foreground: var(--ink);
-
-    --popover: var(--paper);
+    --popover: var(--panel);
     --popover-foreground: var(--ink);
-
-    --primary: var(--blue);
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: var(--paper-sunk);
-    --secondary-foreground: var(--ink-soft);
-
-    --muted: var(--paper-sunk);
-    --muted-foreground: var(--ink-faint);
-
-    --accent: var(--blue-wash);
-    --accent-foreground: var(--blue-deep);
-
-    --destructive: 4 66% 42%;
+    --primary: var(--safety);
+    --primary-foreground: var(--ink);
+    --secondary: var(--facility-deep);
+    --secondary-foreground: var(--ink-2);
+    --muted: var(--facility-deep);
+    --muted-foreground: var(--ink-3);
+    --accent: var(--facility-deep);
+    --accent-foreground: var(--ink);
+    --destructive: var(--fluid-high-text);
     --destructive-foreground: 0 0% 100%;
+    --border: var(--line);
+    --input: var(--line-strong);
+    /* Ink, not yellow: a yellow ring fails 3:1 against the light ground. */
+    --ring: var(--ink);
+    --radius: 6px;
 
-    --border: var(--rule);
-    --input: var(--rule-strong);
-    --ring: var(--blue);
+    --sidebar-background: var(--graphite);
+    --sidebar-foreground: var(--flow-2);
+    --sidebar-primary: var(--safety);
+    --sidebar-primary-foreground: var(--ink);
+    --sidebar-accent: var(--graphite-3);
+    --sidebar-accent-foreground: var(--flow);
+    --sidebar-border: var(--graphite-line);
+    --sidebar-ring: var(--safety);
 
-    --radius: 0.25rem;
+    --shadow-panel: inset 0 1px 0 hsl(0 0% 100% / 0.7), 0 1px 2px hsl(216 20% 8% / 0.06),
+      0 10px 28px -16px hsl(216 20% 8% / 0.22);
+    --shadow-window: inset 0 0 0 1px hsl(210 35% 95% / 0.05),
+      0 28px 56px -28px hsl(216 20% 8% / 0.55), 0 2px 6px hsl(216 20% 8% / 0.12);
 
-    /* Index rail = the tab dividers, cut from the same stock */
-    --sidebar-background: var(--stock-sunk);
-    --sidebar-foreground: var(--ink-soft);
-    --sidebar-primary: var(--blue);
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: var(--paper);
-    --sidebar-accent-foreground: var(--ink);
-    --sidebar-border: var(--stock-edge);
-    --sidebar-ring: var(--blue);
-
-    /* One sheet shadow. Real offset, real blur, barely there. */
-    --shadow-sheet: 0 1px 2px 0 rgb(20 22 26 / 0.05), 0 1px 3px 0 rgb(20 22 26 / 0.04);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --flow-speed: 1;
   }
 }
 
@@ -83,58 +96,127 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-synthesis-weight: none;
+  html {
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* Numerals in a spec document line up in columns. */
-  th,
-  td,
-  time,
-  [data-numeric] {
-    font-variant-numeric: tabular-nums;
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-variation-settings: 'wdth' 100;
+    font-synthesis: none;
+  }
+
+  ::selection {
+    background: hsl(var(--safety) / 0.55);
+    color: hsl(var(--ink));
   }
 }
 
 @layer utilities {
-  /*
-   * The previous world's display face. Retained as a name so any untouched
-   * call site inherits the binder voice instead of falling back to Georgia.
-   */
-  .font-serif {
-    font-family: 'Geist', system-ui, -apple-system, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.021em;
+  /* Archivo's width axis is the type system: condensed placards, normal text,
+     expanded wall lettering — one family scaled like facility signage. */
+  .w-condensed {
+    font-variation-settings: 'wdth' 68;
+  }
+  .w-semi-condensed {
+    font-variation-settings: 'wdth' 84;
+  }
+  .w-expanded {
+    font-variation-settings: 'wdth' 118;
+  }
+  .w-ultra {
+    font-variation-settings: 'wdth' 125;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'zero' 1;
   }
 
   .tnum {
     font-variant-numeric: tabular-nums;
   }
 
-  /* Section label: restrained tracking, not the old 0.24em shout. */
-  .label-spec {
+  /* Placard: a stencilled facility label. Marks a region or an instrument;
+     it never sits above a heading as an introduction. */
+  .placard {
+    font-variation-settings: 'wdth' 68;
     font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.075em;
+    font-weight: 650;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: hsl(var(--ink-faint));
+    line-height: 1;
   }
 
-  .shadow-sheet {
-    box-shadow: var(--shadow-sheet);
+  .shadow-panel {
+    box-shadow: var(--shadow-panel);
+  }
+  .shadow-window {
+    box-shadow: var(--shadow-window);
   }
 
-  /* The one authored moment: a sheet settling into the binder. */
-  .sheet-in {
-    animation: sheet-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Hazard banding — reserved for the run-in-progress barrier. */
+  .hazard-band {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      hsl(var(--safety)) 0 10px,
+      hsl(var(--graphite)) 10px 20px
+    );
   }
 
-  @keyframes sheet-in {
+  /* Faint concrete-form texture on the facility ground: the board seams of a
+     poured wall, at a scale that never competes with content. */
+  .facility-ground {
+    background-color: hsl(var(--facility));
+    background-image: linear-gradient(hsl(var(--line) / 0.16) 1px, transparent 1px);
+    background-size: 100% 96px;
+  }
+
+  /* Honeycomb flow-straightener — the knowledge base literally conditions the flow. */
+  .honeycomb {
+    background-color: hsl(var(--graphite-2));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48.5' viewBox='0 0 28 48.5'%3E%3Cpath d='M14 0 L28 8.1 L28 24.2 L14 32.3 L0 24.2 L0 8.1 Z M14 32.3 L14 48.5 M0 24.2 L0 40.4 L14 48.5 M28 24.2 L28 40.4 L14 48.5' fill='none' stroke='%23e9eef5' stroke-opacity='0.09' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 28px 48.5px;
+  }
+
+  .streamline {
+    animation: flow-dash calc(var(--dur, 14s) / var(--flow-speed)) linear infinite;
+  }
+
+  .fluid-rise {
+    animation: fluid-rise 900ms var(--ease-out) both;
+    transform-origin: bottom;
+  }
+
+  .enter {
+    animation: enter 420ms var(--ease-out) both;
+  }
+
+  .lamp-pulse {
+    animation: lamp-pulse 1.6s ease-in-out infinite;
+  }
+
+  @keyframes flow-dash {
+    to {
+      stroke-dashoffset: -400;
+    }
+  }
+
+  @keyframes fluid-rise {
     from {
-      opacity: 0.7;
-      transform: translateY(4px);
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes enter {
+    from {
+      opacity: 0.4;
+      transform: translateY(6px);
     }
     to {
       opacity: 1;
@@ -142,18 +224,21 @@
     }
   }
 
-  /* Loading: a rule being read left to right, not a spinning ring. */
-  @keyframes sheet-scan {
-    0% {
-      transform: translateX(-100%);
-    }
+  @keyframes lamp-pulse {
+    0%,
     100% {
-      transform: translateX(300%);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .sheet-in {
+    .streamline,
+    .fluid-rise,
+    .enter,
+    .lamp-pulse {
       animation: none;
     }
   }

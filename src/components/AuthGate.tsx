@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { SignIn } from "@/components/SignIn";
+import { BrandMark } from "@/components/tunnel/BrandMark";
 
 /**
  * Gates the workspace behind a verified Google identity.
@@ -13,12 +14,10 @@ export function AuthGate({ children }: { children: ReactNode }) {
 
   if (status === "loading") {
     return (
-      <div className="flex min-h-screen w-full items-center justify-center bg-background px-5">
-        <div className="text-center">
-          <div aria-hidden className="mx-auto mb-4 h-px w-32 overflow-hidden bg-rule">
-            <div className="h-px w-1/3 animate-[sheet-scan_1.4s_ease-in-out_infinite] bg-blue" />
-          </div>
-          <p className="text-[13px] text-ink-soft">Checking your session</p>
+      <div className="flex min-h-screen w-full items-center justify-center bg-graphite px-5">
+        <div className="flex flex-col items-center gap-4" role="status">
+          <BrandMark className="lamp-pulse h-10 w-10" />
+          <p className="text-[13px] text-flow-2">Checking your session</p>
         </div>
       </div>
     );

@@ -42,10 +42,10 @@ describe("Index page", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText("Test Case Generator")).toBeInTheDocument();
+      expect(screen.getByText("AI Powered Testing Agent")).toBeInTheDocument();
     });
     expect(screen.getByRole("heading", { name: "New analysis" })).toBeInTheDocument();
-    expect(screen.getByText("Source document")).toBeInTheDocument();
+    expect(screen.getByText(/Source document/)).toBeInTheDocument();
     expect(screen.getByText("Attach a PRD")).toBeInTheDocument();
     expect(screen.getByText("Supporting context")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Generate coverage" })).toBeDisabled();
